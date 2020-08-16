@@ -18,10 +18,21 @@ Block diagram of AI
 
 ## Knowledge representation
 
+- Logical rules: A database of logical relationships of concepts.
+- Semantic network: A graph consisting of concepts as nodes and their relations as vertices. The semantic network can also represent the data in logical database, but has greater expressiveness.
+- Frame representation: A frame is a record containing many attributes related to the real world objects. It would be an object in the object oriented language. The connections between frames can create a graph like structures.
+
+The Greek philosopher Aristotle defined a framework of rational thinking by defining logical syllogisms, the patterns for arguments which always produces correct conclusions, provided that the premises are correct. Much later, it was proposed that an artificial machine could use these kinds of logical rules and the database of premises to draw conclusions. The premises and the rules creates a logical database and a program can use it to make queries to find out if some statements are true or false. Many AI systems are made using this approach. Practical problems are that it is a lot of work to encode the complete set of premises and logical rules of a practical case into the database, and solving complex queries may need too much computational resources to be efficient. In addition the traditional logic does not support the concept of uncertainty.
+
+
+
 ### Logics database
 
-Logical inference
-Resolution
+- Inference engine
+- Resolution
+- Backward chaining
+- Forward chaining
+- Belief network
 
 ### Graphs
 
@@ -132,4 +143,9 @@ When planning actions using a graph, a graph search algorithm is often used.
 
 - On-line learning
 - Machine learning
+- Deep learning
+
+
+- Markov model
+- Neural network
 - Deep learning

@@ -191,7 +191,7 @@ name: fig:utilityagent
 The utility agents extend the goal and model based agents by also considering the utility what is gained by reaching the goal through different action sequences.
 ```
 
-For example, an automated vehicle controlled by a utility based agent would try to find an optimal path from the current location to the destination. The utility could be for example the negative of time spend or fuel consumed, or a combination of both. 
+For example, an automated vehicle controlled by a utility based agent would try to find an optimal path from the current location to the destination. The utility could be for example the negative of time spend or fuel consumed, or a combination of both.
 
 ### Learning agents
 
@@ -224,4 +224,4 @@ fdgdfgdf
 ## Bibliography
 
 ```{bibliography} references.bib
-``
+```
