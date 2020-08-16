@@ -1,0 +1,8 @@
+# Book settings
+title: Artificial intelligence, Concepts, Challenges, and Opportunities
+author: Petri Välisuo
+logo: figures/ai.jpg
+
+latex:
+  latex_documents:
+    targetname: book.tex
