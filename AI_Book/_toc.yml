@@ -5,4 +5,9 @@
     - file: manifestation
     - file: blockdiag
     - file: bibliography
-    - file: ecercises
+    - file: exercises
+    - file: aitools
+    - file: intelligent_agent
+    - file: ailibraries
+    - file: machinelearninglibraries
+    - file: ex1
