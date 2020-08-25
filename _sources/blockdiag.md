@@ -36,7 +36,7 @@ The Greek philosopher Aristotle defined a framework of rational thinking by defi
 
 ## Classical AI:
 
-Expert systems were supposed to be able to make decisions on behalf of a person. They consisted of a large number of logical rules stored in the knowledge database, which was used to resolve true statements based on the facts perceived and the rules stored. They are still used in certain applications, like in a bird recognition system [www.luontoportti.fi](Luontorportti).
+Expert systems were supposed to be able to make decisions on behalf of a person. They consisted of a large number of logical rules stored in the knowledge database, which was used to resolve true statements based on the facts perceived and the rules stored. They are still used in certain applications, like in a bird recognition system [Luontoportti](www.luontoportti.fi).
 
 The bird species can be recognized by searching true statements from the database of logical rules. Each observation rules out part of the possible species.
 
@@ -48,13 +48,13 @@ The bird species can be recognized by searching true statements from the databas
         and (swims in water)            (E)
     then it is a seagull                (Q)
 
-The above can be shown mathematically as
+The database above is based on logical syllogisms, defined by Aristoteles. It can be also described with more mathematical notation as follows:
 
 $$
     A \wedge B \wedge C \wedge D \wedge E \rightarrow Q
 $$
 
-The knowledge database or knowledge base (KB) of Luontoportti is build in the opposite diretion though using simple logical rules as follows:
+The knowledge database or knowledge base (KB) of [Luontoportti](www.luontoportti.fi) is build in the opposite direction though using simple logical rules as follows:
 
 $$
 \begin{eqnarray}
@@ -221,6 +221,8 @@ When planning actions using a graph, a graph search algorithm is often used.
 > Programming is a superpower
 
 - Harrison  [Python programming](https://pythonprogramming.net)
+
+- [AI with Python Tutorial](https://www.tutorialspoint.com/artificial_intelligence_with_python/index.htm)
 
 -  Daniele Paliotta, [Introduction to Reinforcement Learning with Python](https://stackabuse.com/introduction-to-reinforcement-learning-with-python/)
 
