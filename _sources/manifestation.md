@@ -37,7 +37,6 @@ table.mytable th {
   line-height: 1;
   vertical-align: bottom;
 }
-
 </style>
 
 
