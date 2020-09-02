@@ -219,9 +219,9 @@ For example, an automated vehicle controlled by a utility based agent would try 
 
 Alan Turing estimated in 1950 the amount of programming needed to gain AI. According to methods of 50's, he estimated that programming of AI which had similar capabilities than a person would take 50 years. He concludes that *Some more expeditious method seems desirable*, and proposes a learning machine {cite}`turing_computing_1950`.
 
-In contrast to programmed AI, the learning AI learns the rules behind the actions without explicit programming. The benefits are that the agent can operated in and environment, which is initially unknown. In a long time it can also learn rules which would be very complex to program. 
+In contrast to programmed AI, the learning AI learns the rules behind the actions without explicit programming. The benefits are that the agent can operate in an environment, which is initially unknown. In a long run it can also learn rules which would be very complex to program. 
 
-The structure of the learning agent is consisted of the following four components
+The structure of the learning agent is consisted of the following four components, see {numref}`fig:learningagent`.
 
 1. *Performance element* receives perceptions from the sensors and carries out actions by using actuators. This element includes the operations of the previously described agents, but here it also exhanges information with the learning element and receives suggestions from the problem generator.
 1. *Critic element* observes the perceptions and uses the performance standard to assess how well the agent is performing and provides that information to the learning element. 
