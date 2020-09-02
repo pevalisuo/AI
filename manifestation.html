@@ -409,14 +409,25 @@ table.mytable th {
 </div>
 <div class="section" id="earth-observations">
 <h2>Earth observations<a class="headerlink" href="#earth-observations" title="Permalink to this headline">¶</a></h2>
-<p>A satellite image of Söderjärden region is shown in <code class="xref std std-numref docutils literal notranslate"><span class="pre">fig_Soderjrarden_image</span></code>. The original satellite image acquired by European <a class="reference external" href="https://sentinel.esa.int/web/sentinel/home">Sentinel-2 satellite</a> consist of 13 different channels, representing different wavelenght. The figure below is a normal 3-channel RGB image constructed from 13 original channels.</p>
-<a class="reference internal image-reference" href="_images/Soderfjarden_image.png" id="fig-soderfjarden-image"><img alt="_images/Soderfjarden_image.png" class="align-center" id="fig-soderfjarden-image" src="_images/Soderfjarden_image.png" style="width: 500px;" /></a>
-<p>The image also contains some example data shown with polygons, which represent certain types of land use, such as forest, water, dark soil, hay field and grass. This data can be seen as a true classification results performed by an expert. An AI algorithm can now be trained to repeat the same classification using all 13 channels of data from the original image. The trained classification algorithm can then be applied to the rest of the image as well, and classify all pixels. The result of this is shown in <code class="xref std std-numref docutils literal notranslate"><span class="pre">fig_Soderjrarden_classified</span></code> image below.</p>
-<a class="reference internal image-reference" href="_images/Soderfjarden_classified.png" id="fig-soderfjarden-classified"><img alt="_images/Soderfjarden_classified.png" class="align-center" id="fig-soderfjarden-classified" src="_images/Soderfjarden_classified.png" style="width: 500px;" /></a>
-<p>If the training data provided by the expert wouldn’t have been available, then supervised classification had not been possible, but unsupervised clustering could have been tried.</p>
+<p>A satellite image of Söderjärden region is shown in <a class="reference internal" href="#fig-soderfjarden-image"><span class="std std-numref">Fig. 7</span></a>. The original satellite image acquired by European <a class="reference external" href="https://sentinel.esa.int/web/sentinel/home">Sentinel-2 satellite</a> consist of 13 different channels, representing different wavelenght. The figure below is a normal 3-channel RGB image constructed from 13 original channels.</p>
+<div class="figure align-center" id="fig-soderfjarden-image">
+<a class="reference internal image-reference" href="_images/Soderfjarden_image.png"><img alt="_images/Soderfjarden_image.png" src="_images/Soderfjarden_image.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text">An RGB visualisation of a satellite image of Söderjärden region, including training data for the classification of  land use.</span><a class="headerlink" href="#fig-soderfjarden-image" title="Permalink to this image">¶</a></p>
+</div>
+<p>The image also contains some example data shown with polygons, which represent certain types of land use, such as forest, water, dark soil, hay field and grass. This data can be seen as a true classification results performed by an expert. An AI algorithm can now be trained to repeat the same classification using all 13 channels of data from the original image. The trained classification algorithm can then be applied to the rest of the image as well, and classify all pixels. The result of this is shown in <a class="reference internal" href="#fig-soderfjarden-classified"><span class="std std-numref">Fig. 8</span></a> image below.</p>
+<div class="figure align-center" id="fig-soderfjarden-classified">
+<a class="reference internal image-reference" href="_images/Soderfjarden_classified.png"><img alt="_images/Soderfjarden_classified.png" src="_images/Soderfjarden_classified.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text">An RGB visualisation of the land use classification results from Söderjärden region.</span><a class="headerlink" href="#fig-soderfjarden-classified" title="Permalink to this image">¶</a></p>
+</div>
+<p>If the training data provided by the expert wouldn’t have been available, then supervised classification had not been possible, but unsupervised clustering could have been tried instead.</p>
+<div class="admonition-discussion-point admonition">
+<p class="admonition-title">Discussion point</p>
+<p>What could be achieved using unsupervised methods for analyzing satellite images when compared with supervised methods?</p>
+</div>
 </div>
 <div class="section" id="tackling-with-climate-changes">
 <h2>Tackling with climate changes<a class="headerlink" href="#tackling-with-climate-changes" title="Permalink to this headline">¶</a></h2>
+<p>AI can be useful for many purposes when tackling with climate change. For example the current</p>
 </div>
 <div class="section" id="spot-fake-networks">
 <h2>Spot fake networks<a class="headerlink" href="#spot-fake-networks" title="Permalink to this headline">¶</a></h2>

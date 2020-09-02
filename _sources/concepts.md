@@ -41,6 +41,12 @@ The research field of AI is said to be established in the [Dartmouth Conference]
 
 Some of these historical methods have been so fundamental that they are still in use. The good old perceptron is in the heart of modern deep learning methods and NLP is still an active research area. The concept of Micro Worlds is not often used in today's AI applications.
 
+```{admonition} Discussion point
+In Blade Runner movie (1982), agent Deckard is hunting for replicants (AI robots), made by mighty Tyrell-corporation. Watch the scene 
+[Deckard Meets Rachel](https://www.youtube.com/watch?v=g-DkoGvcEBw)
+and consider, how did Deckard studied if someone is a replicant or a human? Why it was so difficult for him to find out the truth in Rachel?
+```
+
 ## Key drivers for development of AI
 
 - Computing power: AI needs powerful processing of information which can be achieved by using fast computers. The fast development of computers has enabled the fast development of AI.
