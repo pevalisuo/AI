@@ -44,7 +44,8 @@ Some of these historical methods have been so fundamental that they are still in
 ```{admonition} Discussion point
 In Blade Runner movie (1982), agent Deckard is hunting for replicants (AI robots), made by mighty Tyrell-corporation. Watch the scene 
 [Deckard Meets Rachel](https://www.youtube.com/watch?v=g-DkoGvcEBw)
-and consider, how did Deckard studied if someone is a replicant or a human? Why it was so difficult for him to find out the truth in Rachel?
+and consider, how did Deckard studied if Rachel is a replicant or a human? Why it was so difficult for him to find out the truth in Rachel? The answer to the last question is in the following scene starting from 1:15 
+[Deckard Meets Rachel, scene continues](https://www.youtube.com/watch?v=yWPyRSURYFQ)
 ```
 
 ## Key drivers for development of AI
@@ -74,6 +75,17 @@ Wikipedia finds Machine Intelligence as a synonym for Artificial Intelligence an
 -Wikipedia
 
 Russel et.al. {cite}`russell_artificial_2014` conclude that AI can be human kind of thinking and acting demonstrated by artifacts, but also simply rational thinking and acting. Rational thinking is decision making based on correct rules, "laws of thought". The rational thinking framework can be based for example on logics, mathematics or statistics.
+
+```{admonition} Definition
+Thinking is using knowledge and information to make plans, interpret and model the world and constructively interact with and make predictions of the world.
+
+```
+
+```{admonition} Definition
+AI is human kind or simply rational thinking, decision making, and acting demonstrated by artifacts.
+```
+
+
 
 ```{admonition} Discussion point
 What if we meet with an extraterrestial being or an AI which is more intelligent than us. How can we know that it is more intelligent than us?
