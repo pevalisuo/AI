@@ -239,18 +239,11 @@ name: fig:learningagent
 The learning agents extend the previous agents by adding a critic, learning and problem generator elements. The critic element provides feedback to the learning element, which updates the performance element. The learning element sets new learning goals to the problem generator, which suggest new exploratory actions to the performance element to explore unknown ares of the world.
 ```
 
-### Hierarchical Agents
-
-More complex systems needs intelligent actions in many different cognition levels. It is often convenient to make separate agents to take care of simple controlling and higher level agents for planning the overall operations.
-
 
 ```{admonition} Discussion point
 Can any agent act meaningfully if a world is not observable at all?
 ```
 
-## Excercises
-
-fdgdfgdf
 
 ## Bibliography
 
