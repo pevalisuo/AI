@@ -404,6 +404,10 @@ and consider, how did Deckard studied if Rachel is a replicant or a human? Why i
 <p class="admonition-title">Discussion point</p>
 <p>Can an intelligent agent be meaningful without perception or actuator or neither?</p>
 </div>
+<div class="admonition-discussion-point admonition">
+<p class="admonition-title">Discussion point</p>
+<p>If two rational agents both maximize their performance measure based on their perceptions and build in information, can one be better than another?</p>
+</div>
 <p>Intelligent agents can be divided in four classes based on their cognitive abilities and level of sophistication:</p>
 <ol class="simple">
 <li><p>Simple reflex agents</p></li>
@@ -467,14 +471,14 @@ and consider, how did Deckard studied if Rachel is a replicant or a human? Why i
 <p>In contrast to programmed AI, the learning AI learns the rules behind the actions without explicit programming. The benefits are that the agent can operated in and environment, which is initially unknown. In a long time it can also learn rules which would be very complex to program.</p>
 <p>The structure of the learning agent is consisted of the following four components</p>
 <ol class="simple">
-<li><p>Learning element:</p></li>
-<li><p>Performance element</p></li>
-<li><p>Critic</p></li>
-<li><p>Problem generator</p></li>
+<li><p><em>Performance element</em> receives perceptions from the sensors and carries out actions by using actuators. This element includes the operations of the previously described agents, but here it also exhanges information with the learning element and receives suggestions from the problem generator.</p></li>
+<li><p><em>Critic element</em> observes the perceptions and uses the performance standard to assess how well the agent is performing and provides that information to the learning element.</p></li>
+<li><p><em>Learning element</em> is responsible on making improvements on the performance element according to the feedback received from the citic element.</p></li>
+<li><p><em>Problem generator</em> suggests actions leading to new and informative experiences to explore the world to find even better solutions in the long run.</p></li>
 </ol>
 <div class="figure align-center" id="fig-learningagent">
 <a class="reference internal image-reference" href="_images/learning_agents.png"><img alt="_images/learning_agents.png" src="_images/learning_agents.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text">The utility agents extend the goal and model based agents by also considering the utility what is gained by reaching the goal through different action sequences.</span><a class="headerlink" href="#fig-learningagent" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text">The learning agents extend the previous agents by adding a critic, learning and problem generator elements. The critic element provides feedback to the learning element, which updates the performance element. The learning element sets new learning goals to the problem generator, which suggest new exploratory actions to the performance element to explore unknown ares of the world.</span><a class="headerlink" href="#fig-learningagent" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="hierarchical-agents">

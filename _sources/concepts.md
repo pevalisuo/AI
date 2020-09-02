@@ -122,6 +122,11 @@ A rational agent is an agent which always selects an action that is expected to 
 ```{admonition} Discussion point
 Can an intelligent agent be meaningful without perception or actuator or neither?
 ```
+
+```{admonition} Discussion point
+If two rational agents both maximize their performance measure based on their perceptions and build in information, can one be better than another?
+```
+
 Intelligent agents can be divided in four classes based on their cognitive abilities and level of sophistication:
 
 1. Simple reflex agents
@@ -218,10 +223,10 @@ In contrast to programmed AI, the learning AI learns the rules behind the action
 
 The structure of the learning agent is consisted of the following four components
 
-1. Learning element:
-1. Performance element
-1. Critic
-1. Problem generator
+1. *Performance element* receives perceptions from the sensors and carries out actions by using actuators. This element includes the operations of the previously described agents, but here it also exhanges information with the learning element and receives suggestions from the problem generator.
+1. *Critic element* observes the perceptions and uses the performance standard to assess how well the agent is performing and provides that information to the learning element. 
+1. *Learning element* is responsible on making improvements on the performance element according to the feedback received from the citic element.
+1. *Problem generator* suggests actions leading to new and informative experiences to explore the world to find even better solutions in the long run.
 
 
 ```{figure} figures/learning_agents.png
@@ -231,7 +236,7 @@ align: center
 name: fig:learningagent
 ---
 
-The utility agents extend the goal and model based agents by also considering the utility what is gained by reaching the goal through different action sequences.
+The learning agents extend the previous agents by adding a critic, learning and problem generator elements. The critic element provides feedback to the learning element, which updates the performance element. The learning element sets new learning goals to the problem generator, which suggest new exploratory actions to the performance element to explore unknown ares of the world.
 ```
 
 ### Hierarchical Agents
