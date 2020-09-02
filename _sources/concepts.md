@@ -92,10 +92,10 @@ What if we meet with an extraterrestial being or an AI which is more intelligent
 ```
 
 Definitions of different forms of AI according to {cite}`russell_artificial_2014`
-    1. **Human like thinking:** Studying how humans think and using the same methods in AI. This approach was used in early AI development but many contemporary methods differ from human thinking.
-    1. **Acting humanly:** Computer systems trying to carry out human like conversations so that they are indistinguishable from a real person. Target ḿay be to complete Turing's test. Humanoid robots try to mimic human behavior. Acting like human does not necessarily require machien to think like human.
-    1. **Rational thinking:** Making correct decisions based on formal rules.
-    1. **Acting rationally:** An artificial agent acts to achieve the best outcome or the best expected outcome in case of uncertainty.
+1. **Human like thinking:** Studying how humans think and using the same methods in AI. This approach was used in early AI development but many contemporary methods differ from human thinking.
+1. **Acting humanly:** Computer systems trying to carry out human like conversations so that they are indistinguishable from a real person. Target ḿay be to complete Turing's test. Humanoid robots try to mimic human behavior. Acting like human does not necessarily require machien to think like human.
+1. **Rational thinking:** Making correct decisions based on formal rules.
+1. **Acting rationally:** An artificial agent acts to achieve the best outcome or the best expected outcome in case of uncertainty.
 
 ```{admonition} Discussion point
 Does the rationality criteria provide a definition of AI which is independent on human intelligence?
@@ -182,7 +182,7 @@ In addition to peceptions and decision rules, the model based agent has also a m
 
 ### Goal based agents
 
-The goal based agents are not only reacting to the current situation but instead they plan to reach their goals. The planning usually demands a model which they can use for searching action sequences for reaching the goal. For example automated taxi searches from the
+The goal based agents are not only reacting to the current situation but instead they plan to reach their goals. The planning usually demands a model which they can use for searching action sequences for reaching the goal. For example autonomous taxi can find a way to the target by searching it's model (the map) and can carry out actions (steering) to reach the goal.
 
 ```{figure} figures/goal_agents.png
 ---
@@ -193,11 +193,10 @@ name: fig:goalagent
 
 The goal based agents can also assess the probable consequences of their actions and they are therefore capable of planning.
 ```
-An automated vehicle controlled by a goal based agent could use the model of the roads in the street, and it could use it to search a path to the target location, and control the car to follow that path.
 
 ### Utility based agents
 
-Utility, the fitness or worth for the purpose, is an important concept in optimization. The goal of the optimization is to maximize the utility. Exactly symmetrical optimization goal is to minimize losses, since losses are negative utility and utility is negative loss. Utility based agents try to behave so that the utility gained by their actions is maximized. In other words, they try to reach their goal in an optimal way.
+Utility, the fitness or worth for some purposes. An action has higher utility if it is more usefull or leads to smaller losses in the given situation. The goal of the optimization is to maximize the utility. Exactly symmetrical optimization goal is to minimize losses, since losses are negative utility and utility is negative loss. Utility based agents try to behave so that the utility gained by their actions is maximized. In other words, they try to reach their goal in an optimal way.
 
 ```{figure} figures/utility_agents.png
 ---
@@ -209,12 +208,21 @@ name: fig:utilityagent
 The utility agents extend the goal and model based agents by also considering the utility what is gained by reaching the goal through different action sequences.
 ```
 
-For example, an automated vehicle controlled by a utility based agent would try to find an optimal path from the current location to the destination. The utility could be for example the negative of time spend or fuel consumed, or a combination of both.
+For example, an automated vehicle controlled by a utility based agent would try to find an optimal path from the current location to the destination. The utility could be for example the negative of time spend or fuel consumed, or a combination of both. The agent may have many optional actions to take, and the utility agent selects the one which according to it's knowledge or beliefs leads to higher utility.
 
 ### Learning agents
 
+Alan Turing estimated in 1950 the amount of programming needed to gain AI. According to methods of 50's, he estimated that programming of AI which had similar capabilities than a person would take 50 years. He concludes that *Some more expeditious method seems desirable*, and proposes a learning machine {cite}`turing_computing_1950`.
 
-### Utility based agents
+In contrast to programmed AI, the learning AI learns the rules behind the actions without explicit programming. The benefits are that the agent can operated in and environment, which is initially unknown. In a long time it can also learn rules which would be very complex to program. 
+
+The structure of the learning agent is consisted of the following four components
+
+1. Learning element:
+1. Performance element
+1. Critic
+1. Problem generator
+
 
 ```{figure} figures/learning_agents.png
 ---

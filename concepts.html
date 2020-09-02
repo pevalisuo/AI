@@ -271,11 +271,6 @@
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id5">
-     Utility based agents
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#hierarchical-agents">
      Hierarchical Agents
     </a>
@@ -382,11 +377,13 @@ and consider, how did Deckard studied if Rachel is a replicant or a human? Why i
 <p class="admonition-title">Discussion point</p>
 <p>What if we meet with an extraterrestial being or an AI which is more intelligent than us. How can we know that it is more intelligent than us?</p>
 </div>
-<p>Definitions of different forms of AI according to <a class="bibtex reference internal" href="#russell-artificial-2014" id="id4">[RN14]</a>
-1. <strong>Human like thinking:</strong> Studying how humans think and using the same methods in AI. This approach was used in early AI development but many contemporary methods differ from human thinking.
-1. <strong>Acting humanly:</strong> Computer systems trying to carry out human like conversations so that they are indistinguishable from a real person. Target ḿay be to complete Turing’s test. Humanoid robots try to mimic human behavior. Acting like human does not necessarily require machien to think like human.
-1. <strong>Rational thinking:</strong> Making correct decisions based on formal rules.
-1. <strong>Acting rationally:</strong> An artificial agent acts to achieve the best outcome or the best expected outcome in case of uncertainty.</p>
+<p>Definitions of different forms of AI according to <a class="bibtex reference internal" href="#russell-artificial-2014" id="id4">[RN14]</a></p>
+<ol class="simple">
+<li><p><strong>Human like thinking:</strong> Studying how humans think and using the same methods in AI. This approach was used in early AI development but many contemporary methods differ from human thinking.</p></li>
+<li><p><strong>Acting humanly:</strong> Computer systems trying to carry out human like conversations so that they are indistinguishable from a real person. Target ḿay be to complete Turing’s test. Humanoid robots try to mimic human behavior. Acting like human does not necessarily require machien to think like human.</p></li>
+<li><p><strong>Rational thinking:</strong> Making correct decisions based on formal rules.</p></li>
+<li><p><strong>Acting rationally:</strong> An artificial agent acts to achieve the best outcome or the best expected outcome in case of uncertainty.</p></li>
+</ol>
 <div class="admonition-discussion-point admonition">
 <p class="admonition-title">Discussion point</p>
 <p>Does the rationality criteria provide a definition of AI which is independent on human intelligence?</p>
@@ -449,27 +446,32 @@ and consider, how did Deckard studied if Rachel is a replicant or a human? Why i
 </div>
 <div class="section" id="goal-based-agents">
 <h3>Goal based agents<a class="headerlink" href="#goal-based-agents" title="Permalink to this headline">¶</a></h3>
-<p>The goal based agents are not only reacting to the current situation but instead they plan to reach their goals. The planning usually demands a model which they can use for searching action sequences for reaching the goal. For example automated taxi searches from the</p>
+<p>The goal based agents are not only reacting to the current situation but instead they plan to reach their goals. The planning usually demands a model which they can use for searching action sequences for reaching the goal. For example autonomous taxi can find a way to the target by searching it’s model (the map) and can carry out actions (steering) to reach the goal.</p>
 <div class="figure align-center" id="fig-goalagent">
 <a class="reference internal image-reference" href="_images/goal_agents.png"><img alt="_images/goal_agents.png" src="_images/goal_agents.png" style="width: 500px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">The goal based agents can also assess the probable consequences of their actions and they are therefore capable of planning.</span><a class="headerlink" href="#fig-goalagent" title="Permalink to this image">¶</a></p>
 </div>
-<p>An automated vehicle controlled by a goal based agent could use the model of the roads in the street, and it could use it to search a path to the target location, and control the car to follow that path.</p>
 </div>
 <div class="section" id="utility-based-agents">
 <h3>Utility based agents<a class="headerlink" href="#utility-based-agents" title="Permalink to this headline">¶</a></h3>
-<p>Utility, the fitness or worth for the purpose, is an important concept in optimization. The goal of the optimization is to maximize the utility. Exactly symmetrical optimization goal is to minimize losses, since losses are negative utility and utility is negative loss. Utility based agents try to behave so that the utility gained by their actions is maximized. In other words, they try to reach their goal in an optimal way.</p>
+<p>Utility, the fitness or worth for some purposes. An action has higher utility if it is more usefull or leads to smaller losses in the given situation. The goal of the optimization is to maximize the utility. Exactly symmetrical optimization goal is to minimize losses, since losses are negative utility and utility is negative loss. Utility based agents try to behave so that the utility gained by their actions is maximized. In other words, they try to reach their goal in an optimal way.</p>
 <div class="figure align-center" id="fig-utilityagent">
 <a class="reference internal image-reference" href="_images/utility_agents.png"><img alt="_images/utility_agents.png" src="_images/utility_agents.png" style="width: 500px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">The utility agents extend the goal and model based agents by also considering the utility what is gained by reaching the goal through different action sequences.</span><a class="headerlink" href="#fig-utilityagent" title="Permalink to this image">¶</a></p>
 </div>
-<p>For example, an automated vehicle controlled by a utility based agent would try to find an optimal path from the current location to the destination. The utility could be for example the negative of time spend or fuel consumed, or a combination of both.</p>
+<p>For example, an automated vehicle controlled by a utility based agent would try to find an optimal path from the current location to the destination. The utility could be for example the negative of time spend or fuel consumed, or a combination of both. The agent may have many optional actions to take, and the utility agent selects the one which according to it’s knowledge or beliefs leads to higher utility.</p>
 </div>
 <div class="section" id="learning-agents">
 <h3>Learning agents<a class="headerlink" href="#learning-agents" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="id5">
-<h3>Utility based agents<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>Alan Turing estimated in 1950 the amount of programming needed to gain AI. According to methods of 50’s, he estimated that programming of AI which had similar capabilities than a person would take 50 years. He concludes that <em>Some more expeditious method seems desirable</em>, and proposes a learning machine <a class="bibtex reference internal" href="#turing-computing-1950" id="id5">[TUR50]</a>.</p>
+<p>In contrast to programmed AI, the learning AI learns the rules behind the actions without explicit programming. The benefits are that the agent can operated in and environment, which is initially unknown. In a long time it can also learn rules which would be very complex to program.</p>
+<p>The structure of the learning agent is consisted of the following four components</p>
+<ol class="simple">
+<li><p>Learning element:</p></li>
+<li><p>Performance element</p></li>
+<li><p>Critic</p></li>
+<li><p>Problem generator</p></li>
+</ol>
 <div class="figure align-center" id="fig-learningagent">
 <a class="reference internal image-reference" href="figures/learning_agents.png"><img alt="figures/learning_agents.png" src="figures/learning_agents.png" style="width: 500px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text">The utility agents extend the goal and model based agents by also considering the utility what is gained by reaching the goal through different action sequences.</span><a class="headerlink" href="#fig-learningagent" title="Permalink to this image">¶</a></p>
@@ -494,11 +496,11 @@ and consider, how did Deckard studied if Rachel is a replicant or a human? Why i
 <dt class="bibtex label" id="harari-homo-2017"><span class="brackets"><a class="fn-backref" href="#id1">Har17</a></span></dt>
 <dd><p>Yuval Noaḥ Harari. <em>Homo Deus: a brief history of tomorrow</em>. Vintage, London, revised edition edition, 2017. ISBN 978-1-78470-393-6. OCLC: 982133945.</p>
 </dd>
-<dt class="bibtex label" id="heaton-ian-2018"><span class="brackets">Hea18</span></dt>
-<dd><p>Jeff Heaton. Ian Goodfellow, Yoshua Bengio, and Aaron Courville: Deep learning. <em>Genetic Programming and Evolvable Machines</em>, 19(1):305–307, June 2018. URL: <a class="reference external" href="https://doi.org/10.1007/s10710-017-9314-z">https://doi.org/10.1007/s10710-017-9314-z</a>, <a class="reference external" href="https://doi.org/10.1007/s10710-017-9314-z">doi:10.1007/s10710-017-9314-z</a>.</p>
-</dd>
 <dt class="bibtex label" id="russell-artificial-2014"><span class="brackets">RN14</span><span class="fn-backref">(<a href="#id3">1</a>,<a href="#id4">2</a>)</span></dt>
 <dd><p>Stuart J. Russell and Peter Norvig. <em>Artificial intelligence: a modern approach</em>. Always learnin. Pearson, Harlow, 3. ed., pearson new internat. ed edition, 2014. ISBN 978-1-292-02420-2. OCLC: 931386066.</p>
+</dd>
+<dt class="bibtex label" id="turing-computing-1950"><span class="brackets"><a class="fn-backref" href="#id5">TUR50</a></span></dt>
+<dd><p>IN℡LIGENCE BY AM TURING. Computing machinery and intelligence-AM Turing. <em>Mind</em>, 59(236):433, 1950.</p>
 </dd>
 <dt class="bibtex label" id="warwick-artificial-2011"><span class="brackets"><a class="fn-backref" href="#id2">War11</a></span></dt>
 <dd><p>Kevin Warwick. <em>Artificial Intelligence: the Basics</em>. Taylor &amp; Francis Group, Florence, UNITED STATES, 2011. ISBN 978-0-203-80287-8. URL: <a class="reference external" href="http://ebookcentral.proquest.com/lib/tritonia-ebooks/detail.action?docID=958762">http://ebookcentral.proquest.com/lib/tritonia-ebooks/detail.action?docID=958762</a>.</p>
