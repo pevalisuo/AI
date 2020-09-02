@@ -92,10 +92,10 @@ What if we meet with an extraterrestial being or an AI which is more intelligent
 ```
 
 Definitions of different forms of AI according to {cite}`russell_artificial_2014`
-1. Human like thinking: Studying how humans think and using the same methods in AI. This approach was used in early AI development but many contemporary methods differ from human thinking.
-1. Acting humanly: Computer systems trying to carry out human like conversations so that they are indistinguishable from a real person. Target ḿay be to complete Turing's test. Humanoid robots try to mimic human behavior. Acting like human does not necessarily require machien to think like human.
-1. Rational thinking: Making correct decisions based on formal rules.
-1. Acting rationally: An artificial agent acts to achieve the best outcome or the best expected outcome in case of uncertainty.
+    1. **Human like thinking:** Studying how humans think and using the same methods in AI. This approach was used in early AI development but many contemporary methods differ from human thinking.
+    1. **Acting humanly:** Computer systems trying to carry out human like conversations so that they are indistinguishable from a real person. Target ḿay be to complete Turing's test. Humanoid robots try to mimic human behavior. Acting like human does not necessarily require machien to think like human.
+    1. **Rational thinking:** Making correct decisions based on formal rules.
+    1. **Acting rationally:** An artificial agent acts to achieve the best outcome or the best expected outcome in case of uncertainty.
 
 ```{admonition} Discussion point
 Does the rationality criteria provide a definition of AI which is independent on human intelligence?
