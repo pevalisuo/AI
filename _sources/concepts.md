@@ -33,20 +33,30 @@ In 1950 the development of AI and computers developed further. The research had 
 
 The research field of AI is said to be established in the [Dartmouth Conference](https://en.wikipedia.org/wiki/Dartmouth_Workshop) of 1956. After the conference the field of AI started to develop very rapidly and plenty of resources were used for it's development.
 
-### Historical methods for AI
-
-- Reasoning as search: Some problems can be solved by searching the space of potential actions step by step, until the solution is found.
-- Natural language processing (NLP): Since it's early days, the natural communication with a human being has been one important goal of AI. I consists of understanding the written or spoken natural language, mapping the semantics of natural language concepts and synthesizing written or spoken texts. These goals have direct relation to [Turing's test](https://en.wikipedia.org/wiki/Turing_test). When Alan Turing was asked, if a computer can ever be as intelligent as a human being, he has been said to answer that at least there can be a seemingly intelligent machine which can communicate with a natural language mimicking human behavior so closely that it is indistinguishable from a human being by a human observer. Passing the Turing's test has been one of a long term goal for natural language processing and AI.
-- Micro worlds: It was realized that AI ideas can be more effectively implemented in a reduced world, when unnecessary details have been removed. These concepts influenced a lot in machine vision, which tries to create a simple model of the world from based on images.
-
-Some of these historical methods have been so fundamental that they are still in use. The good old perceptron is in the heart of modern deep learning methods and NLP is still an active research area. The concept of Micro Worlds is not often used in today's AI applications.
-
 ```{admonition} Discussion point
 In Blade Runner movie (1982), agent Deckard is hunting for replicants (AI robots), made by mighty Tyrell-corporation. Watch the scene 
 [Deckard Meets Rachel](https://www.youtube.com/watch?v=g-DkoGvcEBw)
 and consider, how did Deckard studied if Rachel is a replicant or a human? Why it was so difficult for him to find out the truth in Rachel? The answer to the last question is in the following scene starting from 1:15 
 [Deckard Meets Rachel, scene continues](https://www.youtube.com/watch?v=yWPyRSURYFQ)
 ```
+
+
+### Historical methods for AI
+
+- Reasoning as search: Some problems can be solved by searching the space of potential actions step by step, until the solution is found.
+- Natural language processing (NLP): Since it's early days, the natural communication with a human being has been one important goal of AI. I consists of understanding the written or spoken natural language, mapping the semantics of natural language concepts and synthesizing written or spoken texts. These goals have direct relation to [Turing's test](https://en.wikipedia.org/wiki/Turing_test). When Alan Turing was asked, if a computer can ever be as intelligent as a human being, he has been said to answer that at least there can be a seemingly intelligent machine which can communicate with a natural language mimicking human behavior so closely that it is indistinguishable from a human being by a human observer. Passing the Turing's test has been one of a long term goal for natural language processing and AI.
+- Micro worlds: It was realized that AI ideas can be more effectively implemented in a reduced world, when unnecessary details have been removed. These concepts influenced a lot in machine vision, which tries to create a simple model of the world from based on images.
+
+
+```{admonition} Discussion point
+What is self consciousness? How could an AI gain Self consciousness, by simply including itself into simulation? What would be the impacts of self conciousness?
+```
+
+Some of these historical methods have been so fundamental that they are still in use. The good old perceptron is in the heart of modern deep learning methods and NLP is still an active research area. The idea of Micro Worlds is replaced with a discussion of weak and strong AI
+
+- *Weak AI* or *narrow AI* are AI implementations for a narrow task in a limited environment. For example, the Siri assistant can understand speech, search data and create virtually intelligent answers, but it is not intelligent in the same manner than human being. Most of the AI implementations today are examples of Weak AI.
+- *Strong AI* or *General AI* would be AI which actually is intelligent and can solve general problems in the same manner than human being. Sometimes self consciousness is also listed as a requirement for Strong AI.
+
 
 ## Key drivers for development of AI
 
@@ -82,13 +92,11 @@ Thinking is using knowledge and information to make plans, interpret and model t
 ```
 
 ```{admonition} Definition
-AI is human kind or simply rational thinking, decision making, and acting demonstrated by artifacts.
+AI is "human like" or simply rational thinking, decision making, and acting demonstrated by artifacts.
 ```
 
-
-
 ```{admonition} Discussion point
-What if we meet with an extraterrestial being or an AI which is more intelligent than us. How can we know that it is more intelligent than us?
+What is the measure of intelligence? What if we meet with an extraterrestial being or an AI which is more intelligent than us. How can we know that it is more intelligent than us?
 ```
 
 Definitions of different forms of AI according to {cite}`russell_artificial_2014`
@@ -133,6 +141,8 @@ Intelligent agents can be divided in four classes based on their cognitive abili
 1. Model based agents
 1. Goal based agents
 1. Utility based agents
+
+
 
 ### Simple reflex agents
 These agents are reactive systems, which perform simple actions based on their perception and/or internal state. One example of really simple agent of this kind is a motion sensor based outdoor light controller. It's operation can be described for example using the following simple rules:
@@ -244,6 +254,9 @@ The learning agents extend the previous agents by adding a critic, learning and 
 Can any agent act meaningfully if a world is not observable at all?
 ```
 
+```{admonition} Discussion point
+How would an autonomous car or vacuum cleaner would work, if it was simple reflex, model based goal based or utility based agent? How would learning change the behaviour?
+```
 
 ## Bibliography
 
