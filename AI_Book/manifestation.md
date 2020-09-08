@@ -37,7 +37,6 @@ table.mytable th {
   line-height: 1;
   vertical-align: bottom;
 }
-
 </style>
 
 
@@ -117,12 +116,15 @@ class: "mytable"
 |            | Charging   | Inform the driver of the charging needs, or go to charging station when needed       |
 ```
 
+An interesting environment for developing AI for self driving cars is the [CARLA simulator](http://carla.org/)
+
 ## Humanoid robots
 ```{image} figures/robot_woman.jpg
 ---
 width: 500px
 align: center
 name: fig:robot_woman
+
 ---
 
 ```
@@ -140,7 +142,38 @@ You may also take a look at this video, but do not take it too seriously. What d
 ## Medical diagnosis
 
 ## Earth observations
+A satellite image of Söderjärden region is shown in {numref}`fig:Soderfjarden_image`. The original satellite image acquired by European [Sentinel-2 satellite](https://sentinel.esa.int/web/sentinel/home) consist of 13 different channels, representing different wavelenght. The figure below is a normal 3-channel RGB image constructed from 13 original channels.
+
+```{figure} figures/Soderfjarden_image.png
+---
+width: 500px
+align: center
+name: fig:Soderfjarden_image
+---
+
+An RGB visualisation of a satellite image of Söderjärden region, including training data for the classification of  land use.
+```
+
+The image also contains some example data shown with polygons, which represent certain types of land use, such as forest, water, dark soil, hay field and grass. This data can be seen as a true classification results performed by an expert. An AI algorithm can now be trained to repeat the same classification using all 13 channels of data from the original image. The trained classification algorithm can then be applied to the rest of the image as well, and classify all pixels. The result of this is shown in {numref}`fig:Soderfjarden_classified` image below.
+
+```{figure} figures/Soderfjarden_classified.png
+---
+width: 500px
+align: center
+name: fig:Soderfjarden_classified
+---
+
+An RGB visualisation of the land use classification results from Söderjärden region.
+```
+
+If the training data provided by the expert wouldn't have been available, then supervised classification had not been possible, but unsupervised clustering could have been tried instead.
+
+```{admonition} Discussion point
+What could be achieved using unsupervised methods for analyzing satellite images when compared with supervised methods?
+```
 
 ## Tackling with climate changes
+
+AI can be useful for many purposes when tackling with climate change, as listed by National Geography, in [How artificial intelligence can tackle climate change](https://www.nationalgeographic.com/environment/2019/07/artificial-intelligence-climate-change/). The climatologists have been using AI methods in predicting 
 
 ## Spot fake networks

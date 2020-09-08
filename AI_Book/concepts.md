@@ -33,13 +33,30 @@ In 1950 the development of AI and computers developed further. The research had 
 
 The research field of AI is said to be established in the [Dartmouth Conference](https://en.wikipedia.org/wiki/Dartmouth_Workshop) of 1956. After the conference the field of AI started to develop very rapidly and plenty of resources were used for it's development.
 
+```{admonition} Discussion point
+In Blade Runner movie (1982), agent Deckard is hunting for replicants (AI robots), made by mighty Tyrell-corporation. Watch the scene 
+[Deckard Meets Rachel](https://www.youtube.com/watch?v=g-DkoGvcEBw)
+and consider, how did Deckard studied if Rachel is a replicant or a human? Why it was so difficult for him to find out the truth in Rachel? The answer to the last question is in the following scene starting from 1:15 
+[Deckard Meets Rachel, scene continues](https://www.youtube.com/watch?v=yWPyRSURYFQ)
+```
+
+
 ### Historical methods for AI
 
 - Reasoning as search: Some problems can be solved by searching the space of potential actions step by step, until the solution is found.
 - Natural language processing (NLP): Since it's early days, the natural communication with a human being has been one important goal of AI. I consists of understanding the written or spoken natural language, mapping the semantics of natural language concepts and synthesizing written or spoken texts. These goals have direct relation to [Turing's test](https://en.wikipedia.org/wiki/Turing_test). When Alan Turing was asked, if a computer can ever be as intelligent as a human being, he has been said to answer that at least there can be a seemingly intelligent machine which can communicate with a natural language mimicking human behavior so closely that it is indistinguishable from a human being by a human observer. Passing the Turing's test has been one of a long term goal for natural language processing and AI.
 - Micro worlds: It was realized that AI ideas can be more effectively implemented in a reduced world, when unnecessary details have been removed. These concepts influenced a lot in machine vision, which tries to create a simple model of the world from based on images.
 
-Some of these historical methods have been so fundamental that they are still in use. The good old perceptron is in the heart of modern deep learning methods and NLP is still an active research area. The concept of Micro Worlds is not often used in today's AI applications.
+
+```{admonition} Discussion point
+What is self consciousness? How could an AI gain Self consciousness, by simply including itself into simulation? What would be the impacts of self conciousness?
+```
+
+Some of these historical methods have been so fundamental that they are still in use. The good old perceptron is in the heart of modern deep learning methods and NLP is still an active research area. The idea of Micro Worlds is replaced with a discussion of weak and strong AI
+
+- *Weak AI* or *narrow AI* are AI implementations for a narrow task in a limited environment. For example, the Siri assistant can understand speech, search data and create virtually intelligent answers, but it is not intelligent in the same manner than human being. Most of the AI implementations today are examples of Weak AI.
+- *Strong AI* or *General AI* would be AI which actually is intelligent and can solve general problems in the same manner than human being. Sometimes self consciousness is also listed as a requirement for Strong AI.
+
 
 ## Key drivers for development of AI
 
@@ -69,15 +86,24 @@ Wikipedia finds Machine Intelligence as a synonym for Artificial Intelligence an
 
 Russel et.al. {cite}`russell_artificial_2014` conclude that AI can be human kind of thinking and acting demonstrated by artifacts, but also simply rational thinking and acting. Rational thinking is decision making based on correct rules, "laws of thought". The rational thinking framework can be based for example on logics, mathematics or statistics.
 
+```{admonition} Definition
+Thinking is using knowledge and information to make plans, interpret and model the world and constructively interact with and make predictions of the world.
+
+```
+
+```{admonition} Definition
+AI is "human like" or simply rational thinking, decision making, and acting demonstrated by artifacts.
+```
+
 ```{admonition} Discussion point
-What if we meet with an extraterrestial being or an AI which is more intelligent than us. How can we know that it is more intelligent than us?
+What is the measure of intelligence? What if we meet with an extraterrestial being or an AI which is more intelligent than us. How can we know that it is more intelligent than us?
 ```
 
 Definitions of different forms of AI according to {cite}`russell_artificial_2014`
-1. Human like thinking: Studying how humans think and using the same methods in AI. This approach was used in early AI development but many contemporary methods differ from human thinking.
-1. Acting humanly: Computer systems trying to carry out human like conversations so that they are indistinguishable from a real person. Target ḿay be to complete Turing's test. Humanoid robots try to mimic human behavior. Acting like human does not necessarily require machien to think like human.
-1. Rational thinking: Making correct decisions based on formal rules.
-1. Acting rationally: An artificial agent acts to achieve the best outcome or the best expected outcome in case of uncertainty.
+1. **Human like thinking:** Studying how humans think and using the same methods in AI. This approach was used in early AI development but many contemporary methods differ from human thinking.
+1. **Acting humanly:** Computer systems trying to carry out human like conversations so that they are indistinguishable from a real person. Target ḿay be to complete Turing's test. Humanoid robots try to mimic human behavior. Acting like human does not necessarily require machien to think like human.
+1. **Rational thinking:** Making correct decisions based on formal rules.
+1. **Acting rationally:** An artificial agent acts to achieve the best outcome or the best expected outcome in case of uncertainty.
 
 ```{admonition} Discussion point
 Does the rationality criteria provide a definition of AI which is independent on human intelligence?
@@ -104,12 +130,19 @@ A rational agent is an agent which always selects an action that is expected to 
 ```{admonition} Discussion point
 Can an intelligent agent be meaningful without perception or actuator or neither?
 ```
+
+```{admonition} Discussion point
+If two rational agents both maximize their performance measure based on their perceptions and build in information, can one be better than another?
+```
+
 Intelligent agents can be divided in four classes based on their cognitive abilities and level of sophistication:
 
 1. Simple reflex agents
 1. Model based agents
 1. Goal based agents
 1. Utility based agents
+
+
 
 ### Simple reflex agents
 These agents are reactive systems, which perform simple actions based on their perception and/or internal state. One example of really simple agent of this kind is a motion sensor based outdoor light controller. It's operation can be described for example using the following simple rules:
@@ -164,7 +197,7 @@ In addition to peceptions and decision rules, the model based agent has also a m
 
 ### Goal based agents
 
-The goal based agents are not only reacting to the current situation but instead they plan to reach their goals. The planning usually demands a model which they can use for searching action sequences for reaching the goal. For example automated taxi searches from the
+The goal based agents are not only reacting to the current situation but instead they plan to reach their goals. The planning usually demands a model which they can use for searching action sequences for reaching the goal. For example autonomous taxi can find a way to the target by searching it's model (the map) and can carry out actions (steering) to reach the goal.
 
 ```{figure} figures/goal_agents.png
 ---
@@ -175,11 +208,10 @@ name: fig:goalagent
 
 The goal based agents can also assess the probable consequences of their actions and they are therefore capable of planning.
 ```
-An automated vehicle controlled by a goal based agent could use the model of the roads in the street, and it could use it to search a path to the target location, and control the car to follow that path.
 
 ### Utility based agents
 
-Utility, the fitness or worth for the purpose, is an important concept in optimization. The goal of the optimization is to maximize the utility. Exactly symmetrical optimization goal is to minimize losses, since losses are negative utility and utility is negative loss. Utility based agents try to behave so that the utility gained by their actions is maximized. In other words, they try to reach their goal in an optimal way.
+Utility, the fitness or worth for some purposes. An action has higher utility if it is more usefull or leads to smaller losses in the given situation. The goal of the optimization is to maximize the utility. Exactly symmetrical optimization goal is to minimize losses, since losses are negative utility and utility is negative loss. Utility based agents try to behave so that the utility gained by their actions is maximized. In other words, they try to reach their goal in an optimal way.
 
 ```{figure} figures/utility_agents.png
 ---
@@ -191,12 +223,21 @@ name: fig:utilityagent
 The utility agents extend the goal and model based agents by also considering the utility what is gained by reaching the goal through different action sequences.
 ```
 
-For example, an automated vehicle controlled by a utility based agent would try to find an optimal path from the current location to the destination. The utility could be for example the negative of time spend or fuel consumed, or a combination of both.
+For example, an automated vehicle controlled by a utility based agent would try to find an optimal path from the current location to the destination. The utility could be for example the negative of time spend or fuel consumed, or a combination of both. The agent may have many optional actions to take, and the utility agent selects the one which according to it's knowledge or beliefs leads to higher utility.
 
 ### Learning agents
 
+Alan Turing estimated in 1950 the amount of programming needed to gain AI. According to methods of 50's, he estimated that programming of AI which had similar capabilities than a person would take 50 years. He concludes that *Some more expeditious method seems desirable*, and proposes a learning machine {cite}`turing_computing_1950`.
 
-### Utility based agents
+In contrast to programmed AI, the learning AI learns the rules behind the actions without explicit programming. The benefits are that the agent can operate in an environment, which is initially unknown. In a long run it can also learn rules which would be very complex to program. 
+
+The structure of the learning agent is consisted of the following four components, see {numref}`fig:learningagent`.
+
+1. *Performance element* receives perceptions from the sensors and carries out actions by using actuators. This element includes the operations of the previously described agents, but here it also exhanges information with the learning element and receives suggestions from the problem generator.
+1. *Critic element* observes the perceptions and uses the performance standard to assess how well the agent is performing and provides that information to the learning element. 
+1. *Learning element* is responsible on making improvements on the performance element according to the feedback received from the citic element.
+1. *Problem generator* suggests actions leading to new and informative experiences to explore the world to find even better solutions in the long run.
+
 
 ```{figure} figures/learning_agents.png
 ---
@@ -205,21 +246,17 @@ align: center
 name: fig:learningagent
 ---
 
-The utility agents extend the goal and model based agents by also considering the utility what is gained by reaching the goal through different action sequences.
+The learning agents extend the previous agents by adding a critic, learning and problem generator elements. The critic element provides feedback to the learning element, which updates the performance element. The learning element sets new learning goals to the problem generator, which suggest new exploratory actions to the performance element to explore unknown ares of the world.
 ```
-
-### Hierarchical Agents
-
-More complex systems needs intelligent actions in many different cognition levels. It is often convenient to make separate agents to take care of simple controlling and higher level agents for planning the overall operations.
 
 
 ```{admonition} Discussion point
 Can any agent act meaningfully if a world is not observable at all?
 ```
 
-## Excercises
-
-fdgdfgdf
+```{admonition} Discussion point
+How would an autonomous car or vacuum cleaner would work, if it was simple reflex, model based goal based or utility based agent? How would learning change the behaviour?
+```
 
 ## Bibliography
 

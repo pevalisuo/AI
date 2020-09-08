@@ -34,6 +34,72 @@ The Greek philosopher Aristotle defined a framework of rational thinking by defi
 - Forward chaining
 - Belief network
 
+## Classical AI:
+
+Expert systems were supposed to be able to make decisions on behalf of a person. They consisted of a large number of logical rules stored in the knowledge database, which was used to resolve true statements based on the facts perceived and the rules stored. They are still used in certain applications, like in a bird recognition system [Luontoportti](www.luontoportti.fi).
+
+The bird species can be recognized by searching true statements from the database of logical rules. Each observation rules out part of the possible species.
+
+
+    If (color is white)                 (A)
+        and (wings are dark)            (B)
+        and (size equals to crow)       (C)
+        and (circulates in the air)     (D)
+        and (swims in water)            (E)
+    then it is a seagull                (Q)
+
+The database above is based on logical syllogisms, defined by Aristoteles. It can be also described with more mathematical notation as follows:
+
+$$
+    A \wedge B \wedge C \wedge D \wedge E \rightarrow Q
+$$
+
+The knowledge database or knowledge base (KB) of [Luontoportti](www.luontoportti.fi) is build in the opposite direction though using simple logical rules as follows:
+
+$$
+\begin{eqnarray}
+    \mathrm{KB} = ( Q &\rightarrow& A, \\
+        Q &\rightarrow& B, \\
+        Q &\rightarrow& C, \\
+        Q &\rightarrow& D, \\
+        Q &\rightarrow& E )
+\end{eqnarray}
+$$
+
+The inference shown above can be made from the KB using propositional logics, for example a method called resolution. Logical inference follows
+
+The knowledge database above can be used in both directions.
+
+- If we know the species, we can find out the properties, for examples it can be seen that seagulls are white. This kind of inference is called as *forward chaining*, or *prediction*, because it predicts the properties or perceptions based on the species. Example in the medical field would be to describe the symptoms when the diagnosis is known.
+- If we on the other hand know the perceptions, we can use the database to find out the species where the observations fit. This kind of inference is called as *backward chaining* or *diagnostics'. In medical field this is used for diagnosing the cause, the disease, when the symptoms are known.
+
+The inference using logics KB is carried out by searching. Exhaustive search by trying all possible solutions is the simplest method, but it uses plenty of resources and is unfeasible in most practical databases.
+
+### Propability
+
+Medical diagnosis, current care guidelines (käypähoitosuositukset)
+
+The symptoms for having a stroke or TIA
+- One sided face paralysis
+- difficulties to speak (afasia)
+- one eye vision problems
+- nausea
+- double images in vision
+- difficulties to swallow
+
+Each symptom increases the propability of the diagnosis. A different probability may be involved in each symptom and connection with a stroke
+
+Some symptoms are very common in many conditions, like nausea. Therefore their specificity is low, and their power for predicting stroke is therefore low.
+
+One sided face paralysis is on the other hand rare in other conditions, and therefore its specificity is high, and it is a good symptom for diagnosing stroke. If one does not have this symptom, it may be reduce the hypothesis that the stroke is the cause for other symptoms.
+
+Properties
+- Human knowledge is expressed as rules
+
+Cons
+- gathering the rules is awkward, difficult for real world cases and impossible for complex cases
+- combinatorial explosion follows
+
 ### Graphs
 
 ```{code-cell} ipython3
@@ -127,7 +193,6 @@ rg=nx.random_tree(15)
 nx.draw(rg, with_labels=True, font_weight='normal', node_color='orange', node_size=500)
 ```
 
-
 #### Graph Search methods
 
 When planning actions using a graph, a graph search algorithm is often used.
@@ -149,3 +214,18 @@ When planning actions using a graph, a graph search algorithm is often used.
 - Markov model
 - Neural network
 - Deep learning
+
+
+## Read more
+
+> Programming is a superpower
+
+- Harrison  [Python programming](https://pythonprogramming.net)
+
+- [AI with Python Tutorial](https://www.tutorialspoint.com/artificial_intelligence_with_python/index.htm)
+
+-  Daniele Paliotta, [Introduction to Reinforcement Learning with Python](https://stackabuse.com/introduction-to-reinforcement-learning-with-python/)
+
+- Harrison  [Q-Learning introduction and Q Table - Reinforcement Learning w/ Python Tutorial p.1](https://pythonprogramming.net/q-learning-reinforcement-learning-python-tutorial/)
+
+- Harrison [Introduction - Self-driving cars with Carla and Python part 1](https://pythonprogramming.net/introduction-self-driving-autonomous-cars-carla-python/)

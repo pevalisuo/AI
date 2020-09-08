@@ -102,16 +102,6 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="bibliography.html">
-     Bibliography
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="exercises.html">
-     Excercises
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="aitools.html">
      Introduction to AI tools
     </a>
@@ -129,6 +119,16 @@
    <li class="toctree-l2">
     <a class="reference internal" href="machinelearninglibraries.html">
      Libraries for machine learning
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="bibliography.html">
+     Bibliography
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="exercises.html">
+     Excercises
     </a>
    </li>
   </ul>
@@ -272,7 +272,6 @@ table.mytable th {
   line-height: 1;
   vertical-align: bottom;
 }
-
 </style>
 <div class="section" id="automated-lawnmowers-and-vacuum-cleaners">
 <h2>Automated lawnmowers and vacuum cleaners<a class="headerlink" href="#automated-lawnmowers-and-vacuum-cleaners" title="Permalink to this headline">¶</a></h2>
@@ -395,6 +394,7 @@ table.mytable th {
 </tr>
 </tbody>
 </table>
+<p>An interesting environment for developing AI for self driving cars is the <a class="reference external" href="http://carla.org/">CARLA simulator</a></p>
 </div>
 <div class="section" id="humanoid-robots">
 <h2>Humanoid robots<a class="headerlink" href="#humanoid-robots" title="Permalink to this headline">¶</a></h2>
@@ -409,9 +409,25 @@ table.mytable th {
 </div>
 <div class="section" id="earth-observations">
 <h2>Earth observations<a class="headerlink" href="#earth-observations" title="Permalink to this headline">¶</a></h2>
+<p>A satellite image of Söderjärden region is shown in <a class="reference internal" href="#fig-soderfjarden-image"><span class="std std-numref">Fig. 7</span></a>. The original satellite image acquired by European <a class="reference external" href="https://sentinel.esa.int/web/sentinel/home">Sentinel-2 satellite</a> consist of 13 different channels, representing different wavelenght. The figure below is a normal 3-channel RGB image constructed from 13 original channels.</p>
+<div class="figure align-center" id="fig-soderfjarden-image">
+<a class="reference internal image-reference" href="_images/Soderfjarden_image.png"><img alt="_images/Soderfjarden_image.png" src="_images/Soderfjarden_image.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text">An RGB visualisation of a satellite image of Söderjärden region, including training data for the classification of  land use.</span><a class="headerlink" href="#fig-soderfjarden-image" title="Permalink to this image">¶</a></p>
+</div>
+<p>The image also contains some example data shown with polygons, which represent certain types of land use, such as forest, water, dark soil, hay field and grass. This data can be seen as a true classification results performed by an expert. An AI algorithm can now be trained to repeat the same classification using all 13 channels of data from the original image. The trained classification algorithm can then be applied to the rest of the image as well, and classify all pixels. The result of this is shown in <a class="reference internal" href="#fig-soderfjarden-classified"><span class="std std-numref">Fig. 8</span></a> image below.</p>
+<div class="figure align-center" id="fig-soderfjarden-classified">
+<a class="reference internal image-reference" href="_images/Soderfjarden_classified.png"><img alt="_images/Soderfjarden_classified.png" src="_images/Soderfjarden_classified.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text">An RGB visualisation of the land use classification results from Söderjärden region.</span><a class="headerlink" href="#fig-soderfjarden-classified" title="Permalink to this image">¶</a></p>
+</div>
+<p>If the training data provided by the expert wouldn’t have been available, then supervised classification had not been possible, but unsupervised clustering could have been tried instead.</p>
+<div class="admonition-discussion-point admonition">
+<p class="admonition-title">Discussion point</p>
+<p>What could be achieved using unsupervised methods for analyzing satellite images when compared with supervised methods?</p>
+</div>
 </div>
 <div class="section" id="tackling-with-climate-changes">
 <h2>Tackling with climate changes<a class="headerlink" href="#tackling-with-climate-changes" title="Permalink to this headline">¶</a></h2>
+<p>AI can be useful for many purposes when tackling with climate change. For example the current</p>
 </div>
 <div class="section" id="spot-fake-networks">
 <h2>Spot fake networks<a class="headerlink" href="#spot-fake-networks" title="Permalink to this headline">¶</a></h2>

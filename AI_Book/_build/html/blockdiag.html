@@ -39,7 +39,7 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Bibliography" href="bibliography.html" />
+    <link rel="next" title="Introduction to AI tools" href="aitools.html" />
     <link rel="prev" title="Manifestation of AI" href="manifestation.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -102,16 +102,6 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="bibliography.html">
-     Bibliography
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="exercises.html">
-     Excercises
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="aitools.html">
      Introduction to AI tools
     </a>
@@ -129,6 +119,16 @@
    <li class="toctree-l2">
     <a class="reference internal" href="machinelearninglibraries.html">
      Libraries for machine learning
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="bibliography.html">
+     Bibliography
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="exercises.html">
+     Excercises
     </a>
    </li>
   </ul>
@@ -213,6 +213,18 @@
      Logics database
     </a>
    </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#classical-ai">
+   Classical AI:
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#propability">
+     Propability
+    </a>
+   </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#graphs">
      Graphs
@@ -230,6 +242,11 @@
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#learning">
    Learning
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#read-more">
+   Read more
   </a>
  </li>
 </ul>
@@ -260,6 +277,67 @@
 <li><p>Backward chaining</p></li>
 <li><p>Forward chaining</p></li>
 <li><p>Belief network</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="classical-ai">
+<h2>Classical AI:<a class="headerlink" href="#classical-ai" title="Permalink to this headline">¶</a></h2>
+<p>Expert systems were supposed to be able to make decisions on behalf of a person. They consisted of a large number of logical rules stored in the knowledge database, which was used to resolve true statements based on the facts perceived and the rules stored. They are still used in certain applications, like in a bird recognition system <span class="xref myst">Luontoportti</span>.</p>
+<p>The bird species can be recognized by searching true statements from the database of logical rules. Each observation rules out part of the possible species.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>If (color is white)                 (A)
+    and (wings are dark)            (B)
+    and (size equals to crow)       (C)
+    and (circulates in the air)     (D)
+    and (swims in water)            (E)
+then it is a seagull                (Q)
+</pre></div>
+</div>
+<p>The database above is based on logical syllogisms, defined by Aristoteles. It can be also described with more mathematical notation as follows:</p>
+<div class="math notranslate nohighlight">
+\[
+    A \wedge B \wedge C \wedge D \wedge E \rightarrow Q
+\]</div>
+<p>The knowledge database or knowledge base (KB) of <span class="xref myst">Luontoportti</span> is build in the opposite direction though using simple logical rules as follows:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray}
+    \mathrm{KB} = ( Q &amp;\rightarrow&amp; A, \\
+        Q &amp;\rightarrow&amp; B, \\
+        Q &amp;\rightarrow&amp; C, \\
+        Q &amp;\rightarrow&amp; D, \\
+        Q &amp;\rightarrow&amp; E )
+\end{eqnarray}
+\end{split}\]</div>
+<p>The inference shown above can be made from the KB using propositional logics, for example a method called resolution. Logical inference follows</p>
+<p>The knowledge database above can be used in both directions.</p>
+<ul class="simple">
+<li><p>If we know the species, we can find out the properties, for examples it can be seen that seagulls are white. This kind of inference is called as <em>forward chaining</em>, or <em>prediction</em>, because it predicts the properties or perceptions based on the species. Example in the medical field would be to describe the symptoms when the diagnosis is known.</p></li>
+<li><p>If we on the other hand know the perceptions, we can use the database to find out the species where the observations fit. This kind of inference is called as <em>backward chaining</em> or *diagnostics’. In medical field this is used for diagnosing the cause, the disease, when the symptoms are known.</p></li>
+</ul>
+<p>The inference using logics KB is carried out by searching. Exhaustive search by trying all possible solutions is the simplest method, but it uses plenty of resources and is unfeasible in most practical databases.</p>
+<div class="section" id="propability">
+<h3>Propability<a class="headerlink" href="#propability" title="Permalink to this headline">¶</a></h3>
+<p>Medical diagnosis, current care guidelines (käypähoitosuositukset)</p>
+<p>The symptoms for having a stroke or TIA</p>
+<ul class="simple">
+<li><p>One sided face paralysis</p></li>
+<li><p>difficulties to speak (afasia)</p></li>
+<li><p>one eye vision problems</p></li>
+<li><p>nausea</p></li>
+<li><p>double images in vision</p></li>
+<li><p>difficulties to swallow</p></li>
+</ul>
+<p>Each symptom increases the propability of the diagnosis. A different probability may be involved in each symptom and connection with a stroke</p>
+<p>Some symptoms are very common in many conditions, like nausea. Therefore their specificity is low, and their power for predicting stroke is therefore low.</p>
+<p>One sided face paralysis is on the other hand rare in other conditions, and therefore its specificity is high, and it is a good symptom for diagnosing stroke. If one does not have this symptom, it may be reduce the hypothesis that the stroke is the cause for other symptoms.</p>
+<p>Properties</p>
+<ul class="simple">
+<li><p>Human knowledge is expressed as rules</p></li>
+</ul>
+<p>Cons</p>
+<ul class="simple">
+<li><p>gathering the rules is awkward, difficult for real world cases and impossible for complex cases</p></li>
+<li><p>combinatorial explosion follows</p></li>
 </ul>
 </div>
 <div class="section" id="graphs">
@@ -306,7 +384,7 @@
 </div>
 <p>A graph is simply a structure which has nodes (also called as vertices) which are connected to each other with edges (lines). The edges can be unidirectional (arrows) or bi-directional (lines). A graph with unidirectional edges is called as directed graph, whereas a graph containing only bi-directional edges is called undirected graph. If the graph contains cycles (or loops), it is said to be a cyclic graph. If it has no cycles, the graph is acyclic graph. If the graph contains a path between each nodes, the graph is said to be connected, otherwise it contains isolated sections and it is called disconnected.
 Acyclic connected graph is called as tree and acyclic disconnected graph as forest.</p>
-<p>Examples of different graphs are shown in Figures <a class="reference internal" href="#fig-nondiag-graph"><span class="std std-numref">Fig. 7</span></a> - <a class="reference internal" href="#fig-treegraph"><span class="std std-numref">Fig. 9</span></a>.</p>
+<p>Examples of different graphs are shown in Figures <a class="reference internal" href="#fig-nondiag-graph"><span class="std std-numref">Fig. 9</span></a> - <a class="reference internal" href="#fig-treegraph"><span class="std std-numref">Fig. 11</span></a>.</p>
 <p>Mathematically, a graph <span class="math notranslate nohighlight">\(G\)</span> is expressed as a set of Edges <span class="math notranslate nohighlight">\(E\)</span> and vertices <span class="math notranslate nohighlight">\(V\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-eq-graph">
 <span class="eqno">(6)<a class="headerlink" href="#equation-eq-graph" title="Permalink to this equation">¶</a></span>\[
@@ -314,15 +392,15 @@ Acyclic connected graph is called as tree and acyclic disconnected graph as fore
 \]</div>
 <div class="figure align-center" id="fig-nondiag-graph">
 <a class="reference internal image-reference" href="_images/graafi_nondirectional.svg"><img alt="_images/graafi_nondirectional.svg" src="_images/graafi_nondirectional.svg" width="600px" /></a>
-<p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text">An example of cyclic undirected graph.</span><a class="headerlink" href="#fig-nondiag-graph" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 9 </span><span class="caption-text">An example of cyclic undirected graph.</span><a class="headerlink" href="#fig-nondiag-graph" title="Permalink to this image">¶</a></p>
 </div>
 <div class="figure align-center" id="fig-cyclicraph">
 <a class="reference internal image-reference" href="_images/graafi_cyclic.svg"><img alt="_images/graafi_cyclic.svg" src="_images/graafi_cyclic.svg" width="300px" /></a>
-<p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text">An example of a directed cyclic graph.</span><a class="headerlink" href="#fig-cyclicraph" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 10 </span><span class="caption-text">An example of a directed cyclic graph.</span><a class="headerlink" href="#fig-cyclicraph" title="Permalink to this image">¶</a></p>
 </div>
 <div class="figure align-center" id="fig-treegraph">
 <a class="reference internal image-reference" href="_images/graafi_DAG.svg"><img alt="_images/graafi_DAG.svg" src="_images/graafi_DAG.svg" width="300px" /></a>
-<p class="caption"><span class="caption-number">Fig. 9 </span><span class="caption-text">An example of a directed a-cyclic graph (DAG), a directed tree.</span><a class="headerlink" href="#fig-treegraph" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 11 </span><span class="caption-text">An example of a directed a-cyclic graph (DAG), a directed tree.</span><a class="headerlink" href="#fig-treegraph" title="Permalink to this image">¶</a></p>
 </div>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -360,6 +438,19 @@ Acyclic connected graph is called as tree and acyclic disconnected graph as fore
 <li><p>Deep learning</p></li>
 </ul>
 </div>
+<div class="section" id="read-more">
+<h2>Read more<a class="headerlink" href="#read-more" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>Programming is a superpower</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>Harrison  <a class="reference external" href="https://pythonprogramming.net">Python programming</a></p></li>
+<li><p><a class="reference external" href="https://www.tutorialspoint.com/artificial_intelligence_with_python/index.htm">AI with Python Tutorial</a></p></li>
+<li><p>Daniele Paliotta, <a class="reference external" href="https://stackabuse.com/introduction-to-reinforcement-learning-with-python/">Introduction to Reinforcement Learning with Python</a></p></li>
+<li><p>Harrison  <a class="reference external" href="https://pythonprogramming.net/q-learning-reinforcement-learning-python-tutorial/">Q-Learning introduction and Q Table - Reinforcement Learning w/ Python Tutorial p.1</a></p></li>
+<li><p>Harrison <a class="reference external" href="https://pythonprogramming.net/introduction-self-driving-autonomous-cars-carla-python/">Introduction - Self-driving cars with Carla and Python part 1</a></p></li>
+</ul>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -391,7 +482,7 @@ Acyclic connected graph is called as tree and acyclic disconnected graph as fore
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="manifestation.html" title="previous page">Manifestation of AI</a>
-    <a class='right-next' id="next-link" href="bibliography.html" title="next page">Bibliography</a>
+    <a class='right-next' id="next-link" href="aitools.html" title="next page">Introduction to AI tools</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

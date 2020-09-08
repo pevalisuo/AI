@@ -102,16 +102,6 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="bibliography.html">
-     Bibliography
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="exercises.html">
-     Excercises
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="aitools.html">
      Introduction to AI tools
     </a>
@@ -129,6 +119,16 @@
    <li class="toctree-l2">
     <a class="reference internal" href="machinelearninglibraries.html">
      Libraries for machine learning
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="bibliography.html">
+     Bibliography
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="exercises.html">
+     Excercises
     </a>
    </li>
   </ul>
@@ -270,22 +270,7 @@
      Learning agents
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id5">
-     Utility based agents
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#hierarchical-agents">
-     Hierarchical Agents
-    </a>
-   </li>
   </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#excercises">
-   Excercises
-  </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#bibliography">
@@ -326,6 +311,13 @@
 <p>The second World War boosted the development of actual computers and programming.</p>
 <p>In 1950 the development of AI and computers developed further. The research had found out that the human brain consists of neurons and scientists created artificial <a class="reference external" href="https://en.wikipedia.org/wiki/Neurons">neurons</a> to perform simple logical functions and connected many of them as <a class="reference external" href="https://en.wikipedia.org/wiki/Artificial_neural_network">artificial neural networks (ANN)</a> for more complex operations. The goal was to mimic the structure of human brains to be able to make intelligent decisions. First researchers started to study the processing of symbols in addition to numbers and the idea of AI that a computer can have a mind as humans do, emerged.</p>
 <p>The research field of AI is said to be established in the <a class="reference external" href="https://en.wikipedia.org/wiki/Dartmouth_Workshop">Dartmouth Conference</a> of 1956. After the conference the field of AI started to develop very rapidly and plenty of resources were used for it’s development.</p>
+<div class="admonition-discussion-point admonition">
+<p class="admonition-title">Discussion point</p>
+<p>In Blade Runner movie (1982), agent Deckard is hunting for replicants (AI robots), made by mighty Tyrell-corporation. Watch the scene
+<a class="reference external" href="https://www.youtube.com/watch?v=g-DkoGvcEBw">Deckard Meets Rachel</a>
+and consider, how did Deckard studied if Rachel is a replicant or a human? Why it was so difficult for him to find out the truth in Rachel? The answer to the last question is in the following scene starting from 1:15
+<a class="reference external" href="https://www.youtube.com/watch?v=yWPyRSURYFQ">Deckard Meets Rachel, scene continues</a></p>
+</div>
 </div>
 <div class="section" id="historical-methods-for-ai">
 <h3>Historical methods for AI<a class="headerlink" href="#historical-methods-for-ai" title="Permalink to this headline">¶</a></h3>
@@ -334,7 +326,15 @@
 <li><p>Natural language processing (NLP): Since it’s early days, the natural communication with a human being has been one important goal of AI. I consists of understanding the written or spoken natural language, mapping the semantics of natural language concepts and synthesizing written or spoken texts. These goals have direct relation to <a class="reference external" href="https://en.wikipedia.org/wiki/Turing_test">Turing’s test</a>. When Alan Turing was asked, if a computer can ever be as intelligent as a human being, he has been said to answer that at least there can be a seemingly intelligent machine which can communicate with a natural language mimicking human behavior so closely that it is indistinguishable from a human being by a human observer. Passing the Turing’s test has been one of a long term goal for natural language processing and AI.</p></li>
 <li><p>Micro worlds: It was realized that AI ideas can be more effectively implemented in a reduced world, when unnecessary details have been removed. These concepts influenced a lot in machine vision, which tries to create a simple model of the world from based on images.</p></li>
 </ul>
-<p>Some of these historical methods have been so fundamental that they are still in use. The good old perceptron is in the heart of modern deep learning methods and NLP is still an active research area. The concept of Micro Worlds is not often used in today’s AI applications.</p>
+<div class="admonition-discussion-point admonition">
+<p class="admonition-title">Discussion point</p>
+<p>What is self consciousness? How could an AI gain Self consciousness, by simply including itself into simulation? What would be the impacts of self conciousness?</p>
+</div>
+<p>Some of these historical methods have been so fundamental that they are still in use. The good old perceptron is in the heart of modern deep learning methods and NLP is still an active research area. The idea of Micro Worlds is replaced with a discussion of weak and strong AI</p>
+<ul class="simple">
+<li><p><em>Weak AI</em> or <em>narrow AI</em> are AI implementations for a narrow task in a limited environment. For example, the Siri assistant can understand speech, search data and create virtually intelligent answers, but it is not intelligent in the same manner than human being. Most of the AI implementations today are examples of Weak AI.</p></li>
+<li><p><em>Strong AI</em> or <em>General AI</em> would be AI which actually is intelligent and can solve general problems in the same manner than human being. Sometimes self consciousness is also listed as a requirement for Strong AI.</p></li>
+</ul>
 </div>
 </div>
 <div class="section" id="key-drivers-for-development-of-ai">
@@ -363,16 +363,24 @@
 -Wikipedia</p>
 </div></blockquote>
 <p>Russel et.al. <a class="bibtex reference internal" href="#russell-artificial-2014" id="id3">[RN14]</a> conclude that AI can be human kind of thinking and acting demonstrated by artifacts, but also simply rational thinking and acting. Rational thinking is decision making based on correct rules, “laws of thought”. The rational thinking framework can be based for example on logics, mathematics or statistics.</p>
+<div class="admonition-definition admonition">
+<p class="admonition-title">Definition</p>
+<p>Thinking is using knowledge and information to make plans, interpret and model the world and constructively interact with and make predictions of the world.</p>
+</div>
+<div class="admonition-definition admonition">
+<p class="admonition-title">Definition</p>
+<p>AI is “human like” or simply rational thinking, decision making, and acting demonstrated by artifacts.</p>
+</div>
 <div class="admonition-discussion-point admonition">
 <p class="admonition-title">Discussion point</p>
-<p>What if we meet with an extraterrestial being or an AI which is more intelligent than us. How can we know that it is more intelligent than us?</p>
+<p>What is the measure of intelligence? What if we meet with an extraterrestial being or an AI which is more intelligent than us. How can we know that it is more intelligent than us?</p>
 </div>
 <p>Definitions of different forms of AI according to <a class="bibtex reference internal" href="#russell-artificial-2014" id="id4">[RN14]</a></p>
 <ol class="simple">
-<li><p>Human like thinking: Studying how humans think and using the same methods in AI. This approach was used in early AI development but many contemporary methods differ from human thinking.</p></li>
-<li><p>Acting humanly: Computer systems trying to carry out human like conversations so that they are indistinguishable from a real person. Target ḿay be to complete Turing’s test. Humanoid robots try to mimic human behavior. Acting like human does not necessarily require machien to think like human.</p></li>
-<li><p>Rational thinking: Making correct decisions based on formal rules.</p></li>
-<li><p>Acting rationally: An artificial agent acts to achieve the best outcome or the best expected outcome in case of uncertainty.</p></li>
+<li><p><strong>Human like thinking:</strong> Studying how humans think and using the same methods in AI. This approach was used in early AI development but many contemporary methods differ from human thinking.</p></li>
+<li><p><strong>Acting humanly:</strong> Computer systems trying to carry out human like conversations so that they are indistinguishable from a real person. Target ḿay be to complete Turing’s test. Humanoid robots try to mimic human behavior. Acting like human does not necessarily require machien to think like human.</p></li>
+<li><p><strong>Rational thinking:</strong> Making correct decisions based on formal rules.</p></li>
+<li><p><strong>Acting rationally:</strong> An artificial agent acts to achieve the best outcome or the best expected outcome in case of uncertainty.</p></li>
 </ol>
 <div class="admonition-discussion-point admonition">
 <p class="admonition-title">Discussion point</p>
@@ -393,6 +401,10 @@
 <div class="admonition-discussion-point admonition">
 <p class="admonition-title">Discussion point</p>
 <p>Can an intelligent agent be meaningful without perception or actuator or neither?</p>
+</div>
+<div class="admonition-discussion-point admonition">
+<p class="admonition-title">Discussion point</p>
+<p>If two rational agents both maximize their performance measure based on their perceptions and build in information, can one be better than another?</p>
 </div>
 <p>Intelligent agents can be divided in four classes based on their cognitive abilities and level of sophistication:</p>
 <ol class="simple">
@@ -436,44 +448,45 @@
 </div>
 <div class="section" id="goal-based-agents">
 <h3>Goal based agents<a class="headerlink" href="#goal-based-agents" title="Permalink to this headline">¶</a></h3>
-<p>The goal based agents are not only reacting to the current situation but instead they plan to reach their goals. The planning usually demands a model which they can use for searching action sequences for reaching the goal. For example automated taxi searches from the</p>
+<p>The goal based agents are not only reacting to the current situation but instead they plan to reach their goals. The planning usually demands a model which they can use for searching action sequences for reaching the goal. For example autonomous taxi can find a way to the target by searching it’s model (the map) and can carry out actions (steering) to reach the goal.</p>
 <div class="figure align-center" id="fig-goalagent">
 <a class="reference internal image-reference" href="_images/goal_agents.png"><img alt="_images/goal_agents.png" src="_images/goal_agents.png" style="width: 500px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">The goal based agents can also assess the probable consequences of their actions and they are therefore capable of planning.</span><a class="headerlink" href="#fig-goalagent" title="Permalink to this image">¶</a></p>
 </div>
-<p>An automated vehicle controlled by a goal based agent could use the model of the roads in the street, and it could use it to search a path to the target location, and control the car to follow that path.</p>
 </div>
 <div class="section" id="utility-based-agents">
 <h3>Utility based agents<a class="headerlink" href="#utility-based-agents" title="Permalink to this headline">¶</a></h3>
-<p>Utility, the fitness or worth for the purpose, is an important concept in optimization. The goal of the optimization is to maximize the utility. Exactly symmetrical optimization goal is to minimize losses, since losses are negative utility and utility is negative loss. Utility based agents try to behave so that the utility gained by their actions is maximized. In other words, they try to reach their goal in an optimal way.</p>
+<p>Utility, the fitness or worth for some purposes. An action has higher utility if it is more usefull or leads to smaller losses in the given situation. The goal of the optimization is to maximize the utility. Exactly symmetrical optimization goal is to minimize losses, since losses are negative utility and utility is negative loss. Utility based agents try to behave so that the utility gained by their actions is maximized. In other words, they try to reach their goal in an optimal way.</p>
 <div class="figure align-center" id="fig-utilityagent">
 <a class="reference internal image-reference" href="_images/utility_agents.png"><img alt="_images/utility_agents.png" src="_images/utility_agents.png" style="width: 500px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">The utility agents extend the goal and model based agents by also considering the utility what is gained by reaching the goal through different action sequences.</span><a class="headerlink" href="#fig-utilityagent" title="Permalink to this image">¶</a></p>
 </div>
-<p>For example, an automated vehicle controlled by a utility based agent would try to find an optimal path from the current location to the destination. The utility could be for example the negative of time spend or fuel consumed, or a combination of both.</p>
+<p>For example, an automated vehicle controlled by a utility based agent would try to find an optimal path from the current location to the destination. The utility could be for example the negative of time spend or fuel consumed, or a combination of both. The agent may have many optional actions to take, and the utility agent selects the one which according to it’s knowledge or beliefs leads to higher utility.</p>
 </div>
 <div class="section" id="learning-agents">
 <h3>Learning agents<a class="headerlink" href="#learning-agents" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="id5">
-<h3>Utility based agents<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>Alan Turing estimated in 1950 the amount of programming needed to gain AI. According to methods of 50’s, he estimated that programming of AI which had similar capabilities than a person would take 50 years. He concludes that <em>Some more expeditious method seems desirable</em>, and proposes a learning machine <a class="bibtex reference internal" href="#turing-computing-1950" id="id5">[TUR50]</a>.</p>
+<p>In contrast to programmed AI, the learning AI learns the rules behind the actions without explicit programming. The benefits are that the agent can operate in an environment, which is initially unknown. In a long run it can also learn rules which would be very complex to program.</p>
+<p>The structure of the learning agent is consisted of the following four components, see <a class="reference internal" href="#fig-learningagent"><span class="std std-numref">Fig. 6</span></a>.</p>
+<ol class="simple">
+<li><p><em>Performance element</em> receives perceptions from the sensors and carries out actions by using actuators. This element includes the operations of the previously described agents, but here it also exhanges information with the learning element and receives suggestions from the problem generator.</p></li>
+<li><p><em>Critic element</em> observes the perceptions and uses the performance standard to assess how well the agent is performing and provides that information to the learning element.</p></li>
+<li><p><em>Learning element</em> is responsible on making improvements on the performance element according to the feedback received from the citic element.</p></li>
+<li><p><em>Problem generator</em> suggests actions leading to new and informative experiences to explore the world to find even better solutions in the long run.</p></li>
+</ol>
 <div class="figure align-center" id="fig-learningagent">
-<a class="reference internal image-reference" href="figures/learning_agents.png"><img alt="figures/learning_agents.png" src="figures/learning_agents.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text">The utility agents extend the goal and model based agents by also considering the utility what is gained by reaching the goal through different action sequences.</span><a class="headerlink" href="#fig-learningagent" title="Permalink to this image">¶</a></p>
+<a class="reference internal image-reference" href="_images/learning_agents.png"><img alt="_images/learning_agents.png" src="_images/learning_agents.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text">The learning agents extend the previous agents by adding a critic, learning and problem generator elements. The critic element provides feedback to the learning element, which updates the performance element. The learning element sets new learning goals to the problem generator, which suggest new exploratory actions to the performance element to explore unknown ares of the world.</span><a class="headerlink" href="#fig-learningagent" title="Permalink to this image">¶</a></p>
 </div>
-</div>
-<div class="section" id="hierarchical-agents">
-<h3>Hierarchical Agents<a class="headerlink" href="#hierarchical-agents" title="Permalink to this headline">¶</a></h3>
-<p>More complex systems needs intelligent actions in many different cognition levels. It is often convenient to make separate agents to take care of simple controlling and higher level agents for planning the overall operations.</p>
 <div class="admonition-discussion-point admonition">
 <p class="admonition-title">Discussion point</p>
 <p>Can any agent act meaningfully if a world is not observable at all?</p>
 </div>
+<div class="admonition-discussion-point admonition">
+<p class="admonition-title">Discussion point</p>
+<p>How would an autonomous car or vacuum cleaner would work, if it was simple reflex, model based goal based or utility based agent? How would learning change the behaviour?</p>
 </div>
 </div>
-<div class="section" id="excercises">
-<h2>Excercises<a class="headerlink" href="#excercises" title="Permalink to this headline">¶</a></h2>
-<p>fdgdfgdf</p>
 </div>
 <div class="section" id="bibliography">
 <h2>Bibliography<a class="headerlink" href="#bibliography" title="Permalink to this headline">¶</a></h2>
@@ -486,6 +499,9 @@
 </dd>
 <dt class="bibtex label" id="russell-artificial-2014"><span class="brackets">RN14</span><span class="fn-backref">(<a href="#id3">1</a>,<a href="#id4">2</a>)</span></dt>
 <dd><p>Stuart J. Russell and Peter Norvig. <em>Artificial intelligence: a modern approach</em>. Always learnin. Pearson, Harlow, 3. ed., pearson new internat. ed edition, 2014. ISBN 978-1-292-02420-2. OCLC: 931386066.</p>
+</dd>
+<dt class="bibtex label" id="turing-computing-1950"><span class="brackets"><a class="fn-backref" href="#id5">TUR50</a></span></dt>
+<dd><p>IN℡LIGENCE BY AM TURING. Computing machinery and intelligence-AM Turing. <em>Mind</em>, 59(236):433, 1950.</p>
 </dd>
 <dt class="bibtex label" id="warwick-artificial-2011"><span class="brackets"><a class="fn-backref" href="#id2">War11</a></span></dt>
 <dd><p>Kevin Warwick. <em>Artificial Intelligence: the Basics</em>. Taylor &amp; Francis Group, Florence, UNITED STATES, 2011. ISBN 978-0-203-80287-8. URL: <a class="reference external" href="http://ebookcentral.proquest.com/lib/tritonia-ebooks/detail.action?docID=958762">http://ebookcentral.proquest.com/lib/tritonia-ebooks/detail.action?docID=958762</a>.</p>
