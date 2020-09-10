@@ -174,6 +174,10 @@ What could be achieved using unsupervised methods for analyzing satellite images
 
 ## Tackling with climate changes
 
-AI can be useful for many purposes when tackling with climate change. For example the current
+AI can be useful for many purposes when tackling with climate change, as listed by National Geography, in [How artificial intelligence can tackle climate change](https://www.nationalgeographic.com/environment/2019/07/artificial-intelligence-climate-change/). The climatologists have been using AI methods in predicting 
 
 ## Spot fake networks
+
+## Write documents
+
+[A robot wrote this entire article. Are you scared yet, human?](https://www.graphic.com.gh/features/opinion/a-robot-wrote-this-entire-article-are-you-scared-yet-human.html)

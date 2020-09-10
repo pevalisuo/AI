@@ -204,6 +204,21 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#jupytext-formats-md-myst-text-representation-extension-md-format-name-myst-format-version-0-8-jupytext-version-1-4-1-dev-kernelspec-display-name-python-3-language-python-name-python3">
+   jupytext:
+formats: md:myst
+text_representation:
+extension: .md
+format_name: myst
+format_version: ‘0.8’
+jupytext_version: 1.4.1+dev
+kernelspec:
+display_name: Python 3
+language: python
+name: python3
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#knowledge-representation">
    Knowledge representation
   </a>
@@ -245,6 +260,11 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-block-diagram">
+   The block diagram
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#read-more">
    Read more
   </a>
@@ -261,6 +281,20 @@
                 
   <div class="section" id="block-diagram-of-ai">
 <h1>Block diagram of AI<a class="headerlink" href="#block-diagram-of-ai" title="Permalink to this headline">¶</a></h1>
+<hr class="docutils" />
+<div class="section" id="jupytext-formats-md-myst-text-representation-extension-md-format-name-myst-format-version-0-8-jupytext-version-1-4-1-dev-kernelspec-display-name-python-3-language-python-name-python3">
+<h2>jupytext:
+formats: md:myst
+text_representation:
+extension: .md
+format_name: myst
+format_version: ‘0.8’
+jupytext_version: 1.4.1+dev
+kernelspec:
+display_name: Python 3
+language: python
+name: python3<a class="headerlink" href="#jupytext-formats-md-myst-text-representation-extension-md-format-name-myst-format-version-0-8-jupytext-version-1-4-1-dev-kernelspec-display-name-python-3-language-python-name-python3" title="Permalink to this headline">¶</a></h2>
+</div>
 <div class="section" id="knowledge-representation">
 <h2>Knowledge representation<a class="headerlink" href="#knowledge-representation" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
@@ -342,46 +376,6 @@ then it is a seagull                (Q)
 </div>
 <div class="section" id="graphs">
 <h3>Graphs<a class="headerlink" href="#graphs" title="Permalink to this headline">¶</a></h3>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
-
-<span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">random_geometric_graph</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mf">0.125</span><span class="p">)</span>
-<span class="c1"># position is stored as node attribute data for random_geometric_graph</span>
-<span class="n">pos</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">get_node_attributes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="s1">&#39;pos&#39;</span><span class="p">)</span>
-
-<span class="c1"># find node near center (0.5,0.5)</span>
-<span class="n">dmin</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">ncenter</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">pos</span><span class="p">:</span>
-    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">pos</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
-    <span class="n">d</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
-    <span class="k">if</span> <span class="n">d</span> <span class="o">&lt;</span> <span class="n">dmin</span><span class="p">:</span>
-        <span class="n">ncenter</span> <span class="o">=</span> <span class="n">n</span>
-        <span class="n">dmin</span> <span class="o">=</span> <span class="n">d</span>
-
-<span class="c1"># color by path length from node near center</span>
-<span class="n">p</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">nx</span><span class="o">.</span><span class="n">single_source_shortest_path_length</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">ncenter</span><span class="p">))</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
-<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_edges</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">nodelist</span><span class="o">=</span><span class="p">[</span><span class="n">ncenter</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
-<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_nodes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">nodelist</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">keys</span><span class="p">()),</span>
-                       <span class="n">node_size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span>
-                       <span class="n">node_color</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">values</span><span class="p">()),</span>
-                       <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Reds_r</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">1.05</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">1.05</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/blockdiag_1_0.png" src="_images/blockdiag_1_0.png" />
-</div>
-</div>
 <p>A graph is simply a structure which has nodes (also called as vertices) which are connected to each other with edges (lines). The edges can be unidirectional (arrows) or bi-directional (lines). A graph with unidirectional edges is called as directed graph, whereas a graph containing only bi-directional edges is called undirected graph. If the graph contains cycles (or loops), it is said to be a cyclic graph. If it has no cycles, the graph is acyclic graph. If the graph contains a path between each nodes, the graph is said to be connected, otherwise it contains isolated sections and it is called disconnected.
 Acyclic connected graph is called as tree and acyclic disconnected graph as forest.</p>
 <p>Examples of different graphs are shown in Figures <a class="reference internal" href="#fig-nondiag-graph"><span class="std std-numref">Fig. 9</span></a> - <a class="reference internal" href="#fig-treegraph"><span class="std std-numref">Fig. 11</span></a>.</p>
@@ -401,17 +395,6 @@ Acyclic connected graph is called as tree and acyclic disconnected graph as fore
 <div class="figure align-center" id="fig-treegraph">
 <a class="reference internal image-reference" href="_images/graafi_DAG.svg"><img alt="_images/graafi_DAG.svg" src="_images/graafi_DAG.svg" width="300px" /></a>
 <p class="caption"><span class="caption-number">Fig. 11 </span><span class="caption-text">An example of a directed a-cyclic graph (DAG), a directed tree.</span><a class="headerlink" href="#fig-treegraph" title="Permalink to this image">¶</a></p>
-</div>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rg</span><span class="o">=</span><span class="n">nx</span><span class="o">.</span><span class="n">random_tree</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
-<span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">rg</span><span class="p">,</span> <span class="n">with_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">font_weight</span><span class="o">=</span><span class="s1">&#39;normal&#39;</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/blockdiag_3_0.png" src="_images/blockdiag_3_0.png" />
-</div>
 </div>
 <div class="section" id="graph-search-methods">
 <h4>Graph Search methods<a class="headerlink" href="#graph-search-methods" title="Permalink to this headline">¶</a></h4>
@@ -437,6 +420,13 @@ Acyclic connected graph is called as tree and acyclic disconnected graph as fore
 <li><p>Neural network</p></li>
 <li><p>Deep learning</p></li>
 </ul>
+</div>
+<div class="section" id="the-block-diagram">
+<h2>The block diagram<a class="headerlink" href="#the-block-diagram" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-center" id="fig-blockdiag-graph">
+<a class="reference internal image-reference" href="_images/BlockDiag.svg"><img alt="_images/BlockDiag.svg" src="_images/BlockDiag.svg" width="800px" /></a>
+<p class="caption"><span class="caption-number">Fig. 12 </span><span class="caption-text">The block diagram, or visual table of contents of AI. The blue underlined labels are links to the corresponding course material.</span><a class="headerlink" href="#fig-blockdiag-graph" title="Permalink to this image">¶</a></p>
+</div>
 </div>
 <div class="section" id="read-more">
 <h2>Read more<a class="headerlink" href="#read-more" title="Permalink to this headline">¶</a></h2>

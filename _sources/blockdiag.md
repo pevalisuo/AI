@@ -1,3 +1,4 @@
+# Block diagram of AI
 ---
 jupytext:
   formats: md:myst
@@ -12,8 +13,8 @@ kernelspec:
   name: python3
 ---
 
-Block diagram of AI
-====================
+
+
 
 
 ## Knowledge representation
@@ -191,6 +192,7 @@ An example of a directed a-cyclic graph (DAG), a directed tree.
 
 rg=nx.random_tree(15)
 nx.draw(rg, with_labels=True, font_weight='normal', node_color='orange', node_size=500)
+
 ```
 
 #### Graph Search methods
@@ -216,6 +218,19 @@ When planning actions using a graph, a graph search algorithm is often used.
 - Deep learning
 
 
+## The block diagram
+
+```{figure} figures/BlockDiag.svg
+---
+width: 800px
+align: center
+name: fig:blockdiag_graph
+---
+
+The block diagram, or visual table of contents of AI. The blue underlined labels are links to the corresponding course material.
+```
+
+
 ## Read more
 
 > Programming is a superpower
@@ -229,3 +244,4 @@ When planning actions using a graph, a graph search algorithm is often used.
 - Harrison  [Q-Learning introduction and Q Table - Reinforcement Learning w/ Python Tutorial p.1](https://pythonprogramming.net/q-learning-reinforcement-learning-python-tutorial/)
 
 - Harrison [Introduction - Self-driving cars with Carla and Python part 1](https://pythonprogramming.net/introduction-self-driving-autonomous-cars-carla-python/)
+
