@@ -7,3 +7,23 @@ In this section, tools needed for the implementation of AI will be introduced an
 - planning by means of graph theory
 - inference
 - machine learning
+
+## Python 
+ - Working with Jupyter notebooks (literate programming)
+ - Interaction with Python interpreter
+ - Variables, reading input, plotting output
+ - Blocks
+ - Loops
+ - Functions
+ - Plotting 
+ 
+## Overview of AI libraries to be covered 
+
+### Logical inference
+
+### Machine learning libraries (Scikit-learn)
+
+### Graph theory libraries (networkx)
+
+## Excercise: Implementation of a simple reflex agent
+

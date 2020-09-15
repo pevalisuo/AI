@@ -19,7 +19,7 @@ Contents of the course
 1. <span class="gr">Natural language processing and text mining</span>
 1. <span class="gr">Decision-making</span>
 1. Introduction to AI tools
-1. Implementing a simple intelligent agent
+1. Logical inference and uncertainties
 1. Use of AI libraries
 1. Libraries for machine learning
 1. <span class="gr">Introduction to ethical challenges of AI</span>
