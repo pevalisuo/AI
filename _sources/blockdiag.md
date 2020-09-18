@@ -1,4 +1,3 @@
-# Block diagram of AI
 ---
 jupytext:
   formats: md:myst
@@ -12,10 +11,10 @@ kernelspec:
   language: python
   name: python3
 ---
+% No need for CSS
 
-
-
-
+Block diagram of AI
+=======================
 
 ## Knowledge representation
 

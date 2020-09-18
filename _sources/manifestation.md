@@ -11,8 +11,6 @@ kernelspec:
   language: python
   name: python3
 ---
-Manifestation of AI
-==========
 
 % Some modifications to table style
 <style>
@@ -39,6 +37,8 @@ table.mytable th {
 }
 </style>
 
+Manifestation of AI
+==========
 
 
 ## Automated lawnmowers and vacuum cleaners
