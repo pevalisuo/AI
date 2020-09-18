@@ -11,10 +11,35 @@ kernelspec:
   language: python
   name: python3
 ---
-% No need for CSS
+
+% Some modifications to table style
+<style>
+table.mytable {
+  //border: 1px solid black;
+  border-collapse: collapse;
+  border-color: grey;
+}
+table.mytable td {
+  padding: 2px;
+  text-align: left;
+  height: 5px;
+  line-height: 1;
+  vertical-align: bottom;
+  border-top: 0px;
+}
+
+table.mytable th {
+  padding: 2px;
+  text-align: left;
+  height: 5px;
+  line-height: 1;
+  vertical-align: bottom;
+}
+</style>
 
 Block diagram of AI
-=======================
+==========
+
 
 ## Knowledge representation
 
@@ -23,7 +48,6 @@ Block diagram of AI
 - Frame representation: A frame is a record containing many attributes related to the real world objects. It would be an object in the object oriented language. The connections between frames can create a graph like structures.
 
 The Greek philosopher Aristotle defined a framework of rational thinking by defining logical syllogisms, the patterns for arguments which always produces correct conclusions, provided that the premises are correct. Much later, it was proposed that an artificial machine could use these kinds of logical rules and the database of premises to draw conclusions. The premises and the rules creates a logical database and a program can use it to make queries to find out if some statements are true or false. Many AI systems are made using this approach. Practical problems are that it is a lot of work to encode the complete set of premises and logical rules of a practical case into the database, and solving complex queries may need too much computational resources to be efficient. In addition the traditional logic does not support the concept of uncertainty.
-
 
 
 ### Logics database
@@ -217,7 +241,7 @@ When planning actions using a graph, a graph search algorithm is often used.
 - Deep learning
 
 
-## The block diagram
+## The block diagram of AI concepts
 
 ```{figure} figures/BlockDiag.svg
 ---
@@ -234,13 +258,11 @@ The block diagram, or visual table of contents of AI. The blue underlined labels
 
 > Programming is a superpower
 
-- Harrison  [Python programming](https://pythonprogramming.net)
-
-- [AI with Python Tutorial](https://www.tutorialspoint.com/artificial_intelligence_with_python/index.htm)
-
--  Daniele Paliotta, [Introduction to Reinforcement Learning with Python](https://stackabuse.com/introduction-to-reinforcement-learning-with-python/)
-
-- Harrison  [Q-Learning introduction and Q Table - Reinforcement Learning w/ Python Tutorial p.1](https://pythonprogramming.net/q-learning-reinforcement-learning-python-tutorial/)
-
-- Harrison [Introduction - Self-driving cars with Carla and Python part 1](https://pythonprogramming.net/introduction-self-driving-autonomous-cars-carla-python/)
+<ul>
+<li> Harrison: <a href="https://pythonprogramming.net">Python programming</a>
+<li> <a href="https://www.tutorialspoint.com/artificial_intelligence_with_python/index.htm">AI with Python Tutorial</a>
+<li> Daniele Paliotta: <a href="https://stackabuse.com/introduction-to-reinforcement-learning-with-python/">Introduction to Reinforcement Learning with Python</a>
+<li> Harrison: <a href="https://pythonprogramming.net/q-learning-reinforcement-learning-python-tutorial/">Q-Learning introduction and Q Table - Reinforcement Learning w/ Python Tutorial p.1</a>
+<li> Harrison: <a href="https://pythonprogramming.net/introduction-self-driving-autonomous-cars-carla-python/">Introduction - Self-driving cars with Carla and Python part 1</a>
+</ul>
 
