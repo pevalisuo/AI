@@ -107,8 +107,8 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="intelligent_agent.html">
-     Implementing a simple intelligent agent
+    <a class="reference internal" href="inference.html">
+     Logical inference and uncertainties
     </a>
    </li>
    <li class="toctree-l2">
@@ -245,6 +245,11 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-block-diagram-of-ai-concepts">
+   The block diagram of AI concepts
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#read-more">
    Read more
   </a>
@@ -259,7 +264,30 @@
         
               <div>
                 
-  <div class="section" id="block-diagram-of-ai">
+  <style>
+table.mytable {
+  //border: 1px solid black;
+  border-collapse: collapse;
+  border-color: grey;
+}
+table.mytable td {
+  padding: 2px;
+  text-align: left;
+  height: 5px;
+  line-height: 1;
+  vertical-align: bottom;
+  border-top: 0px;
+}
+
+table.mytable th {
+  padding: 2px;
+  text-align: left;
+  height: 5px;
+  line-height: 1;
+  vertical-align: bottom;
+}
+</style>
+<div class="section" id="block-diagram-of-ai">
 <h1>Block diagram of AI<a class="headerlink" href="#block-diagram-of-ai" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="knowledge-representation">
 <h2>Knowledge representation<a class="headerlink" href="#knowledge-representation" title="Permalink to this headline">¶</a></h2>
@@ -387,7 +415,7 @@ Acyclic connected graph is called as tree and acyclic disconnected graph as fore
 <p>Examples of different graphs are shown in Figures <a class="reference internal" href="#fig-nondiag-graph"><span class="std std-numref">Fig. 9</span></a> - <a class="reference internal" href="#fig-treegraph"><span class="std std-numref">Fig. 11</span></a>.</p>
 <p>Mathematically, a graph <span class="math notranslate nohighlight">\(G\)</span> is expressed as a set of Edges <span class="math notranslate nohighlight">\(E\)</span> and vertices <span class="math notranslate nohighlight">\(V\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-eq-graph">
-<span class="eqno">(6)<a class="headerlink" href="#equation-eq-graph" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(3)<a class="headerlink" href="#equation-eq-graph" title="Permalink to this equation">¶</a></span>\[
   G=(V,E)
 \]</div>
 <div class="figure align-center" id="fig-nondiag-graph">
@@ -438,19 +466,25 @@ Acyclic connected graph is called as tree and acyclic disconnected graph as fore
 <li><p>Deep learning</p></li>
 </ul>
 </div>
+<div class="section" id="the-block-diagram-of-ai-concepts">
+<h2>The block diagram of AI concepts<a class="headerlink" href="#the-block-diagram-of-ai-concepts" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-center" id="fig-blockdiag-graph">
+<a class="reference internal image-reference" href="_images/BlockDiag.svg"><img alt="_images/BlockDiag.svg" src="_images/BlockDiag.svg" width="800px" /></a>
+<p class="caption"><span class="caption-number">Fig. 12 </span><span class="caption-text">The block diagram, or visual table of contents of AI. The blue underlined labels are links to the corresponding course material.</span><a class="headerlink" href="#fig-blockdiag-graph" title="Permalink to this image">¶</a></p>
+</div>
+</div>
 <div class="section" id="read-more">
 <h2>Read more<a class="headerlink" href="#read-more" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><p>Programming is a superpower</p>
 </div></blockquote>
-<ul class="simple">
-<li><p>Harrison  <a class="reference external" href="https://pythonprogramming.net">Python programming</a></p></li>
-<li><p><a class="reference external" href="https://www.tutorialspoint.com/artificial_intelligence_with_python/index.htm">AI with Python Tutorial</a></p></li>
-<li><p>Daniele Paliotta, <a class="reference external" href="https://stackabuse.com/introduction-to-reinforcement-learning-with-python/">Introduction to Reinforcement Learning with Python</a></p></li>
-<li><p>Harrison  <a class="reference external" href="https://pythonprogramming.net/q-learning-reinforcement-learning-python-tutorial/">Q-Learning introduction and Q Table - Reinforcement Learning w/ Python Tutorial p.1</a></p></li>
-<li><p>Harrison <a class="reference external" href="https://pythonprogramming.net/introduction-self-driving-autonomous-cars-carla-python/">Introduction - Self-driving cars with Carla and Python part 1</a></p></li>
-</ul>
-</div>
+<ul>
+<li> Harrison: <a href="https://pythonprogramming.net">Python programming</a>
+<li> <a href="https://www.tutorialspoint.com/artificial_intelligence_with_python/index.htm">AI with Python Tutorial</a>
+<li> Daniele Paliotta: <a href="https://stackabuse.com/introduction-to-reinforcement-learning-with-python/">Introduction to Reinforcement Learning with Python</a>
+<li> Harrison: <a href="https://pythonprogramming.net/q-learning-reinforcement-learning-python-tutorial/">Q-Learning introduction and Q Table - Reinforcement Learning w/ Python Tutorial p.1</a>
+<li> Harrison: <a href="https://pythonprogramming.net/introduction-self-driving-autonomous-cars-carla-python/">Introduction - Self-driving cars with Carla and Python part 1</a>
+</ul></div>
 </div>
 
     <script type="text/x-thebe-config">

@@ -5,7 +5,7 @@
     - file: manifestation
     - file: blockdiag
     - file: aitools
-    - file: intelligent_agent
+    - file: inference
     - file: ailibraries
     - file: machinelearninglibraries
     - file: bibliography

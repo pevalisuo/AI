@@ -107,8 +107,8 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="intelligent_agent.html">
-     Implementing a simple intelligent agent
+    <a class="reference internal" href="inference.html">
+     Logical inference and uncertainties
     </a>
    </li>
    <li class="toctree-l2">
@@ -417,13 +417,13 @@ and consider, how did Deckard studied if Rachel is a replicant or a human? Why i
 <h3>Simple reflex agents<a class="headerlink" href="#simple-reflex-agents" title="Permalink to this headline">¶</a></h3>
 <p>These agents are reactive systems, which perform simple actions based on their perception and/or internal state. One example of really simple agent of this kind is a motion sensor based outdoor light controller. It’s operation can be described for example using the following simple rules:</p>
 <div class="math notranslate nohighlight" id="equation-eq-reflexagent">
-<span class="eqno">(4)<a class="headerlink" href="#equation-eq-reflexagent" title="Permalink to this equation">¶</a></span>\[\begin{split}
+<span class="eqno">(1)<a class="headerlink" href="#equation-eq-reflexagent" title="Permalink to this equation">¶</a></span>\[\begin{split}
   \mbox{Light} = \begin{cases}
     1, &amp; \mbox{if (dark AND movement_observed)} \\
     0, &amp; \mbox{otherwise }
   \end{cases}
 \end{split}\]</div>
-<p>The <a class="reference internal" href="#equation-eq-reflexagent">(4)</a> describes a simple logical rule to combine two input variables to make a decision for taking an action. In general the decision system can be arbitrary complex and include also many other inference methods than logics.</p>
+<p>The <a class="reference internal" href="#equation-eq-reflexagent">(1)</a> describes a simple logical rule to combine two input variables to make a decision for taking an action. In general the decision system can be arbitrary complex and include also many other inference methods than logics.</p>
 <div class="figure align-center" id="fig-reflexagent">
 <a class="reference internal image-reference" href="_images/reflex_agents.png"><img alt="_images/reflex_agents.png" src="_images/reflex_agents.png" style="width: 500px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">The simple reflex agent makes its decisions based only on the perceptions and decision rules.</span><a class="headerlink" href="#fig-reflexagent" title="Permalink to this image">¶</a></p>
@@ -436,7 +436,7 @@ and consider, how did Deckard studied if Rachel is a replicant or a human? Why i
 <p>In addition to perception and actuators, the model based agent uses a model which describes some necessary behavior of the world. By using the model the agent “understands” something about how the world behaves, and can make predictions on how the actions changes the world. If the world is only partially observable, the agent can build a model which covers also the concealed information.</p>
 <p>For example the collision avoidance system of an autonomous car can predict that even though the cars are still far away from each other, a collision is happening after a certain time, because the velocity of the car in front drives slower. The time to the collision can be estimated using physics:</p>
 <div class="math notranslate nohighlight" id="equation-eq-modelagent">
-<span class="eqno">(5)<a class="headerlink" href="#equation-eq-modelagent" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(2)<a class="headerlink" href="#equation-eq-modelagent" title="Permalink to this equation">¶</a></span>\[
    t = \frac{\Delta s}{v_s - v_o}
 \]</div>
 <p>In this case, the agent needs to perceive the distance between cars using a radar, for example and its own speed by GPS. It uses it’s own physical model to estimate the time for collision, and may decide to apply necessary breaking force by activating breaks. The agent would probably need some model of Newton mechanics to estimate the effect of the breaking force to the car speed.</p>
@@ -493,9 +493,6 @@ and consider, how did Deckard studied if Rachel is a replicant or a human? Why i
 <p id="bibtex-bibliography-concepts-0"><dl class="citation">
 <dt class="bibtex label" id="harari-homo-2017"><span class="brackets"><a class="fn-backref" href="#id1">Har17</a></span></dt>
 <dd><p>Yuval Noaḥ Harari. <em>Homo Deus: a brief history of tomorrow</em>. Vintage, London, revised edition edition, 2017. ISBN 978-1-78470-393-6. OCLC: 982133945.</p>
-</dd>
-<dt class="bibtex label" id="heaton-ian-2018"><span class="brackets">Hea18</span></dt>
-<dd><p>Jeff Heaton. Ian Goodfellow, Yoshua Bengio, and Aaron Courville: Deep learning. <em>Genetic Programming and Evolvable Machines</em>, 19(1):305–307, June 2018. URL: <a class="reference external" href="https://doi.org/10.1007/s10710-017-9314-z">https://doi.org/10.1007/s10710-017-9314-z</a>, <a class="reference external" href="https://doi.org/10.1007/s10710-017-9314-z">doi:10.1007/s10710-017-9314-z</a>.</p>
 </dd>
 <dt class="bibtex label" id="russell-artificial-2014"><span class="brackets">RN14</span><span class="fn-backref">(<a href="#id3">1</a>,<a href="#id4">2</a>)</span></dt>
 <dd><p>Stuart J. Russell and Peter Norvig. <em>Artificial intelligence: a modern approach</em>. Always learnin. Pearson, Harlow, 3. ed., pearson new internat. ed edition, 2014. ISBN 978-1-292-02420-2. OCLC: 931386066.</p>
