@@ -151,7 +151,7 @@ class UtilityGraph(object):
         
     def plot(self):
         pos=nx.get_node_attributes(self.G,'pos') 
-        nx.draw_networkx(self.G, with_label = True, pos=pos)
+        nx.draw_networkx(self.G, with_labels = True, pos=pos)
         labels = nx.get_edge_attributes(self.G,'weight')
         nx.draw_networkx_edge_labels(self.G,pos,edge_labels=labels)
         
