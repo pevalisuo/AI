@@ -90,7 +90,7 @@ $$
 \end{eqnarray}
 $$
 
-The inference shown above can be made from the KB using propositional logics, for example a method called resolution. Logical inference follows
+The inference shown above can be made from the KB using propositional logics, for example a method called [resolution](https://en.wikipedia.org/wiki/Resolution_(logic)). Using resolution, the validity of a sentence under a set of axioms can be proven. This means that the by logical inference, the system can proof if the observations match to the hypothesis, that the bird was seagull or not.
 
 The knowledge database above can be used in both directions.
 
@@ -217,6 +217,75 @@ rg=nx.random_tree(15)
 nx.draw(rg, with_labels=True, font_weight='normal', node_color='orange', node_size=500)
 
 ```
+
+### Knowledge database as a graph
+
+```{figure} figures/holmes.svg
+---
+width: 300px
+align: center
+name: fig:holmes
+---
+
+Holmes problem: Infer the probability of hypothesis H (burglary) in case of unreliable evidence G and W, through an evidence S.
+```
+
+Example: Mr Holmes receives a phonecall from Dr Watson who claimes that heard the burglar alarm from Mr Holmes home. Holmes knows that Mr Watson can be making practical jokes sometimes, so he will first call to his another neighbour Mrs Gibbon, to ask if she has also heard the alarm. Mrs Gibbon has however a small hearing problem and bad memory, so this evidence is not perfectly reliable as well. What is the probability that there is actually a burglary in Mr Holmes home?
+
+Represeting the data of unreliable evidence as a graph is rather natural for humans, according to Pearl.
+The uncertainties can be expressed as probabilities, and inference can be made using probabilistic reasoning with the help of Bayes rule. One form of this probabilistic reasoning are the Bayesian Networks.
+
+The probability of the burglary alarm to observe the burglary, and play the sound is given by conditional probability:
+
+$$
+  P(S | B) = \frac{P(S,B)}{P(B)},
+$$
+
+where $P(S,B)$ is the probability of both burglary and alarm sound to happen at the same time, and the p(B) is the probability of the burglary in general, so called *a-priori* or prior probability. 
+
+The probability of the burglary (B) in case of alarm sound (S) can be given respectively
+
+$$
+  P(B | S) = \frac{P(B,S)}{P(S)},
+$$
+where $P(B,S) = P(S,B)$ and $P(S)$ is the probability of the alarm sound to happen in general. 
+The famous Bayes inversion rule can be used as follows:
+
+$$
+  P(B | S) = \frac{P(S|B) P(B)}{P(S)}
+$$
+
+This formula is particularly interesting, since it provides a method for updating the probability of the hypothesis (Burglary, B) when finding out new evidence (Alarm sound, S).
+
+It may be interesting to compare the probability of the hypothesis to the probability of the complement, the probability of that event not happening. Mathematically it would mean:
+
+$$
+   \frac{P(H|e)}{P(\neg H|e)} = \frac{P(e|H}{P(e | \neg H)} \frac{P(H)}{P(\neg H)}
+$$
+
+Defining prior odds as:
+
+$$
+   O(H) = \frac{P(H)}{P(\neg H)} = \frac{P(H)}{1-P(H)}
+$$
+
+and likelihood ratio
+
+$$
+   L(e|H) = \frac{P(e|H)}{P(e|\neg H)}
+$$
+
+the posterior odds
+
+$$
+   O(H|e) = \frac{P(H|e)}{P(\neg H | e)} = L(e|H) O(H)
+$$
+
+Thus the strength of belief in hypothesis H, based on the previous knoledge and new evidence e, is given by the product of the likelihood ratio $L(e|H)$ and prior odds $O(H)$. The prior odd $O(H)$ provides predictive support by the previous knowledge alone and the likelihood ratio $L(e|H)$ provides diagnostive support, based on new evidence observed.
+
+By using this formula, it is possible to chain the calculation of hypotheses to make the final conclusion. The solution for the Bayesian network as a whole is still rather comples, but there are algorithms which can solve it in polynomial time. 
+
+
 
 #### Graph Search methods
 
