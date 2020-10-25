@@ -248,14 +248,26 @@
        Recursive breadth first solution
       </a>
      </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solution-using-networkx-graph-library">
+     Solution using Networkx graph library
+    </a>
+    <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#solution-using-networkx-graph-library">
-       Solution using Networkx graph library
+      <a class="reference internal nav-link" href="#encoding-the-information">
+       Encoding the information
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#networkx-library">
-       Networkx library
+      <a class="reference internal nav-link" href="#asking-questions-from-the-graph">
+       Asking questions from the graph
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#a-algorithm">
+       A* algorithm
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
@@ -420,7 +432,7 @@ The neighbors are
 </div>
 <div class="section" id="how-to-search-the-path">
 <h4>How to search the path<a class="headerlink" href="#how-to-search-the-path" title="Permalink to this headline">¶</a></h4>
-<p>Both depth first and bredth first algorithms are possible. In depth first search, it is easier to keep the current search path in the memory. In depth first search, all parallel paths needs to be kept in memory at the same time, which requires more complex data structure and more memory. This is an example of depth first search algorithm:</p>
+<p>Both depth first and bredth first algorithms are possible. In depth first search, it is easier to keep the current search path in the memory. In breadth first search, all parallel paths needs to be kept in memory at the same time, which requires more complex data structure and more memory. An example of depth first search algorithm is the following:</p>
 <p>Start from the starting node, and repeat following phases until target is found:</p>
 <ul class="simple">
 <li><p>If there is still unvisited neighbour cities left:</p>
@@ -429,7 +441,7 @@ The neighbors are
 <li><p>Enter into that neighbour and continue</p></li>
 </ul>
 </li>
-<li><p>If there is no more unvisited neighbour cities</p>
+<li><p>If there is no more unvisited neighbour cities under current path</p>
 <ul>
 <li><p>remove the latest city from the stack</p></li>
 <li><p>come backwards to the previous city and continue</p></li>
@@ -449,11 +461,13 @@ The neighbors are
 </div>
 <div class="section" id="this-depth-first-implemenation-is-below">
 <h4>This depth first implemenation is below<a class="headerlink" href="#this-depth-first-implemenation-is-below" title="Permalink to this headline">¶</a></h4>
+<p>For the following implementation, stack (LIFO) and FIFO data-structures are needed. They are shown in the following Figure. In python, a normal list can be used as FIFO or Stack data structure. In both cases new entries are inserted in the end of the list, using <code class="docutils literal notranslate"><span class="pre">append()</span></code> or <code class="docutils literal notranslate"><span class="pre">push()</span></code> -functions. When the list is used as a stack, the sample inserted last, is popped out, using <code class="docutils literal notranslate"><span class="pre">pop()</span></code> command, and when the list is used as LIFO, the first value in the list is popped out with <code class="docutils literal notranslate"><span class="pre">pop(0)</span></code> -function call.</p>
+<p><img alt="FIFO and LIFO" src="_images/FIFOandLIFO.svg" /></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
 <span class="c1"># Stack of town within the path</span>
-<span class="n">stack</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">path_stack</span> <span class="o">=</span> <span class="p">[]</span>
 
 <span class="c1"># Queue of unhandled towns, and the depth</span>
 <span class="n">queue</span> <span class="o">=</span> <span class="p">[(</span><span class="n">vaasa</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)]</span>
@@ -469,14 +483,14 @@ The neighbors are
     <span class="c1"># If the current_node is deeper than previous, insert the new node in the stack</span>
     <span class="c1"># Insert also the distance from the previous node</span>
     <span class="k">if</span> <span class="n">new_depth</span><span class="o">&gt;</span><span class="n">depth</span><span class="p">:</span>
-        <span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">current_node</span><span class="p">,</span> <span class="n">d</span><span class="p">))</span>
+        <span class="n">path_stack</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">current_node</span><span class="p">,</span> <span class="n">d</span><span class="p">))</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="c1"># If the solution was not found, and the algorithms is coming back</span>
         <span class="c1"># then the previous entries needs to be popped out from stack,</span>
         <span class="c1"># and the current node inserted instead</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">depth</span><span class="o">-</span><span class="n">new_depth</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
-            <span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
-        <span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">current_node</span><span class="p">,</span><span class="n">d</span><span class="p">))</span>
+            <span class="n">path_stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+        <span class="n">path_stack</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">current_node</span><span class="p">,</span><span class="n">d</span><span class="p">))</span>
         
     <span class="c1"># update the current depth</span>
     <span class="n">depth</span><span class="o">=</span><span class="n">new_depth</span>
@@ -493,7 +507,7 @@ The neighbors are
  
 <span class="c1"># Print the result</span>
 <span class="n">distance</span><span class="o">=</span><span class="mi">0</span>
-<span class="k">for</span> <span class="n">node</span><span class="p">,</span><span class="n">d</span>  <span class="ow">in</span> <span class="n">stack</span><span class="p">:</span>
+<span class="k">for</span> <span class="n">node</span><span class="p">,</span><span class="n">d</span>  <span class="ow">in</span> <span class="n">path_stack</span><span class="p">:</span>
     <span class="n">distance</span><span class="o">=</span><span class="n">distance</span><span class="o">+</span><span class="n">d</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%10s</span><span class="s2"> : </span><span class="si">%4d</span><span class="s2"> km&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">distance</span><span class="p">))</span>
 </pre></div>
@@ -629,10 +643,22 @@ Lappajärvi :  115 km
 </div>
 </div>
 </div>
+</div>
 <div class="section" id="solution-using-networkx-graph-library">
-<h4>Solution using Networkx graph library<a class="headerlink" href="#solution-using-networkx-graph-library" title="Permalink to this headline">¶</a></h4>
-<p>The previous implementations have shown you what approaches can be used to implement graph searching. But there are also many libraries with ready made implementations of various graph search algorithms. <a class="reference external" href="https://networkx.org/">Networkx</a> is one of the most often used libraries in Python.</p>
-<p>I have collected some additional information about the towns between Vaasa and Vimpleli, for example the coordinates of the towns, which can be used for calculating the direct line distances between them, which can be used for informed search by defining a heuristic function for guiding the graph search for most promising directions. For that purpose the following function which calculates the coordinates of the towns based on their longitudes and latitudes.</p>
+<h3>Solution using Networkx graph library<a class="headerlink" href="#solution-using-networkx-graph-library" title="Permalink to this headline">¶</a></h3>
+<p>The previous implementations have shown approaches for implementing graph searching. But there are also many libraries with ready made implementations of various graph search algorithms. <a class="reference external" href="https://networkx.org/">Networkx</a> is one of the most often used graph libraries in Python.</p>
+<p>I have collected some additional information about the towns between Vaasa and Vimpeli, for example the coordinates of the towns, which can be used for calculating the direct line distances between them to define a heuristic function for guiding the graph search for most promising directions.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  Name      Northing      Easting
+0 Akaa      61.167145977  23.865888764
+1 Alajärvi  63.001273254  23.817522812
+2 Alavieska 64.166646246  24.307213479
+3 Alavus    62.586161997  23.616600589
+4 Asikkala  61.172512361  25.549142484
+5 Askola    60.530210718  25.598880612
+...
+</pre></div>
+</div>
+<p>The following function calculates the coordinates of the towns based on their longitudes and latitudes.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># This code calculates the coordinates of the towns. It is only needed for nice plotting</span>
@@ -671,9 +697,8 @@ Lappajärvi :  115 km
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="networkx-library">
-<h4>Networkx library<a class="headerlink" href="#networkx-library" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="encoding-the-information">
+<h4>Encoding the information<a class="headerlink" href="#encoding-the-information" title="Permalink to this headline">¶</a></h4>
 <p>The biggest work when using the  Networkx all other similar libraries, is to encode the information for the library. In the code below, the libraries are first imported into the workspace, and empty graph is created.</p>
 <p>Then the nodes are added from the list of towns using for-loop. The coordinates of the towns are added in each node (the pos attribute) to be able to plot the graph in actual scale.</p>
 <p>The roads between the towns are added as edges. The lengths of the roads are added as weigths of edges.</p>
@@ -739,6 +764,9 @@ Lappajärvi :  115 km
 <img alt="_images/aitools_13_1.png" src="_images/aitools_13_1.png" />
 </div>
 </div>
+</div>
+<div class="section" id="asking-questions-from-the-graph">
+<h4>Asking questions from the graph<a class="headerlink" href="#asking-questions-from-the-graph" title="Permalink to this headline">¶</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">M</span><span class="o">.</span><span class="n">neighbors</span><span class="p">(</span><span class="s1">&#39;Kauhava&#39;</span><span class="p">))</span>
@@ -778,6 +806,9 @@ Lappajärvi :  115 km
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="a-algorithm">
+<h4>A* algorithm<a class="headerlink" href="#a-algorithm" title="Permalink to this headline">¶</a></h4>
 <p>More optimal path minimizing the weights can be found using A* algorithm. If no heuristic function is given, the algorith is using <a class="reference external" href="https://www.geeksforgeeks.org/dijkstras-shortest-path-algorithm-greedy-algo-7/">Dijkstra’s algorithm</a>. It finds an optimal path, but it may be slow for very large graphs, because Dijkstra’s algorith is uninformed search algorithm.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -887,7 +918,7 @@ Shortest distance : 138 km
  1.0484658821980686)
 </pre></div>
 </div>
-<img alt="_images/aitools_25_1.png" src="_images/aitools_25_1.png" />
+<img alt="_images/aitools_26_1.png" src="_images/aitools_26_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -899,8 +930,8 @@ Shortest distance : 138 km
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Shortest path     : [1, 88, 292, 38, 283, 307, 24, 363, 324, 359, 20]
-CPU times: user 8.93 ms, sys: 352 µs, total: 9.28 ms
-Wall time: 9.15 ms
+CPU times: user 8.71 ms, sys: 263 µs, total: 8.98 ms
+Wall time: 8.92 ms
 Shortest distance : 10 steps
 </pre></div>
 </div>
@@ -911,17 +942,18 @@ Shortest distance : 10 steps
 </div>
 <div class="section" id="intelligent-navigation-agent">
 <h2>Intelligent navigation agent<a class="headerlink" href="#intelligent-navigation-agent" title="Permalink to this headline">¶</a></h2>
-<p>The intelligent navigation agent can perceive it’s current location using GPS or other Global Navigation Satellite System (GNNS) and the target location is included in the state, set by the user. The map, in the form of a graph, show below, is the data model or knowledge database.</p>
+<p>The intelligent navigation agent can perceive it’s current location using GPS or other Global Navigation Satellite System (GNSS) and the target location is included in the state, set by the user. The map, in the form of a graph, shown above, is the data model and knowledge database for an agent.</p>
 <ul class="simple">
 <li><p>An agent making uninformed search and selecting the first path found is a goal based agent. It can find a route to the target, but does not optimize utility</p></li>
-<li><p>An agent using weights and A* finds an optimal path, which maximizes the utility. This kind of agent would be a utility based agent.</p></li>
-<li><p>Some navigation systems monitor the time taken for drivers taking different paths, and they can update the weights based on what they have learned. Google navigator can for example observe traffic jams, and optimize the routes based on the real time traffic information. These kinds of agent would be a learning navigation agent.</p></li>
+<li><p>An agent using weights and A* finds an optimal path, trying to maximize the utility. This kind of agent would be a utility based agent.</p></li>
+<li><p>Some navigation systems monitor the true time taken for drivers on different paths, and they can update the weights based on their observations. Google navigator, for example, can observe traffic jams, and optimize the routes based on the real time traffic information. These kinds of agents are called as learning navigation agents.</p></li>
 </ul>
-<p>The strategies shown above can be utilized also for many other purposes, such as solving the 8-puzzle or playing chess. All pussible moves taken in each turn spans a graph, which can become very large. It this case, the whole graph of all possible solutions cannot be pre-stored in the memory, but expanned step by step as necessary, guided by the heuristic function.</p>
+<p>The strategies shown above can be utilized also for many other purposes, such as solving the 8-puzzle or playing chess. All possible moves taken in each turn spans a graph, which can become very large,  in which case, the whole graph of all possible solutions cannot be pre-stored in the memory, but expanded step by step as necessary, guided by the heuristic function.</p>
 </div>
 <div class="section" id="summary">
 <h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
-<p>IN this module the methods for searching data and paths from graph and using graph library has been covered. You are expected to learn the following things:</p>
+<p>In this module the methods for searching data and paths from graph and using graph library has been covered.
+The learning outcomes of the module:</p>
 <ul class="simple">
 <li><p>How the data is encoded as data structures in programs</p></li>
 <li><p>Some implementation strategies for breadth first, depth first and A* searches</p></li>
