@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Introduction to AI tools &#8212; Artificial intelligence, Concepts, Challenges, and Opportunities</title>
+    <title>AI-Tools: Graph search &#8212; Artificial intelligence, Concepts, Challenges, and Opportunities</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="_static/sphinx-book-theme.css" type="text/css" />
@@ -103,7 +103,7 @@
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Introduction to AI tools
+     AI-Tools: Graph search
     </a>
    </li>
    <li class="toctree-l2">
@@ -175,9 +175,9 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/aitools.md"><button type="button"
+        <a class="dropdown-buttons" href="_sources/aitools.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
+                data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -204,35 +204,77 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#python">
-   Python
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#overview-of-ai-libraries-to-be-covered">
-   Overview of AI libraries to be covered
+  <a class="reference internal nav-link" href="#finding-a-way-between-towns">
+   Finding a way between towns
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#logical-inference">
-     Logical inference
+    <a class="reference internal nav-link" href="#navigation-algorithm-for-a-human-being">
+     Navigation algorithm for a human being
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#machine-learning-libraries-scikit-learn">
-     Machine learning libraries (Scikit-learn)
+    <a class="reference internal nav-link" href="#navigation-algorithm-for-a-computer">
+     Navigation algorithm for a computer
     </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#graph-theory-libraries-networkx">
-     Graph theory libraries (networkx)
-    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#representing-knowledge">
+       Representing knowledge
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#how-to-encode-this-graph-for-a-computer">
+       How to encode this graph for a computer?
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#how-to-search-the-path">
+       How to search the path
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#this-depth-first-implemenation-is-below">
+       This depth first implemenation is below
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#recursive-solution">
+       Recursive solution
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#recursive-breadth-first-solution">
+       Recursive breadth first solution
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#solution-using-networkx-graph-library">
+       Solution using Networkx graph library
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#networkx-library">
+       Networkx library
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#more-complex-example">
+       More complex example
+      </a>
+     </li>
+    </ul>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#excercise-implementation-of-a-simple-reflex-agent">
-   Excercise: Implementation of a simple reflex agent
+  <a class="reference internal nav-link" href="#intelligent-navigation-agent">
+   Intelligent navigation agent
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   Summary
   </a>
  </li>
 </ul>
@@ -245,41 +287,649 @@
         
               <div>
                 
-  <div class="section" id="introduction-to-ai-tools">
-<h1>Introduction to AI tools<a class="headerlink" href="#introduction-to-ai-tools" title="Permalink to this headline">¶</a></h1>
-<p>In this section, tools needed for the implementation of AI will be introduced and several AI problems will be solved with simple programming activities. Examples covers</p>
+  <div class="section" id="ai-tools-graph-search">
+<h1>AI-Tools: Graph search<a class="headerlink" href="#ai-tools-graph-search" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="finding-a-way-between-towns">
+<h2>Finding a way between towns<a class="headerlink" href="#finding-a-way-between-towns" title="Permalink to this headline">¶</a></h2>
+<p>To actually solve the navigation problem, two things are needed:</p>
+<ol class="simple">
+<li><p>Knowledge and</p></li>
+<li><p>Algorithm</p></li>
+</ol>
+<p>For human beings, a map is the model of the World, which include the knowledge needed for navigation. The ment for navigation shows the location of the cities and the roads connecting them. The map is printed in scale, and therefore the distances between the cities can be measured from the map.</p>
+<p><img alt="Kartta" src="_images/Kartta.png" /></p>
+<p>A human navigator have learned how to use this data model for finding the best routes, estimate the distances, and selecting optimal roads. We are so used to using maps (at least we were before starting to use computers for navigation) that we hardly think that we are carrying out a navigation algorithm in our heads when selecting the optimal roads. To be able to implement an artificial agent for navigation, it is usefull to think how a humang agent works, and then try to implement it with a computer. How would you explain how you navigate?</p>
+<div class="section" id="navigation-algorithm-for-a-human-being">
+<h3>Navigation algorithm for a human being<a class="headerlink" href="#navigation-algorithm-for-a-human-being" title="Permalink to this headline">¶</a></h3>
+<p>This is an example of a simple navigation algorithm for a human being who tries to navigate through completely strange area:</p>
+<ol class="simple">
+<li><p>First indentify your current location on the map by browsing through all names in the map until you find a location where you currently are.</p></li>
+<li><p>Then identify your target location on the map by browsing through all names in the map until you find a location where you are aiming at.</p></li>
+<li><p>Follow the road starting from the source location which is leading closest to the direction of the the target location.</p></li>
+<li><p>Drive forward</p></li>
+<li><p>If you reach a crossing, choose the road which is best directed towards the target city.</p></li>
+<li><p>Stop if you reach the target city, otherwise go back to stage 4</p></li>
+</ol>
+<p>This algorithm is some sort of greedy algorithm (informed search), since it uses information about the direction of the roads when selecting from many different options.</p>
+<p>In reality a person would probably use more complex algorithm, it is for example more optimal to follow bigger main roads than to turn a smaller road just because it is momentarily leading closer to the right direction than the main road. The map also contains the data of actual distances, which is also often used by human navigator to plan ahead an optimal route.</p>
+<p>It seems that the good implementation of the navigation is indeed dependent on the available knowledge, knowledge presentation and an algortithm.</p>
+</div>
+<div class="section" id="navigation-algorithm-for-a-computer">
+<h3>Navigation algorithm for a computer<a class="headerlink" href="#navigation-algorithm-for-a-computer" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="representing-knowledge">
+<h4>Representing knowledge<a class="headerlink" href="#representing-knowledge" title="Permalink to this headline">¶</a></h4>
+<p>Maps are useful to both computers and human beings, they just need to be presented in totally different form for computer.</p>
+<p>For computer to understand, knowledge has to be stored in the memory. Since the memory of a computer is just a huge array of memory locations, some sort of framework for organizing the data in the memory is necessary. This kind of framework or ontology describing what data is stored in which location, what the data means and how it can be accesses, is called as a data structure.</p>
+<p>A simplest data structure is a variable:</p>
+<p><code class="docutils literal notranslate"><span class="pre">x=2</span></code></p>
+<p>The command above tells computer to reserve a location in a memory, store an integer 2 into it and call the memory location with a symbolic name <code class="docutils literal notranslate"><span class="pre">x</span></code>. When the data is needed in the future, the computer just reads the memory location which name is <code class="docutils literal notranslate"><span class="pre">x</span></code> to be able to use the value, and it can also write a new value to the same location.</p>
+<p>A slightly more complex data structure would be the list of names of the locations:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="n">towns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Vaasa&#39;</span><span class="p">,</span> <span class="s1">&#39;Seinäjoki&#39;</span><span class="p">,</span> <span class="s1">&#39;Vimpeli&#39;</span><span class="p">,</span> <span class="s1">&#39;Ylistaro&#39;</span><span class="p">,</span> <span class="s1">&#39;Lapua&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>This time, the computer reserves memory for three strings, and calls the memory location with a same <code class="docutils literal notranslate"><span class="pre">towns</span></code>. The name of the second town in the list of towns can be easily read or written.</p>
+<p>A road between towns can be stored as a triplet of (source town, destination town, and a distance), for example:
+<code class="docutils literal notranslate"><span class="pre">('Vaasa',</span> <span class="pre">'Laihia',</span> <span class="pre">26)</span></code></p>
+<p>It would mean that there is a road between Vaasa to Laihia, and obviously from Laihia to Vaasa, and it’s lenght is 26 km.</p>
+<p>This data structure would not be very efficient, since it would require searching through the full list of towns for every branch in every crossroads.</p>
+<p>A map can be more efficiently described as a graph:</p>
+<p><img alt="Simplegraph" src="_images/mapgraph.svg" /></p>
+<p>In the graph above, the nodes are the towns or municipalities, and the edges are the main roads connecting the towns together. The weights on the edges describes the distances between the towns.</p>
+<p>The graph above describes both the topology and the quantitative data needed for a computer for searching the route. What would be a good algorithm to search the map above? Both Breadth first search and depth first search would efficiently find the path.</p>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question?</p>
+<p>In which order breadth first and depth first searches would list the paths. Which one would probably find a better path, or is there any difference?</p>
+</div>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question?</p>
+<p>What would be obstacles for both methods, and how they could be overcome?</p>
+</div>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question?</p>
+<p>What would be appropriate heuristic function in the A* search, and how does that help?</p>
+</div>
+</div>
+<div class="section" id="how-to-encode-this-graph-for-a-computer">
+<h4>How to encode this graph for a computer?<a class="headerlink" href="#how-to-encode-this-graph-for-a-computer" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># A template for all nodes (actually a class)</span>
+<span class="k">class</span> <span class="nc">Node</span><span class="p">:</span>
+    <span class="n">name</span><span class="o">=</span><span class="s1">&#39;&#39;</span>
+    <span class="n">neighbors</span><span class="o">=</span><span class="p">[]</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="o">=</span><span class="n">name</span>
+
+<span class="c1"># Implement all nodes based on the Node class (template)</span>
+<span class="c1"># The instances of the template are called as objects</span>
+<span class="n">vaasa</span><span class="o">=</span><span class="n">Node</span><span class="p">(</span><span class="s1">&#39;Vaasa&#39;</span><span class="p">)</span>
+<span class="n">laihia</span><span class="o">=</span><span class="n">Node</span><span class="p">(</span><span class="s1">&#39;Laihia&#39;</span><span class="p">)</span>
+<span class="n">voyri</span><span class="o">=</span><span class="n">Node</span><span class="p">(</span><span class="s1">&#39;Vöyri&#39;</span><span class="p">)</span>
+<span class="n">ilmajoki</span><span class="o">=</span><span class="n">Node</span><span class="p">(</span><span class="s1">&#39;Ilmajoki&#39;</span><span class="p">)</span>
+<span class="n">ylistaro</span><span class="o">=</span><span class="n">Node</span><span class="p">(</span><span class="s1">&#39;Ylistaro&#39;</span><span class="p">)</span>
+<span class="n">seinajoki</span><span class="o">=</span><span class="n">Node</span><span class="p">(</span><span class="s1">&#39;Seinäjoki&#39;</span><span class="p">)</span>
+<span class="n">voyri</span><span class="o">=</span><span class="n">Node</span><span class="p">(</span><span class="s1">&#39;Vöyri&#39;</span><span class="p">)</span>
+<span class="n">lapua</span><span class="o">=</span><span class="n">Node</span><span class="p">(</span><span class="s1">&#39;Lapua&#39;</span><span class="p">)</span>
+<span class="n">jepua</span><span class="o">=</span><span class="n">Node</span><span class="p">(</span><span class="s1">&#39;Jepua&#39;</span><span class="p">)</span>
+<span class="n">alajarvi</span><span class="o">=</span><span class="n">Node</span><span class="p">(</span><span class="s1">&#39;Alajarvi&#39;</span><span class="p">)</span>
+<span class="n">kyyjarvi</span><span class="o">=</span><span class="n">Node</span><span class="p">(</span><span class="s1">&#39;Kyyjarvi&#39;</span><span class="p">)</span>
+<span class="n">kuortane</span><span class="o">=</span><span class="n">Node</span><span class="p">(</span><span class="s1">&#39;Kuortane&#39;</span><span class="p">)</span>
+<span class="n">kauhava</span><span class="o">=</span><span class="n">Node</span><span class="p">(</span><span class="s1">&#39;Kauhava&#39;</span><span class="p">)</span>
+<span class="n">lappajarvi</span><span class="o">=</span><span class="n">Node</span><span class="p">(</span><span class="s1">&#39;Lappajärvi&#39;</span><span class="p">)</span>
+<span class="n">evijarvi</span><span class="o">=</span><span class="n">Node</span><span class="p">(</span><span class="s1">&#39;Evijärvi&#39;</span><span class="p">)</span>
+<span class="n">vimpeli</span><span class="o">=</span><span class="n">Node</span><span class="p">(</span><span class="s1">&#39;Vimpeli&#39;</span><span class="p">)</span>
+
+<span class="c1"># Then the implementation of the connection between the towns (edges)</span>
+<span class="n">vaasa</span><span class="o">.</span><span class="n">neighbors</span><span class="o">=</span><span class="p">[(</span><span class="n">voyri</span><span class="p">,</span> <span class="mi">32</span><span class="p">),</span> <span class="p">(</span><span class="n">laihia</span><span class="p">,</span> <span class="mi">26</span><span class="p">)]</span>
+<span class="n">laihia</span><span class="o">.</span><span class="n">neighbors</span><span class="o">=</span><span class="p">[(</span><span class="n">ilmajoki</span><span class="p">,</span> <span class="mi">45</span><span class="p">),</span> <span class="p">(</span><span class="n">ylistaro</span><span class="p">,</span><span class="mi">29</span><span class="p">)]</span>
+<span class="n">voyri</span><span class="o">.</span><span class="n">neighbors</span><span class="o">=</span><span class="p">[(</span><span class="n">jepua</span><span class="p">,</span> <span class="mi">42</span><span class="p">),(</span><span class="n">kauhava</span><span class="p">,</span> <span class="mi">56</span><span class="p">)]</span>
+<span class="n">ilmajoki</span><span class="o">.</span><span class="n">neighbors</span><span class="o">=</span><span class="p">[(</span><span class="n">seinajoki</span><span class="p">,</span> <span class="mi">18</span><span class="p">)]</span>
+<span class="n">ylistaro</span><span class="o">.</span><span class="n">neighbors</span><span class="o">=</span><span class="p">[(</span><span class="n">seinajoki</span><span class="p">,</span><span class="mi">27</span><span class="p">),</span> <span class="p">(</span><span class="n">lapua</span><span class="p">,</span> <span class="mi">28</span><span class="p">)]</span>
+<span class="n">seinajoki</span><span class="o">.</span><span class="n">neighbors</span><span class="o">=</span><span class="p">[(</span><span class="n">lapua</span><span class="p">,</span> <span class="mi">26</span><span class="p">)]</span>
+<span class="n">voyri</span><span class="o">.</span><span class="n">neighbors</span><span class="o">=</span><span class="p">[(</span><span class="n">kauhava</span><span class="p">,</span> <span class="mi">45</span><span class="p">),(</span><span class="n">jepua</span><span class="p">,</span> <span class="mi">42</span><span class="p">)]</span>
+<span class="n">lapua</span><span class="o">.</span><span class="n">neighbors</span><span class="o">=</span><span class="p">[(</span><span class="n">kauhava</span><span class="p">,</span> <span class="mi">18</span><span class="p">),</span> <span class="p">(</span><span class="n">alajarvi</span><span class="p">,</span> <span class="mi">46</span><span class="p">)]</span>
+<span class="n">jepua</span><span class="o">.</span><span class="n">neighbors</span><span class="o">=</span><span class="p">[(</span><span class="n">kauhava</span><span class="p">,</span> <span class="mi">56</span><span class="p">)]</span>
+<span class="n">alajarvi</span><span class="o">.</span><span class="n">neighbors</span><span class="o">=</span><span class="p">[(</span><span class="n">kyyjarvi</span><span class="p">,</span> <span class="mi">36</span><span class="p">),</span> <span class="p">(</span><span class="n">vimpeli</span><span class="p">,</span> <span class="mi">22</span><span class="p">),</span> <span class="p">(</span><span class="n">kuortane</span><span class="p">,</span> <span class="mi">40</span><span class="p">)]</span>
+<span class="n">kyyjarvi</span><span class="o">.</span><span class="n">neighbors</span><span class="o">=</span><span class="p">[]</span>
+<span class="n">kuortane</span><span class="o">.</span><span class="n">neighbors</span><span class="o">=</span><span class="p">[]</span>
+<span class="n">kauhava</span><span class="o">.</span><span class="n">neighbors</span><span class="o">=</span><span class="p">[(</span><span class="n">lappajarvi</span><span class="p">,</span> <span class="mi">38</span><span class="p">),</span> <span class="p">(</span><span class="n">evijarvi</span><span class="p">,</span> <span class="mi">44</span><span class="p">)]</span>
+<span class="n">lappajarvi</span><span class="o">.</span><span class="n">neighbors</span><span class="o">=</span><span class="p">[(</span><span class="n">vimpeli</span><span class="p">,</span> <span class="mi">23</span><span class="p">)]</span>
+<span class="n">evijarvi</span><span class="o">.</span><span class="n">neighbors</span><span class="o">=</span><span class="p">[(</span><span class="n">vimpeli</span><span class="p">,</span> <span class="mi">32</span><span class="p">)]</span>
+<span class="n">vimpeli</span><span class="o">.</span><span class="n">neighbors</span><span class="o">=</span><span class="p">[]</span>
+
+<span class="c1"># Now we can list the beginning of the graph</span>
+<span class="n">start</span><span class="o">=</span><span class="n">vaasa</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Starting the search from&quot;</span><span class="p">,</span> <span class="n">start</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The neighbors are&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">neighbor</span><span class="p">,</span> <span class="n">distance</span> <span class="ow">in</span> <span class="n">start</span><span class="o">.</span><span class="n">neighbors</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">-&quot;</span><span class="p">,</span> <span class="n">neighbor</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\t</span><span class="s2">:&quot;</span><span class="p">,</span> <span class="n">distance</span><span class="p">,</span> <span class="s2">&quot;km&quot;</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Starting the search from Vaasa
+The neighbors are
+	- Vöyri 	: 32 km
+	- Laihia 	: 26 km
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="how-to-search-the-path">
+<h4>How to search the path<a class="headerlink" href="#how-to-search-the-path" title="Permalink to this headline">¶</a></h4>
+<p>Both depth first and bredth first algorithms are possible. In depth first search, it is easier to keep the current search path in the memory. In depth first search, all parallel paths needs to be kept in memory at the same time, which requires more complex data structure and more memory. This is an example of depth first search algorithm:</p>
+<p>Start from the starting node, and repeat following phases until target is found:</p>
 <ul class="simple">
-<li><p>implementation and using of intelligent agents</p></li>
-<li><p>planning by means of graph theory</p></li>
-<li><p>inference</p></li>
-<li><p>machine learning</p></li>
+<li><p>If there is still unvisited neighbour cities left:</p>
+<ul>
+<li><p>take first unvisited neighbour and add it into the stack of cities along current path</p></li>
+<li><p>Enter into that neighbour and continue</p></li>
 </ul>
-<div class="section" id="python">
-<h2>Python<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h2>
+</li>
+<li><p>If there is no more unvisited neighbour cities</p>
+<ul>
+<li><p>remove the latest city from the stack</p></li>
+<li><p>come backwards to the previous city and continue</p></li>
+</ul>
+</li>
+</ul>
+<p>The stack describing the current path could look as follows in an example search case</p>
+<ol class="simple">
+<li><p>Vaasa -&gt; Laihia</p></li>
+<li><p>Vaasa -&gt; Laihia -&gt; Ylistaro</p></li>
+<li><p>Vaasa -&gt; Laihia -&gt; Ylistaro -&gt; Lapua</p></li>
+<li><p>Vaasa -&gt; Laihia -&gt; Ylistaro -&gt; Lapua -&gt; Alajärvi</p></li>
+<li><p>Vaasa -&gt; Laihia -&gt; Ylistaro -&gt; Lapua -&gt; Alajärvi -&gt; Kyyjärvi (<em>no neighbors, go back</em>)</p></li>
+<li><p>Vaasa -&gt; Laihia -&gt; Ylistaro -&gt; Lapua -&gt; Alajärvi -&gt; Kuortane (<em>no neighbors, go back</em>)</p></li>
+<li><p>Vaasa -&gt; Laihia -&gt; Ylistaro -&gt; Lapua -&gt; Alajärvi -&gt; Vimpeli (<em>Target found path is in the stack</em>)</p></li>
+</ol>
+</div>
+<div class="section" id="this-depth-first-implemenation-is-below">
+<h4>This depth first implemenation is below<a class="headerlink" href="#this-depth-first-implemenation-is-below" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<span class="c1"># Stack of town within the path</span>
+<span class="n">stack</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># Queue of unhandled towns, and the depth</span>
+<span class="n">queue</span> <span class="o">=</span> <span class="p">[(</span><span class="n">vaasa</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)]</span>
+
+<span class="c1"># Current depth</span>
+<span class="n">depth</span><span class="o">=</span><span class="mi">0</span>
+
+<span class="c1"># Repeat until we have more town to visit</span>
+<span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">queue</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
+    <span class="c1"># Take new node and it&#39;s depth from the queue</span>
+    <span class="n">current_node</span><span class="p">,</span> <span class="n">new_depth</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+    
+    <span class="c1"># If the current_node is deeper than previous, insert the new node in the stack</span>
+    <span class="c1"># Insert also the distance from the previous node</span>
+    <span class="k">if</span> <span class="n">new_depth</span><span class="o">&gt;</span><span class="n">depth</span><span class="p">:</span>
+        <span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">current_node</span><span class="p">,</span> <span class="n">d</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># If the solution was not found, and the algorithms is coming back</span>
+        <span class="c1"># then the previous entries needs to be popped out from stack,</span>
+        <span class="c1"># and the current node inserted instead</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">depth</span><span class="o">-</span><span class="n">new_depth</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+            <span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+        <span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">current_node</span><span class="p">,</span><span class="n">d</span><span class="p">))</span>
+        
+    <span class="c1"># update the current depth</span>
+    <span class="n">depth</span><span class="o">=</span><span class="n">new_depth</span>
+    
+    <span class="c1"># Check is the solution was found, if it was, break the loop</span>
+    <span class="k">if</span> <span class="n">current_node</span><span class="o">==</span><span class="n">vimpeli</span><span class="p">:</span>
+        <span class="k">break</span>
+        
+    <span class="c1"># Othervise, add the neighbours of the current node to the queue of nodes</span>
+    <span class="c1"># yet to be processed. Use depth one deeper than current node</span>
+    <span class="c1"># The distance from the current node is also appended</span>
+    <span class="k">for</span> <span class="n">neighbor</span><span class="p">,</span> <span class="n">distance</span> <span class="ow">in</span> <span class="n">current_node</span><span class="o">.</span><span class="n">neighbors</span><span class="p">:</span>
+        <span class="n">queue</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">neighbor</span><span class="p">,</span> <span class="n">depth</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">distance</span><span class="p">))</span>
+ 
+<span class="c1"># Print the result</span>
+<span class="n">distance</span><span class="o">=</span><span class="mi">0</span>
+<span class="k">for</span> <span class="n">node</span><span class="p">,</span><span class="n">d</span>  <span class="ow">in</span> <span class="n">stack</span><span class="p">:</span>
+    <span class="n">distance</span><span class="o">=</span><span class="n">distance</span><span class="o">+</span><span class="n">d</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%10s</span><span class="s2"> : </span><span class="si">%4d</span><span class="s2"> km&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">distance</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>     Vaasa :    0 km
+    Laihia :   26 km
+  Ylistaro :   55 km
+     Lapua :   83 km
+  Alajarvi :  129 km
+   Vimpeli :  151 km
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question?</p>
+<p>Is this an optimal solution? How to find other solutions?</p>
+</div>
+</div>
+<div class="section" id="recursive-solution">
+<h4>Recursive solution<a class="headerlink" href="#recursive-solution" title="Permalink to this headline">¶</a></h4>
+<p>Recursive functions suit naturally for graph search, because the problem is inherently recursive. They are not very often used, however, because they require more memory than loop-algorithms due to recursive function calls. Some programming languages, especially from LISP-family have special implementation for tail-recursion, and in those languages recursion is more often used.</p>
+<p>The idea of recursive solution is very simple. Since the problem for finding a route from Vaasa to Vimpeli is non-trivial, try to go to the next town closer to Vimpeli, such as Laihia, and try to find the route to Vimpeli from there. Since that is also non-trivial, go from Laihia to the next town, like Ilmajoki, and try to find route from there. Repeat until you are in Vimpeli, and then the solution is trivial. During the descend, all steps are stored in the stack and therefore the the path is now found. If the algorithm ends up into a dead end, then it backtracks one step back, and removes the latest failed step from the stack of current path.</p>
+<p>Here is a recursive solution, which finds a route from Vaasa to Vimpeli. Because it always takes the last added town from the stack, it is a depth first approach. It can be easily modified to find all possible paths.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define a helper function for plotting </span>
+<span class="k">def</span> <span class="nf">printQandD</span><span class="p">(</span><span class="n">q</span><span class="p">):</span>
+    <span class="n">distance</span><span class="o">=</span><span class="mi">0</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  Queue: [&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">node</span><span class="p">,</span><span class="n">d</span> <span class="ow">in</span> <span class="n">q</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;, &#39;</span><span class="p">),</span>
+        <span class="n">distance</span><span class="o">+=</span><span class="n">d</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;] = &quot;</span><span class="p">,</span> <span class="n">distance</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1"># Acrtual recursive search</span>
+<span class="k">def</span> <span class="nf">RecursiveDFS</span><span class="p">(</span><span class="n">stack</span><span class="p">):</span>
+    <span class="n">current_node</span><span class="p">,</span> <span class="n">distance</span><span class="o">=</span><span class="n">stack</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">current_node</span><span class="o">==</span><span class="n">vimpeli</span><span class="p">:</span>
+        <span class="n">printQandD</span><span class="p">(</span><span class="n">stack</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">stack</span>
+    <span class="k">for</span> <span class="n">neighbor</span><span class="p">,</span> <span class="n">distance</span> <span class="ow">in</span> <span class="n">current_node</span><span class="o">.</span><span class="n">neighbors</span><span class="p">:</span>
+        <span class="n">retval</span> <span class="o">=</span> <span class="n">RecursiveDFS</span><span class="p">(</span><span class="n">stack</span> <span class="o">+</span> <span class="p">[(</span><span class="n">neighbor</span><span class="p">,</span> <span class="n">distance</span><span class="p">)])</span>
+        <span class="k">if</span> <span class="n">retval</span><span class="p">:</span>
+            <span class="c1"># This return breaks the search. If this is removed </span>
+            <span class="c1"># it continues to remove all possible path</span>
+            <span class="k">return</span> <span class="n">retval</span>
+    <span class="k">return</span> <span class="kc">False</span>
+
+<span class="c1"># Start the search and print the results</span>
+<span class="n">path</span><span class="o">=</span><span class="n">RecursiveDFS</span><span class="p">([(</span><span class="n">vaasa</span><span class="p">,</span><span class="mi">0</span><span class="p">)])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Loppu&quot;</span><span class="p">)</span>
+<span class="n">distance</span><span class="o">=</span><span class="mi">0</span>
+<span class="k">for</span> <span class="n">node</span><span class="p">,</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">path</span><span class="p">:</span>
+    <span class="n">distance</span><span class="o">=</span><span class="n">distance</span><span class="o">+</span><span class="n">d</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%10s</span><span class="s2"> : </span><span class="si">%4d</span><span class="s2"> km&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">distance</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>  Queue: [Vaasa, Vöyri, Kauhava, Lappajärvi, Vimpeli, ] =  138
+Loppu
+     Vaasa :    0 km
+     Vöyri :   32 km
+   Kauhava :   77 km
+Lappajärvi :  115 km
+   Vimpeli :  138 km
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="recursive-breadth-first-solution">
+<h4>Recursive breadth first solution<a class="headerlink" href="#recursive-breadth-first-solution" title="Permalink to this headline">¶</a></h4>
+<p>The core is otherwise the same as Depth first, but now the latest solution is taken from the bottom of the queue (FIFO). Therefore it expands nodes bredth first manner.</p>
+<p>This implementation does not keep track fo the current paths stack, and it does not yet find the actual path. But this feature can be added to the implementation. The current implementation visits all towns and lists them in Breadth first search order.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">##The implementation of the breadth first search (BFS) is now simply the following</span>
+
+<span class="k">def</span> <span class="nf">printQueue</span><span class="p">(</span><span class="n">q</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  Queue: [&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">q</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">node</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;, &#39;</span><span class="p">),</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;]&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">bfs</span><span class="p">(</span><span class="n">start_node</span><span class="p">):</span>
+    <span class="n">queue</span> <span class="o">=</span> <span class="p">[</span><span class="n">start_node</span><span class="p">]</span>
+    <span class="n">explored</span> <span class="o">=</span> <span class="p">[]</span>
+    
+    <span class="k">while</span> <span class="n">queue</span><span class="p">:</span>
+        <span class="n">printQueue</span><span class="p">(</span><span class="n">queue</span><span class="p">)</span>
+        <span class="n">current_node</span><span class="o">=</span><span class="n">queue</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">current_node</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">explored</span><span class="p">:</span>
+            <span class="n">explored</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">current_node</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">neighbor</span><span class="p">,</span> <span class="n">distance</span> <span class="ow">in</span> <span class="n">current_node</span><span class="o">.</span><span class="n">neighbors</span><span class="p">:</span>
+                <span class="n">queue</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">neighbor</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">explored</span>
+
+
+<span class="n">path</span><span class="o">=</span><span class="n">bfs</span><span class="p">(</span><span class="n">vaasa</span><span class="p">)</span>
+<span class="n">printQueue</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>  Queue: [Vaasa, ]
+  Queue: [Vöyri, Laihia, ]
+  Queue: [Laihia, Kauhava, Jepua, ]
+  Queue: [Kauhava, Jepua, Ilmajoki, Ylistaro, ]
+  Queue: [Jepua, Ilmajoki, Ylistaro, Lappajärvi, Evijärvi, ]
+  Queue: [Ilmajoki, Ylistaro, Lappajärvi, Evijärvi, Kauhava, ]
+  Queue: [Ylistaro, Lappajärvi, Evijärvi, Kauhava, Seinäjoki, ]
+  Queue: [Lappajärvi, Evijärvi, Kauhava, Seinäjoki, Seinäjoki, Lapua, ]
+  Queue: [Evijärvi, Kauhava, Seinäjoki, Seinäjoki, Lapua, Vimpeli, ]
+  Queue: [Kauhava, Seinäjoki, Seinäjoki, Lapua, Vimpeli, Vimpeli, ]
+  Queue: [Seinäjoki, Seinäjoki, Lapua, Vimpeli, Vimpeli, ]
+  Queue: [Seinäjoki, Lapua, Vimpeli, Vimpeli, Lapua, ]
+  Queue: [Lapua, Vimpeli, Vimpeli, Lapua, ]
+  Queue: [Vimpeli, Vimpeli, Lapua, Kauhava, Alajarvi, ]
+  Queue: [Vimpeli, Lapua, Kauhava, Alajarvi, ]
+  Queue: [Lapua, Kauhava, Alajarvi, ]
+  Queue: [Kauhava, Alajarvi, ]
+  Queue: [Alajarvi, ]
+  Queue: [Kyyjarvi, Vimpeli, Kuortane, ]
+  Queue: [Vimpeli, Kuortane, ]
+  Queue: [Kuortane, ]
+  Queue: [Vaasa, Vöyri, Laihia, Kauhava, Jepua, Ilmajoki, Ylistaro, Lappajärvi, Evijärvi, Seinäjoki, Lapua, Vimpeli, Alajarvi, Kyyjarvi, Kuortane, ]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="solution-using-networkx-graph-library">
+<h4>Solution using Networkx graph library<a class="headerlink" href="#solution-using-networkx-graph-library" title="Permalink to this headline">¶</a></h4>
+<p>The previous implementations have shown you what approaches can be used to implement graph searching. But there are also many libraries with ready made implementations of various graph search algorithms. <a class="reference external" href="https://networkx.org/">Networkx</a> is one of the most often used libraries in Python.</p>
+<p>I have collected some additional information about the towns between Vaasa and Vimpleli, for example the coordinates of the towns, which can be used for calculating the direct line distances between them, which can be used for informed search by defining a heuristic function for guiding the graph search for most promising directions. For that purpose the following function which calculates the coordinates of the towns based on their longitudes and latitudes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># This code calculates the coordinates of the towns. It is only needed for nice plotting</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sin</span><span class="p">,</span> <span class="n">pi</span>
+
+<span class="n">Coordinates</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/coordinates.csv&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">getCoordinates</span><span class="p">(</span><span class="n">Location</span><span class="p">,</span> <span class="n">Theta</span><span class="o">=</span><span class="mf">63.092589</span><span class="p">):</span>
+    <span class="n">Ps</span><span class="o">=</span><span class="n">Coordinates</span><span class="p">[</span><span class="n">Coordinates</span><span class="o">.</span><span class="n">Name</span><span class="o">==</span><span class="n">Location</span><span class="p">]</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">Ps</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Now location </span><span class="si">%s</span><span class="s2"> found!&quot;</span> <span class="o">%</span> <span class="n">Location</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="n">P</span><span class="o">=</span><span class="n">Ps</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="c1"># Earth radius / km</span>
+    <span class="n">R</span><span class="o">=</span><span class="mf">6371.0</span>    <span class="c1"># Average</span>
+    <span class="n">Rp</span><span class="o">=</span><span class="mf">6356.8</span>   <span class="c1"># Polar</span>
+    <span class="n">Re</span><span class="o">=</span><span class="mf">6378.1</span>   <span class="c1"># Equatorial</span>
+    <span class="c1">#</span>
+    <span class="c1"># Earth radius in current Northing</span>
+    <span class="c1">#Theta=P.Northing/180*pi</span>
+    <span class="c1">#Theta=63.092589</span>
+    <span class="n">r</span><span class="o">=</span><span class="n">sin</span><span class="p">(</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="o">-</span><span class="n">Theta</span><span class="o">/</span><span class="mi">180</span><span class="o">*</span><span class="n">pi</span><span class="p">)</span><span class="o">*</span><span class="n">Re</span>
+    <span class="c1">#</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="n">P</span><span class="o">.</span><span class="n">Northing</span><span class="o">/</span><span class="mi">180</span><span class="o">*</span><span class="n">pi</span><span class="p">)</span><span class="o">*</span><span class="n">Rp</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">P</span><span class="o">.</span><span class="n">Easting</span><span class="o">/</span><span class="mi">180</span><span class="o">*</span><span class="n">pi</span><span class="p">)</span><span class="o">*</span><span class="n">r</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+
+<span class="n">getCoordinates</span><span class="p">(</span><span class="s1">&#39;Vaasa&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>(1088.9504471170537, 6999.93912935637)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="networkx-library">
+<h4>Networkx library<a class="headerlink" href="#networkx-library" title="Permalink to this headline">¶</a></h4>
+<p>The biggest work when using the  Networkx all other similar libraries, is to encode the information for the library. In the code below, the libraries are first imported into the workspace, and empty graph is created.</p>
+<p>Then the nodes are added from the list of towns using for-loop. The coordinates of the towns are added in each node (the pos attribute) to be able to plot the graph in actual scale.</p>
+<p>The roads between the towns are added as edges. The lengths of the roads are added as weigths of edges.</p>
+<p>The networx library includes convenient funtions for plotting the graph. The weights of the edges can be plotted in the edges and the pos-attribute is now used to place the towns in a coordinate system.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># This code generates the graph</span>
+
+<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Create an empty directed graph</span>
+<span class="n">M</span><span class="o">=</span><span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">()</span>
+
+<span class="c1"># List of towns added as nodes</span>
+<span class="n">Towns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Vaasa&#39;</span><span class="p">,</span> <span class="s1">&#39;Laihia&#39;</span><span class="p">,</span> <span class="s1">&#39;Vöyri&#39;</span><span class="p">,</span> <span class="s1">&#39;Ilmajoki&#39;</span><span class="p">,</span> <span class="s1">&#39;Ylistaro&#39;</span><span class="p">,</span> <span class="s1">&#39;Seinäjoki&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Vöyri&#39;</span><span class="p">,</span> <span class="s1">&#39;Lapua&#39;</span><span class="p">,</span> <span class="s1">&#39;Jepua&#39;</span><span class="p">,</span> <span class="s1">&#39;Alajärvi&#39;</span><span class="p">,</span> <span class="s1">&#39;Kyyjärvi&#39;</span><span class="p">,</span> <span class="s1">&#39;Kuortane&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Kauhava&#39;</span><span class="p">,</span> <span class="s1">&#39;Lappajärvi&#39;</span><span class="p">,</span> <span class="s1">&#39;Evijärvi&#39;</span><span class="p">,</span> <span class="s1">&#39;Vimpeli&#39;</span><span class="p">]</span>
+
+<span class="c1"># Add the nodes and store the coordinates of the towns as well, for nice plotting</span>
+<span class="k">for</span> <span class="n">town</span> <span class="ow">in</span> <span class="n">Towns</span><span class="p">:</span>
+    <span class="n">M</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">town</span><span class="p">,</span> <span class="n">pos</span><span class="o">=</span><span class="n">getCoordinates</span><span class="p">(</span><span class="n">town</span><span class="p">))</span>
+
+<span class="c1"># Add the edges, and their weights = distances </span>
+<span class="n">M</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s1">&#39;Vaasa&#39;</span><span class="p">,</span> <span class="s1">&#39;Laihia&#39;</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">26</span><span class="p">)</span>
+<span class="n">M</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s1">&#39;Vaasa&#39;</span><span class="p">,</span> <span class="s1">&#39;Vöyri&#39;</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">32</span><span class="p">)</span>
+<span class="n">M</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s1">&#39;Laihia&#39;</span><span class="p">,</span> <span class="s1">&#39;Ilmajoki&#39;</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+<span class="n">M</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s1">&#39;Laihia&#39;</span><span class="p">,</span> <span class="s1">&#39;Ylistaro&#39;</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">29</span><span class="p">)</span>
+<span class="n">M</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s1">&#39;Vöyri&#39;</span><span class="p">,</span> <span class="s1">&#39;Jepua&#39;</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">M</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s1">&#39;Vöyri&#39;</span><span class="p">,</span> <span class="s1">&#39;Kauhava&#39;</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">56</span><span class="p">)</span>
+<span class="n">M</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s1">&#39;Ilmajoki&#39;</span><span class="p">,</span> <span class="s1">&#39;Seinäjoki&#39;</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">M</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s1">&#39;Ylistaro&#39;</span><span class="p">,</span> <span class="s1">&#39;Seinäjoki&#39;</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">27</span><span class="p">)</span>
+<span class="n">M</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s1">&#39;Ylistaro&#39;</span><span class="p">,</span> <span class="s1">&#39;Lapua&#39;</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">28</span><span class="p">)</span>
+<span class="n">M</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s1">&#39;Seinäjoki&#39;</span><span class="p">,</span> <span class="s1">&#39;Lapua&#39;</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">26</span><span class="p">)</span>
+<span class="n">M</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s1">&#39;Vöyri&#39;</span><span class="p">,</span> <span class="s1">&#39;Kauhava&#39;</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+<span class="n">M</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s1">&#39;Vöyri&#39;</span><span class="p">,</span> <span class="s1">&#39;Jepua&#39;</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">M</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s1">&#39;Lapua&#39;</span><span class="p">,</span> <span class="s1">&#39;Kauhava&#39;</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">M</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s1">&#39;Lapua&#39;</span><span class="p">,</span> <span class="s1">&#39;Alajärvi&#39;</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">46</span><span class="p">)</span>
+<span class="n">M</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s1">&#39;Jepua&#39;</span><span class="p">,</span> <span class="s1">&#39;Kauhava&#39;</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">56</span><span class="p">)</span>
+<span class="n">M</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s1">&#39;Alajärvi&#39;</span><span class="p">,</span> <span class="s1">&#39;Kyyjärvi&#39;</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">36</span><span class="p">)</span>
+<span class="n">M</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s1">&#39;Alajärvi&#39;</span><span class="p">,</span> <span class="s1">&#39;Vimpeli&#39;</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">22</span><span class="p">)</span>
+<span class="n">M</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s1">&#39;Alajärvi&#39;</span><span class="p">,</span> <span class="s1">&#39;Kuortane&#39;</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
+<span class="n">M</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s1">&#39;Kauhava&#39;</span><span class="p">,</span> <span class="s1">&#39;Lappajärvi&#39;</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">38</span><span class="p">)</span>
+<span class="n">M</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s1">&#39;Kauhava&#39;</span><span class="p">,</span> <span class="s1">&#39;Evijärvi&#39;</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">44</span><span class="p">)</span>
+<span class="n">M</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s1">&#39;Lappajärvi&#39;</span><span class="p">,</span> <span class="s1">&#39;Vimpeli&#39;</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">23</span><span class="p">)</span>
+<span class="n">M</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s1">&#39;Evijärvi&#39;</span><span class="p">,</span> <span class="s1">&#39;Vimpeli&#39;</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">32</span><span class="p">)</span>
+
+<span class="c1"># Plot the graph nicely in scale</span>
+<span class="n">fig</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">pos</span><span class="o">=</span><span class="n">nx</span><span class="o">.</span><span class="n">get_node_attributes</span><span class="p">(</span><span class="n">M</span><span class="p">,</span><span class="s1">&#39;pos&#39;</span><span class="p">)</span> 
+<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">pos</span><span class="o">=</span><span class="n">pos</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">)</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">get_edge_attributes</span><span class="p">(</span><span class="n">M</span><span class="p">,</span><span class="s1">&#39;weight&#39;</span><span class="p">)</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_edge_labels</span><span class="p">(</span><span class="n">M</span><span class="p">,</span><span class="n">pos</span><span class="p">,</span><span class="n">edge_labels</span><span class="o">=</span><span class="n">labels</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Graph is ready&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Graph is ready
+</pre></div>
+</div>
+<img alt="_images/aitools_13_1.png" src="_images/aitools_13_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">M</span><span class="o">.</span><span class="n">neighbors</span><span class="p">(</span><span class="s1">&#39;Kauhava&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39;Lappajärvi&#39;, &#39;Evijärvi&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The breadth first ordering of the towns can be used to find a path from Vaasa to Vimpeli, by starting from Vimpeli to the parent Lappajärvi, and so on the reverse order up to Vaasa.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Vaasa -&gt; Vöyri -&gt; Kauhava -&gt; Lappajärvi -&gt; Vimpeli
+</pre></div>
+</div>
+<p>The path is unique in this ordering but not necessary optimal, since the weights are not taken into account.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#nx.depth_first_search.dfs_successors(M,&#39;Vaasa&#39;)</span>
+<span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">nx</span><span class="o">.</span><span class="n">breadth_first_search</span><span class="o">.</span><span class="n">bfs_successors</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="s1">&#39;Vaasa&#39;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>(&#39;Vaasa&#39;, [&#39;Laihia&#39;, &#39;Vöyri&#39;])
+(&#39;Laihia&#39;, [&#39;Ilmajoki&#39;, &#39;Ylistaro&#39;])
+(&#39;Vöyri&#39;, [&#39;Jepua&#39;, &#39;Kauhava&#39;])
+(&#39;Ilmajoki&#39;, [&#39;Seinäjoki&#39;])
+(&#39;Ylistaro&#39;, [&#39;Lapua&#39;])
+(&#39;Kauhava&#39;, [&#39;Lappajärvi&#39;, &#39;Evijärvi&#39;])
+(&#39;Lapua&#39;, [&#39;Alajärvi&#39;])
+(&#39;Lappajärvi&#39;, [&#39;Vimpeli&#39;])
+(&#39;Alajärvi&#39;, [&#39;Kyyjärvi&#39;, &#39;Kuortane&#39;])
+</pre></div>
+</div>
+</div>
+</div>
+<p>More optimal path minimizing the weights can be found using A* algorithm. If no heuristic function is given, the algorith is using <a class="reference external" href="https://www.geeksforgeeks.org/dijkstras-shortest-path-algorithm-greedy-algo-7/">Dijkstra’s algorithm</a>. It finds an optimal path, but it may be slow for very large graphs, because Dijkstra’s algorith is uninformed search algorithm.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Shortest path     :&quot;</span><span class="p">,</span>  <span class="n">nx</span><span class="o">.</span><span class="n">astar_path</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="s1">&#39;Vaasa&#39;</span><span class="p">,</span> <span class="s1">&#39;Vimpeli&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Shortest distance :&quot;</span><span class="p">,</span> <span class="n">nx</span><span class="o">.</span><span class="n">astar_path_length</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="s1">&#39;Vaasa&#39;</span><span class="p">,</span> <span class="s1">&#39;Vimpeli&#39;</span><span class="p">),</span> <span class="s2">&quot;km&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Shortest path     : [&#39;Vaasa&#39;, &#39;Vöyri&#39;, &#39;Kauhava&#39;, &#39;Lappajärvi&#39;, &#39;Vimpeli&#39;]
+Shortest distance : 138 km
+</pre></div>
+</div>
+</div>
+</div>
+<p>The A* algorith is informed search, which is made for efficient using so called heuristic function. In case of navigation, the natural heuristic function is to calculate the line sight distance remaining to the target, and use that to judge the fitness of different options for the next step. This distance can be easily calculated, since the coordinates of the towns is known.</p>
+<p>The heuristic function needed by A* method takes two nodes as a parameter and returns the line of sight distance between them. For example, when the algorithm needs to choose should it go either Laihia or Vöyri from Vaasa, the decision is made by adding the distance to the next time and the line of sight distance from that town to Vimpeli, and the decision with smallest costs is selected.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">random</span>
+
+<span class="k">def</span> <span class="nf">distanceByName</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">):</span>
+    <span class="n">a</span><span class="o">=</span><span class="n">getCoordinates</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">a</span><span class="o">==</span><span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="n">b</span><span class="o">=</span><span class="n">getCoordinates</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">b</span><span class="o">==</span><span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="c1">#print(a,b)</span>
+    <span class="k">return</span> <span class="n">sqrt</span><span class="p">(</span> <span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span> <span class="p">)</span>
+    
+<span class="k">def</span> <span class="nf">heuristic</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">distanceByName</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">)</span>
+
+<span class="c1"># Test the method in the first step</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Estimated costs through Vöyri is  &quot;</span><span class="p">,</span> <span class="mi">32</span> <span class="o">+</span> <span class="n">heuristic</span><span class="p">(</span><span class="s1">&#39;Vöyri&#39;</span><span class="p">,</span> <span class="s1">&#39;Vimpeli&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Estimated costs through Laihia is &quot;</span><span class="p">,</span> <span class="mi">26</span> <span class="o">+</span> <span class="n">heuristic</span><span class="p">(</span><span class="s1">&#39;Laihia&#39;</span><span class="p">,</span> <span class="s1">&#39;Vimpeli&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Estimated costs through Vöyri is   111.0683899833323
+Estimated costs through Laihia is  119.41142572684618
+</pre></div>
+</div>
+</div>
+</div>
+<p>Path through Vöyri seems shorter, so that is selected as the first step.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Shortest path     :&quot;</span><span class="p">,</span>  <span class="n">nx</span><span class="o">.</span><span class="n">astar_path</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="s1">&#39;Vaasa&#39;</span><span class="p">,</span> <span class="s1">&#39;Vimpeli&#39;</span><span class="p">,</span> <span class="n">heuristic</span><span class="o">=</span><span class="n">heuristic</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s1">&#39;weight&#39;</span><span class="p">),</span> <span class="p">)</span>
+<span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Shortest distance :&quot;</span><span class="p">,</span> <span class="n">nx</span><span class="o">.</span><span class="n">astar_path_length</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="s1">&#39;Vaasa&#39;</span><span class="p">,</span> <span class="s1">&#39;Vimpeli&#39;</span><span class="p">,</span> <span class="n">heuristic</span><span class="o">=</span><span class="n">heuristic</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s1">&#39;weight&#39;</span><span class="p">),</span> <span class="s2">&quot;km&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Shortest path     : [&#39;Vaasa&#39;, &#39;Vöyri&#39;, &#39;Kauhava&#39;, &#39;Lappajärvi&#39;, &#39;Vimpeli&#39;]
+Shortest distance : 138 km
+</pre></div>
+</div>
+</div>
+</div>
+<p>The path found is probably optimal, since the A* algorith search multiple paths from source to destination to find the true costs. The algorith uses the heuristic function to make the search faster but due to search of multiple paths, the quality of the heuristic function is not crucial. The algorithm also keeps track of the true costs already calculated, and therefore it does not need to calculate the true costs of a certain path twice.</p>
+</div>
+<div class="section" id="more-complex-example">
+<h4>More complex example<a class="headerlink" href="#more-complex-example" title="Permalink to this headline">¶</a></h4>
+<p>See below an example of the search in one magnitude more complex graph, and the nice visualization capabilities of the networkx library.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">N</span><span class="o">=</span><span class="mi">400</span>
+<span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">random_geometric_graph</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="mf">0.125</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">pos</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">get_node_attributes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="s2">&quot;pos&quot;</span><span class="p">)</span>
+
+<span class="n">nodelist</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">A</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">B</span><span class="o">=</span><span class="mi">20</span>
+<span class="n">colors</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;orange&#39;</span><span class="p">]</span><span class="o">*</span><span class="n">N</span>
+<span class="n">colors</span><span class="p">[</span><span class="n">A</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span>
+<span class="n">colors</span><span class="p">[</span><span class="n">B</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;green&#39;</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_edges</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_nodes</span><span class="p">(</span>
+    <span class="n">G</span><span class="p">,</span>
+    <span class="n">pos</span><span class="p">,</span>
+    <span class="n">nodelist</span><span class="o">=</span><span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">,</span>
+    <span class="n">node_size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span>
+    <span class="n">node_color</span><span class="o">=</span><span class="n">colors</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">path</span><span class="o">=</span><span class="n">nx</span><span class="o">.</span><span class="n">astar_path</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">)</span>
+<span class="n">path_edges</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="n">path</span><span class="p">[</span><span class="mi">1</span><span class="p">:]))</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_edges</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="n">pos</span><span class="p">,</span><span class="n">edgelist</span><span class="o">=</span><span class="n">path_edges</span><span class="p">,</span><span class="n">edge_color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_nodes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="n">pos</span><span class="p">,</span><span class="n">nodelist</span><span class="o">=</span><span class="n">path</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">node_size</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>(-0.044893197104737825,
+ 1.0489023223793188,
+ -0.04674502592329458,
+ 1.0484658821980686)
+</pre></div>
+</div>
+<img alt="_images/aitools_25_1.png" src="_images/aitools_25_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">time</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Shortest path     :&quot;</span><span class="p">,</span>  <span class="n">nx</span><span class="o">.</span><span class="n">astar_path</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">),</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Shortest distance :&quot;</span><span class="p">,</span> <span class="n">nx</span><span class="o">.</span><span class="n">astar_path_length</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">),</span> <span class="s2">&quot;steps&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Shortest path     : [1, 88, 292, 38, 283, 307, 24, 363, 324, 359, 20]
+CPU times: user 8.93 ms, sys: 352 µs, total: 9.28 ms
+Wall time: 9.15 ms
+Shortest distance : 10 steps
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="intelligent-navigation-agent">
+<h2>Intelligent navigation agent<a class="headerlink" href="#intelligent-navigation-agent" title="Permalink to this headline">¶</a></h2>
+<p>The intelligent navigation agent can perceive it’s current location using GPS or other Global Navigation Satellite System (GNNS) and the target location is included in the state, set by the user. The map, in the form of a graph, show below, is the data model or knowledge database.</p>
 <ul class="simple">
-<li><p>Working with Jupyter notebooks (literate programming)</p></li>
-<li><p>Interaction with Python interpreter</p></li>
-<li><p>Variables, reading input, plotting output</p></li>
-<li><p>Blocks</p></li>
-<li><p>Loops</p></li>
-<li><p>Functions</p></li>
-<li><p>Plotting</p></li>
+<li><p>An agent making uninformed search and selecting the first path found is a goal based agent. It can find a route to the target, but does not optimize utility</p></li>
+<li><p>An agent using weights and A* finds an optimal path, which maximizes the utility. This kind of agent would be a utility based agent.</p></li>
+<li><p>Some navigation systems monitor the time taken for drivers taking different paths, and they can update the weights based on what they have learned. Google navigator can for example observe traffic jams, and optimize the routes based on the real time traffic information. These kinds of agent would be a learning navigation agent.</p></li>
 </ul>
+<p>The strategies shown above can be utilized also for many other purposes, such as solving the 8-puzzle or playing chess. All pussible moves taken in each turn spans a graph, which can become very large. It this case, the whole graph of all possible solutions cannot be pre-stored in the memory, but expanned step by step as necessary, guided by the heuristic function.</p>
 </div>
-<div class="section" id="overview-of-ai-libraries-to-be-covered">
-<h2>Overview of AI libraries to be covered<a class="headerlink" href="#overview-of-ai-libraries-to-be-covered" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="logical-inference">
-<h3>Logical inference<a class="headerlink" href="#logical-inference" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="machine-learning-libraries-scikit-learn">
-<h3>Machine learning libraries (Scikit-learn)<a class="headerlink" href="#machine-learning-libraries-scikit-learn" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="graph-theory-libraries-networkx">
-<h3>Graph theory libraries (networkx)<a class="headerlink" href="#graph-theory-libraries-networkx" title="Permalink to this headline">¶</a></h3>
-</div>
-</div>
-<div class="section" id="excercise-implementation-of-a-simple-reflex-agent">
-<h2>Excercise: Implementation of a simple reflex agent<a class="headerlink" href="#excercise-implementation-of-a-simple-reflex-agent" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<p>IN this module the methods for searching data and paths from graph and using graph library has been covered. You are expected to learn the following things:</p>
+<ul class="simple">
+<li><p>How the data is encoded as data structures in programs</p></li>
+<li><p>Some implementation strategies for breadth first, depth first and A* searches</p></li>
+<li><p>Implementation strategy of a heuristic function</p></li>
+<li><p>Overall view of the services provided by the Networkx library and the possibilities it provides</p></li>
+<li><p>Some understanding of Python programing</p></li>
+<li><p>How to use graph search as part of and intelligent agent, also in cases where the full graph is not known <em>a-priori</em>.</p></li>
+</ul>
 </div>
 </div>
 

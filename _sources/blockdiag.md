@@ -281,7 +281,7 @@ $$
    O(H|e) = \frac{P(H|e)}{P(\neg H | e)} = L(e|H) O(H)
 $$
 
-Thus the strength of belief in hypothesis H, based on the previous knoledge and new evidence e, is given by the product of the likelihood ratio $L(e|H)$ and prior odds $O(H)$. The prior odd $O(H)$ provides predictive support by the previous knowledge alone and the likelihood ratio $L(e|H)$ provides diagnostive support, based on new evidence.
+Thus the strength of belief in hypothesis H, based on the previous knoledge and new evidence e, is given by the product of the likelihood ratio $L(e|H)$ and prior odds $O(H)$. The prior odd $O(H)$ provides predictive support by the previous knowledge alone and the likelihood ratio $L(e|H)$ provides diagnostive support, based on new evidence observed.
 
 By using this formula, it is possible to chain the calculation of hypotheses to make the final conclusion. The solution for the Bayesian network as a whole is still rather comples, but there are algorithms which can solve it in polynomial time. 
 
