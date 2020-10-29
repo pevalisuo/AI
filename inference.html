@@ -272,7 +272,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D at 0x7fbcaff38190&gt;
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D at 0x7f05d6262150&gt;
 </pre></div>
 </div>
 <img alt="_images/inference_4_1.png" src="_images/inference_4_1.png" />
@@ -316,7 +316,7 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Check the question 1 by resampling the distribution
-  Mean grade for well prepared student is   3.9
+  Mean grade for well prepared student is   4.2
   Mean grade for weakly prepared student is 2.1
 
 Questions 2-4
@@ -376,7 +376,7 @@ Questions 2-4
 The most probable class is  [1]
 </pre></div>
 </div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fbcafe414d0&gt;
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f05d617d9d0&gt;
 </pre></div>
 </div>
 <img alt="_images/inference_8_2.png" src="_images/inference_8_2.png" />
@@ -426,10 +426,10 @@ The most probable class is  [1]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fbca474cf10&gt;
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f05caa8d850&gt;
 </pre></div>
 </div>
-<img alt="_images/inference_11_1.png" src="_images/inference_11_1.png" />
+<img alt="_images/inference_12_1.png" src="_images/inference_12_1.png" />
 </div>
 </div>
 <div class="section" id="not-independed-data">
@@ -691,12 +691,31 @@ embarked: Port of Embarkation C = Cherbourg, Q = Queenstown, S = Southampton
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">=</span><span class="n">CategoricalNB</span><span class="p">()</span>
+<span class="c1">#model=GaussianNB()</span>
 <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;pad&#39;</span><span class="p">),</span><span class="n">y</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>CategoricalNB()
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;pad&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([[0.93838479, 0.06161521],
+       [0.0296507 , 0.9703493 ],
+       [0.77164528, 0.22835472],
+       ...,
+       [0.09142626, 0.90857374],
+       [0.57017225, 0.42982775],
+       [0.95361137, 0.04638863]])
 </pre></div>
 </div>
 </div>
@@ -717,7 +736,13 @@ embarked: Port of Embarkation C = Cherbourg, Q = Queenstown, S = Southampton
 </div>
 <div class="section" id="bayesian-networks">
 <h2>Bayesian networks<a class="headerlink" href="#bayesian-networks" title="Permalink to this headline">¶</a></h2>
-<p>Bayesian network is a graphical model</p>
+<p>Bayesian network is a graphical model (a graph) of dependencies of probabilistic variables. The network cane be used for estimating the joint probability function:</p>
+<div class="math notranslate nohighlight">
+\[
+  P(x_1, x_2, ..., x_n) = \Pi_{i=1}^{N}P(x_i | \mathrm{parents}(x_i))
+\]</div>
+<p>The parents of <span class="math notranslate nohighlight">\(x_i\)</span> is those variables from which <span class="math notranslate nohighlight">\(x_i\)</span> is dependent on (the ancestors in the graph). The direct ancestors are not needed for this calculation.</p>
+<p>When the state of the variables <span class="math notranslate nohighlight">\(x_i\)</span> are changed, the probabilities propagate in the network and change the posterior joint probability <span class="math notranslate nohighlight">\(P()\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Xf=X.fillna(method=&#39;pad&#39;)</span>
@@ -725,7 +750,7 @@ embarked: Port of Embarkation C = Cherbourg, Q = Queenstown, S = Southampton
 <span class="n">Xf</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">train</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;pad&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">Age</span><span class="o">/</span><span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;int&#39;</span><span class="p">)</span>
 <span class="n">Xf</span><span class="p">[</span><span class="s1">&#39;Fare&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">train</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;pad&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">Fare</span><span class="o">/</span><span class="mi">50</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;int&#39;</span><span class="p">)</span>
 <span class="n">Xf</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="n">Xf</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+<span class="c1">#Xf.describe()</span>
 </pre></div>
 </div>
 </div>
@@ -758,76 +783,49 @@ embarked: Port of Embarkation C = Cherbourg, Q = Queenstown, S = Southampton
   </thead>
   <tbody>
     <tr>
-      <th>count</th>
-      <td>891.000000</td>
-      <td>891.000000</td>
-      <td>891.000000</td>
-      <td>891.000000</td>
-      <td>891.000000</td>
-      <td>891.000000</td>
+      <th>0</th>
+      <td>3</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
     </tr>
     <tr>
-      <th>mean</th>
-      <td>2.308642</td>
-      <td>1.463524</td>
-      <td>0.523008</td>
-      <td>0.381594</td>
-      <td>0.582492</td>
-      <td>0.352413</td>
+      <th>1</th>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
     </tr>
     <tr>
-      <th>std</th>
-      <td>0.836071</td>
-      <td>0.802779</td>
-      <td>1.102743</td>
-      <td>0.806057</td>
-      <td>1.066701</td>
-      <td>0.477990</td>
+      <th>2</th>
+      <td>3</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
     </tr>
     <tr>
-      <th>min</th>
-      <td>1.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
+      <th>3</th>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
     </tr>
     <tr>
-      <th>25%</th>
-      <td>2.000000</td>
-      <td>1.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-    </tr>
-    <tr>
-      <th>50%</th>
-      <td>3.000000</td>
-      <td>1.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-    </tr>
-    <tr>
-      <th>75%</th>
-      <td>3.000000</td>
-      <td>2.000000</td>
-      <td>1.000000</td>
-      <td>0.000000</td>
-      <td>1.000000</td>
-      <td>1.000000</td>
-    </tr>
-    <tr>
-      <th>max</th>
-      <td>3.000000</td>
-      <td>4.000000</td>
-      <td>8.000000</td>
-      <td>6.000000</td>
-      <td>10.000000</td>
-      <td>1.000000</td>
+      <th>4</th>
+      <td>3</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
     </tr>
   </tbody>
 </table>
@@ -840,16 +838,13 @@ embarked: Port of Embarkation C = Cherbourg, Q = Queenstown, S = Southampton
 <span class="n">Data</span><span class="o">=</span><span class="n">Xf</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="n">Data</span><span class="p">[</span><span class="s1">&#39;Survived&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">y</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">BayesianNetwork</span><span class="o">.</span><span class="n">from_samples</span><span class="p">(</span><span class="n">Data</span><span class="p">,</span> <span class="n">algorithm</span><span class="o">=</span><span class="s1">&#39;exact&#39;</span><span class="p">,</span> <span class="n">state_names</span><span class="o">=</span><span class="n">Data</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">structure</span><span class="p">)</span>
+<span class="c1">#print(model.structure)</span>
 <span class="n">model</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>((4,), (0,), (3,), (5,), (5,), (), (0, 5))
-</pre></div>
-</div>
-<img alt="_images/inference_22_1.png" src="_images/inference_22_1.png" />
+<img alt="_images/inference_24_0.png" src="_images/inference_24_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
