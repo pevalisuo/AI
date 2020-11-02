@@ -6,7 +6,7 @@
     - file: blockdiag
     - file: aitools
     - file: inference
-    - file: ailibraries
+    - file: machinelearning
     - file: machinelearninglibraries
     - file: bibliography
     - file: exercises
