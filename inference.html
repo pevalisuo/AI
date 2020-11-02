@@ -39,7 +39,7 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Use of AI libraries" href="ailibraries.html" />
+    <link rel="next" title="Machine Learning (ML)" href="machinelearning.html" />
     <link rel="prev" title="AI-Tools: Graph search" href="aitools.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -117,8 +117,13 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="ailibraries.html">
-     Use of AI libraries
+    <a class="reference internal" href="machinelearning.html">
+     Machine Learning (ML)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="machinelearning.html#linear-regression">
+     Linear regression
     </a>
    </li>
    <li class="toctree-l2">
@@ -238,7 +243,9 @@
 <p>Since there were many students taking the course, let’s model the distributions as normal. Let’s create three different distributions: One for well prepared students: <span class="math notranslate nohighlight">\(\mathcal N(\mu=4, \sigma=1)\)</span>, one for not so well prepared students <span class="math notranslate nohighlight">\(\mathcal N(\mu=2, \sigma=1)\)</span>, and a so called mixture model, combining both, modelling all students.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">mean</span> <span class="p">,</span> <span class="n">linspace</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">pomegranate</span> <span class="k">as</span> <span class="nn">pg</span>
@@ -260,9 +267,9 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">i</span><span class="o">=</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">well_prepared</span><span class="o">.</span><span class="n">probability</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Well prepared, W&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">badly_prepared</span><span class="o">.</span><span class="n">probability</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Badly prepared, B&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">all_students</span><span class="o">.</span><span class="n">probability</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;All students&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">well_prepared</span><span class="o">.</span><span class="n">probability</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Case A&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">badly_prepared</span><span class="o">.</span><span class="n">probability</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Case B&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">all_students</span><span class="o">.</span><span class="n">probability</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Combined&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Grade&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Grade from exam&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
@@ -272,7 +279,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D at 0x7f05d6262150&gt;
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D at 0x7fd73b5d0590&gt;
 </pre></div>
 </div>
 <img alt="_images/inference_4_1.png" src="_images/inference_4_1.png" />
@@ -316,8 +323,8 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Check the question 1 by resampling the distribution
-  Mean grade for well prepared student is   4.2
-  Mean grade for weakly prepared student is 2.1
+  Mean grade for well prepared student is   4.1
+  Mean grade for weakly prepared student is 1.9
 
 Questions 2-4
   Probability of well prepared of getting grade 4  P(4|W) = 39 %
@@ -376,7 +383,7 @@ Questions 2-4
 The most probable class is  [1]
 </pre></div>
 </div>
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f05d617d9d0&gt;
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fd73b5bf350&gt;
 </pre></div>
 </div>
 <img alt="_images/inference_8_2.png" src="_images/inference_8_2.png" />
@@ -426,16 +433,11 @@ The most probable class is  [1]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f05caa8d850&gt;
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fd727d4d650&gt;
 </pre></div>
 </div>
 <img alt="_images/inference_12_1.png" src="_images/inference_12_1.png" />
 </div>
-</div>
-<div class="section" id="not-independed-data">
-<h3>Not independed data<a class="headerlink" href="#not-independed-data" title="Permalink to this headline">¶</a></h3>
-<p>X = np.concatenate([np.random.normal(3, 2, size=(150, 2)), np.random.normal(7, 1, size=(250, 2))])
-y = np.concatenate([np.zeros(150), np.ones(250)])</p>
 </div>
 </div>
 <div class="section" id="summary-on-naive-bayesian-classifiers">
@@ -844,7 +846,7 @@ embarked: Port of Embarkation C = Cherbourg, Q = Queenstown, S = Southampton
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/inference_24_0.png" src="_images/inference_24_0.png" />
+<img alt="_images/inference_23_0.png" src="_images/inference_23_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1033,7 +1035,7 @@ embarked: Port of Embarkation C = Cherbourg, Q = Queenstown, S = Southampton
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="aitools.html" title="previous page">AI-Tools: Graph search</a>
-    <a class='right-next' id="next-link" href="ailibraries.html" title="next page">Use of AI libraries</a>
+    <a class='right-next' id="next-link" href="machinelearning.html" title="next page">Machine Learning (ML)</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
