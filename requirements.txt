@@ -7,4 +7,5 @@ scikit.learn
 h5py
 networkx
 statsmodels
+tables
 #nbgrader
