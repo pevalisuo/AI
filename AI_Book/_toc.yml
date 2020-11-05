@@ -7,6 +7,6 @@
     - file: aitools
     - file: inference
     - file: machinelearning
-    - file: machinelearninglibraries
+    - file: intelligent_agent
     - file: bibliography
     - file: exercises
