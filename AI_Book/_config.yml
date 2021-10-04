@@ -6,3 +6,11 @@ logo: figures/ai.jpg
 latex:
   latex_documents:
     targetname: book.tex
+    
+sphinx:
+    config:
+        bibtex_reference_style: label
+
+bibtex_bibfiles:
+    - references.bib
+

@@ -1,12 +1,14 @@
-- file: intro
+format: jb-article
+root: intro
+sections:
 - file: content
   sections:
-    - file: concepts
-    - file: manifestation
-    - file: blockdiag
-    - file: aitools
-    - file: inference
-    - file: ailibraries
-    - file: machinelearninglibraries
-    - file: bibliography
-    - file: exercises
+  - file: concepts
+  - file: manifestation
+  - file: blockdiag
+  - file: aitools
+  - file: inference
+  - file: machinelearning
+  - file: intelligent_agent
+  - file: bibliography
+  - file: exercises
