@@ -1,35 +1,47 @@
 
-
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Concepts of AI &#8212; Artificial intelligence, Concepts, Challenges, and Opportunities</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
-    <link href="_static/css/index.css" rel="stylesheet">
-    <link rel="stylesheet" href="_static/sphinx-book-theme.css" type="text/css" />
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.5f77b4aec8189eecf79907ce328c390d.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script src="_static/sphinx-book-theme.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
     <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/mystnb.js"></script>
-    <script src="_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -37,18 +49,20 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Manifestation of AI" href="manifestation.html" />
     <link rel="prev" title="Contents of the course" href="content.html" />
-
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="docsearch:language" content="en">
-
-
-
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
     
 
     <div class="container-xl">
@@ -57,34 +71,36 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="index.html">
-  
-  <img src="_static/ai.jpg" class="logo" alt="logo">
-  
-  
-  <h1 class="site-logo" id="site-title">Artificial intelligence, Concepts, Challenges, and Opportunities</h1>
-  
-</a>
-</div>
-
-<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      <img src="_static/ai.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Artificial intelligence, Concepts, Challenges, and Opportunities</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form>
-
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  <ul class="nav sidenav_l1">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="intro.html">
    introduction
   </a>
  </li>
 </ul>
-<ul class="current nav sidenav_l1">
- <li class="toctree-l1 current active">
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="content.html">
    Contents of the course
   </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
   <ul class="current">
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
@@ -112,23 +128,8 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="inference.html#probabilistic-classifier">
-     Probabilistic classifier
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="machinelearning.html">
-     Machine Learning (ML)
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="machinelearning.html#linear-regression">
-     Linear regression
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="machinelearninglibraries.html">
-     Libraries for machine learning
+    <a class="reference internal" href="ailibraries.html">
+     Use of AI libraries
     </a>
    </li>
    <li class="toctree-l2">
@@ -145,9 +146,8 @@
  </li>
 </ul>
 
-</nav>
-
- <!-- To handle the deprecated key -->
+    </div>
+</nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
   Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
@@ -162,25 +162,25 @@
           
 <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="row topbar fixed-top container-xl">
-    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
-    </div>
-    <div class="col pl-2 topbar-main">
-        
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        <div class="dropdown-buttons-trigger">
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
             class="fas fa-download"></i></button>
 
-    
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
         
@@ -192,27 +192,29 @@
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
-    
 </div>
-        <!-- Source interaction buttons -->
 
+            <!-- Source interaction buttons -->
 
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
-                    class="fas fa-expand"></i></button></a>
+            <!-- Full screen (wrap in <a> to have style consistency -->
 
-        <!-- Launch buttons -->
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
 
-    </div>
+            <!-- Launch buttons -->
 
-    <!-- Table of contents -->
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> On this page
         </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#ai-as-a-goal-for-humankind">
    AI as a goal for humankind
@@ -224,8 +226,8 @@
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ai-in-myths">
-     AI in myths
+    <a class="reference internal nav-link" href="#ai-from-myths-to-robots">
+     AI from myths to robots
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -282,14 +284,10 @@
    </li>
   </ul>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#bibliography">
-   Bibliography
-  </a>
- </li>
 </ul>
 
-        </nav>
+            </nav>
+        </div>
     </div>
 </div>
     <div id="main-content" class="row">
@@ -301,58 +299,62 @@
 <h1>Concepts of AI<a class="headerlink" href="#concepts-of-ai" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="ai-as-a-goal-for-humankind">
 <h2>AI as a goal for humankind<a class="headerlink" href="#ai-as-a-goal-for-humankind" title="Permalink to this headline">¶</a></h2>
-<p>There are over 66 thousands species of vertebrates in the planet Earth. What makes the Homo sapiens (man the wise) different from each other is probably the intelligence. The intelligence makes as superior to other species allowing us to control the world and use it’s resources for our own good. Because the importance of intelligence we have always been interested in understanding how we think, and what intelligence is.</p>
-<p>Dr Yval Harari (PhD in history) discusses in his book <a class="bibtex reference internal" href="#harari-homo-2017" id="id1">[Har17]</a>, what is the next goal of humankind, after the fight for climate change is won. Harari’s quite radical opinion is that being a God-like, to be able to extend the capabilities of the human being, and create life and intelligence of it’s own have always been in the dreams of a human and after recent development, they can be taken in more serious goals today. This requires, in addition to understanding what intelligence is, the capability to implement intelligent artifacts.</p>
-<p>We already extend human senses, memory and information processing capacity with technology, and a great deal of researchers are striving for the development of artificial intelligence (AI) and artificial life (AL).</p>
+<p>There are over 66 thousands species of vertebrates (suomeksi: selkärankainen) in the planet Earth. What makes the Homo sapiens (man the wise) different from each other is possibly the intelligence. The intelligence makes as superior to other species allowing us to control the world and use it’s resources for our own good. Because the importance of intelligence we have always been interested in understanding how we think, and what intelligence is.</p>
+<p>Dr Yval Harari (PhD in history) discusses in his book <span id="id1">[<a class="reference internal" href="bibliography.html#id8">1</a>]</span>, what is the next goal of humankind, after the fight for climate change is won. Harari’s quite radical opinion is that being a God-like, to be able to extend the capabilities of the human being, and create life and intelligence of it’s own have always been in the dreams of a human and after recent development, they can be considered as more serious goals today. This requires, in addition to understanding what intelligence is, the capability to implement intelligent artifacts.</p>
+<p>We already extend human senses, memory and information processing capacity with technology, and a great deal of researchers continue striving for the development of artificial intelligence (AI) and artificial life (AL), like they have always did.</p>
 </div>
 <div class="section" id="history">
 <h2>History<a class="headerlink" href="#history" title="Permalink to this headline">¶</a></h2>
 <p>Harari’s point can be at least partly proven by studying the ancient myths of AI and AL.</p>
-<div class="section" id="ai-in-myths">
-<h3>AI in myths<a class="headerlink" href="#ai-in-myths" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="ai-from-myths-to-robots">
+<h3>AI from myths to robots<a class="headerlink" href="#ai-from-myths-to-robots" title="Permalink to this headline">¶</a></h3>
 <p>The creation of humanoid robots and intelligent structures has been dreamed by a human kind as long as there is information available.</p>
-<p><a class="reference external" href="https://en.wikipedia.org/wiki/Talos">Talos</a> was a mythical giant artifact in Greek mythology. It was a human like bronze sculpture which was forget with the help of magical powers and animated by ethereal fluid called Ichor. When the <a class="reference external" href="https://en.wikipedia.org/wiki/Ichor">Ichor</a> was let out, the sculpture stop functioning and “died”. The mythical Talos-sculpture had super human like abilities and intelligence. The copying and improving a human being is still one of the goals of AI research. The Frankestein’s monster is the similar fictional story of the modern times.</p>
-<p>While Talos was animated by magical powers, the Frankenstein’s monster was a dead person, in which the life was brought using then recent scientific methods: alchemy, chemistry and electricity.</p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Talos">Talos</a> was a mythical giant artifact in Greek mythology. It was a human like bronze sculpture which was forget with the help of magical powers and animated by ethereal fluid called Ichor. When the <a class="reference external" href="https://en.wikipedia.org/wiki/Ichor">Ichor</a> was let out, the sculpture stop functioning and “died”. The mythical Talos-sculpture had super human like abilities and intelligence. The copying and improving a human being is still one of the goals of AI research. The Frankestein’s monster is the similar fictional story of the modern times, and humanoid robots are becoming reality today.</p>
+<p>While Talos was animated by magical powers, the Frankenstein’s monster was a dead person, in which the life was brought using then recent scientific methods: alchemy, chemistry and electricity, and the humanoid robots are powered by neural networs and deep learning, which is our current technology for creating intelligence.</p>
 </div>
 <div class="section" id="scientific-development-of-ingredients-for-ai">
 <h3>Scientific development of ingredients for AI<a class="headerlink" href="#scientific-development-of-ingredients-for-ai" title="Permalink to this headline">¶</a></h3>
-<p>More recent development of artificial intelligence is often based on formal reasoning, a mechanization of human inference. Formal reasoning was first developed by philosophers, like Aristotle, Euclid, <a class="reference external" href="https://en.wikipedia.org/wiki/Muhammad_ibn_Musa_al-Khwarizmi">al-Khwārizmī</a>, and  <a class="reference external" href="https://en.wikipedia.org/wiki/William_of_Ockham">William of Ockham</a> , for example.</p>
-<p>Computer science started in the beginning of 20th century at first without computers by matematician Kurt Gödel and Alan Turing. Charles Babbage created a theoretical concept of a computer (Analytical engine) and Ada Lovelace speculated that it could be used for composing music of any complexity. The ideas of hardware and algorithm (software) were created.</p>
-<p>The second World War boosted the development of actual computers and programming.</p>
+<p>More recent development of artificial intelligence is often based on formal reasoning, a mechanization of human inference. Formal reasoning was first developed by philosophers, like deductive reasoning through syllogisms by Aristotle (384-322 BCE), geometry by Euclid (300 BCE), algebra by <a class="reference external" href="https://en.wikipedia.org/wiki/Muhammad_ibn_Musa_al-Khwarizmi">al-Khwārizmī (813-833 CE) </a>, and  parsimonious reasoning by <a class="reference external" href="https://en.wikipedia.org/wiki/William_of_Ockham">William of Ockham (1285-1347 CE) </a> , for example.</p>
+<p>Charles Babbage (1791-1871) created a theoretical concept of a digital programmable computer (Analytical engine) and Ada Lovelace (1815-1852) speculated that it could be used for composing music of any complexity. The ideas of hardware and algorithm (software) were created.</p>
+<p>Computer science started in the beginning of 20th century still without computers by logician Kurt Gödel (1906-1978) who studie the limits of provability of logical theorems. His second incompleteness theorem for example states that a consistent system of axioms, whose theorems can be listed, cannot prove its own consistency. At the same time, Alan Turing (1912-1954) used formalized the concepts of algorithm and computation using an artificial logical machine, called as Turing Machine. Turing used his machine to break crypographically secured messages during World War II.</p>
 <p>In 1950 the development of AI and computers developed further. The research had found out that the human brain consists of neurons and scientists created artificial <a class="reference external" href="https://en.wikipedia.org/wiki/Neurons">neurons</a> to perform simple logical functions and connected many of them as <a class="reference external" href="https://en.wikipedia.org/wiki/Artificial_neural_network">artificial neural networks (ANN)</a> for more complex operations. The goal was to mimic the structure of human brains to be able to make intelligent decisions. First researchers started to study the processing of symbols in addition to numbers and the idea of AI that a computer can have a mind as humans do, emerged.</p>
 <p>The research field of AI is said to be established in the <a class="reference external" href="https://en.wikipedia.org/wiki/Dartmouth_Workshop">Dartmouth Conference</a> of 1956. After the conference the field of AI started to develop very rapidly and plenty of resources were used for it’s development.</p>
 <div class="admonition-discussion-point admonition">
 <p class="admonition-title">Discussion point</p>
 <p>In Blade Runner movie (1982), agent Deckard is hunting for replicants (AI robots), made by mighty Tyrell-corporation. Watch the scene
 <a class="reference external" href="https://www.youtube.com/watch?v=g-DkoGvcEBw">Deckard Meets Rachel</a>
-and consider, how did Deckard studied if Rachel is a replicant or a human? Why it was so difficult for him to find out the truth in Rachel? The answer to the last question is in the following scene starting from 1:15
-<a class="reference external" href="https://www.youtube.com/watch?v=yWPyRSURYFQ">Deckard Meets Rachel, scene continues</a></p>
+and consider, how did Deckard studied if Rachel is a replicant or a human?
+What is the connection with so called <a class="reference external" href="https://en.wikipedia.org/wiki/Turing_test">Turing test</a>?
+Why it was so difficult for him to find out the truth in Rachel?  The answer to the last question is in the following scene starting from 1:15
+<a class="reference external" href="https://www.youtube.com/watch?v=yWPyRSURYFQ">Deckard Meets Rachel, scene continues</a>
+How is that related to self consciousness of AI?</p>
 </div>
 </div>
 <div class="section" id="historical-methods-for-ai">
 <h3>Historical methods for AI<a class="headerlink" href="#historical-methods-for-ai" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
+<li><p><em>Axiom based AI</em> was dveloped before 1960s, but then it was noticed that a small number of axioms are weak in solving complex problems. It was insted acknowledged that it is important to include a rich base of knowledge in the the system. This development lead to so called <em>Knowledge-Based Systems</em>. <span id="id2">[<a class="reference internal" href="bibliography.html#id13">3</a>]</span></p></li>
 <li><p>Reasoning as search: Some problems can be solved by searching the space of potential actions step by step, until the solution is found.</p></li>
-<li><p>Natural language processing (NLP): Since it’s early days, the natural communication with a human being has been one important goal of AI. I consists of understanding the written or spoken natural language, mapping the semantics of natural language concepts and synthesizing written or spoken texts. These goals have direct relation to <a class="reference external" href="https://en.wikipedia.org/wiki/Turing_test">Turing’s test</a>. When Alan Turing was asked, if a computer can ever be as intelligent as a human being, he has been said to answer that at least there can be a seemingly intelligent machine which can communicate with a natural language mimicking human behavior so closely that it is indistinguishable from a human being by a human observer. Passing the Turing’s test has been one of a long term goal for natural language processing and AI.</p></li>
-<li><p>Micro worlds: It was realized that AI ideas can be more effectively implemented in a reduced world, when unnecessary details have been removed. These concepts influenced a lot in machine vision, which tries to create a simple model of the world from based on images.</p></li>
+<li><p><em>Natural language processing</em> (NLP): Since it’s early days, the natural communication with a human being has been one important goal of AI. I consists of understanding the written or spoken natural language, mapping the semantics of natural language concepts and synthesizing written or spoken texts. These goals have direct relation to <a class="reference external" href="https://en.wikipedia.org/wiki/Turing_test">Turing’s test</a>. When Alan Turing was asked, if a computer can ever be as intelligent as a human being, he has been said to answer that at least there can be a seemingly intelligent machine which can communicate with a natural language mimicking human behavior so closely that it is indistinguishable from a human being by a human observer. Passing the Turing’s test has been one of a long term goal for natural language processing and AI.</p></li>
+<li><p><em>AI in Micro worlds</em>: It was realized that AI ideas can be more effectively implemented in a reduced world, when unnecessary details have been removed. A Micro World is an artificially simplistic description of reality, where sufficient AI models can be build. Plenty of research has focused on so-called blocks world, which consists of only coloured blocs of different shapes and sizes on a flat surface. These concepts influenced a lot in simple natural language processing systems and which were able to carry out conversations in simple stereotypical situations, without actually understanding the content of the conversation. Many machine vision system also model the world which simple geometrical shapes created from the images.</p></li>
 </ul>
-<div class="admonition-discussion-point admonition">
-<p class="admonition-title">Discussion point</p>
-<p>What is self consciousness? How could an AI gain Self consciousness, by simply including itself into simulation? What would be the impacts of self conciousness?</p>
-</div>
 <p>Some of these historical methods have been so fundamental that they are still in use. The good old perceptron is in the heart of modern deep learning methods and NLP is still an active research area. The idea of Micro Worlds is replaced with a discussion of weak and strong AI</p>
 <ul class="simple">
 <li><p><em>Weak AI</em> or <em>narrow AI</em> are AI implementations for a narrow task in a limited environment. For example, the Siri assistant can understand speech, search data and create virtually intelligent answers, but it is not intelligent in the same manner than human being. Most of the AI implementations today are examples of Weak AI.</p></li>
 <li><p><em>Strong AI</em> or <em>General AI</em> would be AI which actually is intelligent and can solve general problems in the same manner than human being. Sometimes self consciousness is also listed as a requirement for Strong AI.</p></li>
 </ul>
+<div class="admonition-discussion-point admonition">
+<p class="admonition-title">Discussion point</p>
+<p>What is self consciousness? How could an AI gain Self consciousness, by simply including itself into simulation? What would be the impacts of self conciousness?</p>
+</div>
 </div>
 </div>
 <div class="section" id="key-drivers-for-development-of-ai">
 <h2>Key drivers for development of AI<a class="headerlink" href="#key-drivers-for-development-of-ai" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Computing power: AI needs powerful processing of information which can be achieved by using fast computers. The fast development of computers has enabled the fast development of AI.</p></li>
-<li><p>Availability of data: The AI is based on data. The digitalisation of the society has created plenty of embedded sensors and social media which produce a vast amount of data, which can be used for training AI to solve problems. It has been claimed that 90% of the data ever created was created during last two years.</p></li>
-<li><p>Algorithms and tools: The development of AI algorithms and tools bring AI to be accessible to everyone and accelerate the development of AI itself.</p></li>
+<li><p><em>Computing power:</em> AI needs powerful processing of information which can be achieved by using fast computers. The fast development of computers has enabled the fast development of AI.</p></li>
+<li><p><em>Availability of data:</em> The AI is based on data. The digitalisation of the society has created plenty of embedded sensors and social media which produce a vast amount of data, which can be used for training AI to solve problems. It has been claimed that 90% of the data ever created was created during last two years.</p></li>
+<li><p><em>Algorithms and tools:</em> The development of AI algorithms and tools bring AI to be accessible to everyone and accelerate the development of AI itself.</p></li>
 </ul>
 </div>
 <div class="section" id="definition-of-ai">
@@ -363,7 +365,7 @@ and consider, how did Deckard studied if Rachel is a replicant or a human? Why i
 <div><p>Artificial intelligence (AI), the ability of a digital computer or computer-controlled robot to perform tasks commonly associated with intelligent beings.<br />
 -Ensyclopædia Britannica</p>
 </div></blockquote>
-<p>B. J. Copeland <a class="bibtex reference internal" href="#warwick-artificial-2011" id="id2">[War11]</a> seems to agree with this definition, and continues explaining that a human is one of those intelligent beings, which can be used as a measure of intelligence. He further continues that everything a human does is not necessarily a manifestation of intelligence, but reasoning, discovering a meaning, ability to generalize and learning from the past are truly intelligent behaviour.</p>
+<p>B. J. Copeland <span id="id3">[<a class="reference internal" href="bibliography.html#id28">6</a>]</span> seems to agree with this definition, and continues explaining that a human is one of those intelligent beings, which can be used as a measure of intelligence. He further continues that everything a human does is not necessarily a manifestation of intelligence, but reasoning, discovering a meaning, ability to generalize and learning from the past are truly intelligent behaviour.</p>
 <blockquote>
 <div><p>Artificial intelligence (AI), the ability of a digital computer or computer-controlled robot to perform tasks commonly associated with intelligent beings. The term is frequently applied to the project of developing systems endowed with the intellectual processes characteristic of humans, such as the ability to reason, discover meaning, generalize, or learn from past experience.</p>
 </div></blockquote>
@@ -372,7 +374,7 @@ and consider, how did Deckard studied if Rachel is a replicant or a human? Why i
 <div><p>In computer science, artificial intelligence (AI), sometimes called machine intelligence, is intelligence demonstrated by machines, in contrast to the natural intelligence displayed by humans and animals. <br />
 -Wikipedia</p>
 </div></blockquote>
-<p>Russel et.al. <a class="bibtex reference internal" href="#russell-artificial-2014" id="id3">[RN14]</a> conclude that AI can be human kind of thinking and acting demonstrated by artifacts, but also simply rational thinking and acting. Rational thinking is decision making based on correct rules, “laws of thought”. The rational thinking framework can be based for example on logics, mathematics or statistics.</p>
+<p>Russel <a class="reference external" href="http://et.al">et.al</a>. <span id="id4">[<a class="reference internal" href="bibliography.html#id21">4</a>]</span> conclude that AI can be human kind of thinking and acting demonstrated by artifacts, but also simply rational thinking and acting. Rational thinking is decision making based on correct rules, “laws of thought”. The rational thinking framework can be based for example on logics, mathematics or statistics.</p>
 <div class="admonition-definition admonition">
 <p class="admonition-title">Definition</p>
 <p>Thinking is using knowledge and information to make plans, interpret and model the world and constructively interact with and make predictions of the world.</p>
@@ -385,7 +387,7 @@ and consider, how did Deckard studied if Rachel is a replicant or a human? Why i
 <p class="admonition-title">Discussion point</p>
 <p>What is the measure of intelligence? What if we meet with an extraterrestial being or an AI which is more intelligent than us. How can we know that it is more intelligent than us?</p>
 </div>
-<p>Definitions of different forms of AI according to <a class="bibtex reference internal" href="#russell-artificial-2014" id="id4">[RN14]</a></p>
+<p>Definitions of different forms of AI according to <span id="id5">[<a class="reference internal" href="bibliography.html#id21">4</a>]</span></p>
 <ol class="simple">
 <li><p><strong>Human like thinking:</strong> Studying how humans think and using the same methods in AI. This approach was used in early AI development but many contemporary methods differ from human thinking.</p></li>
 <li><p><strong>Acting humanly:</strong> Computer systems trying to carry out human like conversations so that they are indistinguishable from a real person. Target ḿay be to complete Turing’s test. Humanoid robots try to mimic human behavior. Acting like human does not necessarily require machien to think like human.</p></li>
@@ -475,7 +477,7 @@ and consider, how did Deckard studied if Rachel is a replicant or a human? Why i
 </div>
 <div class="section" id="learning-agents">
 <h3>Learning agents<a class="headerlink" href="#learning-agents" title="Permalink to this headline">¶</a></h3>
-<p>Alan Turing estimated in 1950 the amount of programming needed to gain AI. According to methods of 50’s, he estimated that programming of AI which had similar capabilities than a person would take 50 years. He concludes that <em>Some more expeditious method seems desirable</em>, and proposes a learning machine <a class="bibtex reference internal" href="#turing-computing-1950" id="id5">[TUR50]</a>.</p>
+<p>Alan Turing estimated in 1950 the amount of programming needed to gain AI. According to methods of 50’s, he estimated that programming of AI which had similar capabilities than a person would take 50 years. He concludes that <em>Some more expeditious method seems desirable</em>, and proposes a learning machine <span id="id6">[<a class="reference internal" href="bibliography.html#id26">5</a>]</span>.</p>
 <p>In contrast to programmed AI, the learning AI learns the rules behind the actions without explicit programming. The benefits are that the agent can operate in an environment, which is initially unknown. In a long run it can also learn rules which would be very complex to program.</p>
 <p>The structure of the learning agent is consisted of the following four components, see <a class="reference internal" href="#fig-learningagent"><span class="std std-numref">Fig. 6</span></a>.</p>
 <ol class="simple">
@@ -497,24 +499,6 @@ and consider, how did Deckard studied if Rachel is a replicant or a human? Why i
 <p>How would an autonomous car or vacuum cleaner would work, if it was simple reflex, model based goal based or utility based agent? How would learning change the behaviour?</p>
 </div>
 </div>
-</div>
-<div class="section" id="bibliography">
-<h2>Bibliography<a class="headerlink" href="#bibliography" title="Permalink to this headline">¶</a></h2>
-<p id="bibtex-bibliography-concepts-0"><dl class="citation">
-<dt class="bibtex label" id="harari-homo-2017"><span class="brackets"><a class="fn-backref" href="#id1">Har17</a></span></dt>
-<dd><p>Yuval Noaḥ Harari. <em>Homo Deus: a brief history of tomorrow</em>. Vintage, London, revised edition edition, 2017. ISBN 978-1-78470-393-6. OCLC: 982133945.</p>
-</dd>
-<dt class="bibtex label" id="russell-artificial-2014"><span class="brackets">RN14</span><span class="fn-backref">(<a href="#id3">1</a>,<a href="#id4">2</a>)</span></dt>
-<dd><p>Stuart J. Russell and Peter Norvig. <em>Artificial intelligence: a modern approach</em>. Always learnin. Pearson, Harlow, 3. ed., pearson new internat. ed edition, 2014. ISBN 978-1-292-02420-2. OCLC: 931386066.</p>
-</dd>
-<dt class="bibtex label" id="turing-computing-1950"><span class="brackets"><a class="fn-backref" href="#id5">TUR50</a></span></dt>
-<dd><p>IN℡LIGENCE BY AM TURING. Computing machinery and intelligence-AM Turing. <em>Mind</em>, 59(236):433, 1950.</p>
-</dd>
-<dt class="bibtex label" id="warwick-artificial-2011"><span class="brackets"><a class="fn-backref" href="#id2">War11</a></span></dt>
-<dd><p>Kevin Warwick. <em>Artificial Intelligence: the Basics</em>. Taylor &amp; Francis Group, Florence, UNITED STATES, 2011. ISBN 978-0-203-80287-8. URL: <a class="reference external" href="http://ebookcentral.proquest.com/lib/tritonia-ebooks/detail.action?docID=958762">http://ebookcentral.proquest.com/lib/tritonia-ebooks/detail.action?docID=958762</a>.</p>
-</dd>
-</dl>
-</p>
 </div>
 </div>
 
@@ -540,15 +524,15 @@ and consider, how did Deckard studied if Rachel is a replicant or a human? Why i
 
               </div>
               
-        </div>
-    </div>
-    
-    
-    <div class='prev-next-bottom'>
         
+        <div class='prev-next-bottom'>
+            
     <a class='left-prev' id="prev-link" href="content.html" title="previous page">Contents of the course</a>
     <a class='right-next' id="next-link" href="manifestation.html" title="next page">Manifestation of AI</a>
 
+        </div>
+        
+        </div>
     </div>
     <footer class="footer mt-5 mt-md-0">
     <div class="container">
@@ -556,7 +540,7 @@ and consider, how did Deckard studied if Rachel is a replicant or a human? Why i
         
           By Petri Välisuo<br/>
         
-            &copy; Copyright 2020.<br/>
+            &copy; Copyright 2021.<br/>
       </p>
     </div>
   </footer>
@@ -565,8 +549,9 @@ and consider, how did Deckard studied if Rachel is a replicant or a human? Why i
 
       </div>
     </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
-    <script src="_static/js/index.js"></script>
-    
+  
   </body>
 </html>

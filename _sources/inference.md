@@ -1,3 +1,0 @@
-Logical inference and uncertainties 
-=====================================
-
