@@ -52,7 +52,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Block diagram of AI" href="blockdiag.html" />
-    <link rel="prev" title="Concepts of AI" href="concepts.html" />
+    <link rel="prev" title="Simple reflex agents" href="concepts.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -102,7 +102,7 @@
   <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="concepts.html">
-     Concepts of AI
+     Simple reflex agents
     </a>
    </li>
    <li class="toctree-l2 current active">
@@ -126,13 +126,13 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="ailibraries.html">
-     Use of AI libraries
+    <a class="reference internal" href="machinelearning.html">
+     Machine Learning (ML)
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="machinelearninglibraries.html">
-     Libraries for machine learning
+    <a class="reference internal" href="intelligent_agent.html">
+     Implementing a simple intelligent agent
     </a>
    </li>
    <li class="toctree-l2">
@@ -269,8 +269,8 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#spot-fake-networks">
-   Spot fake networks
+  <a class="reference internal nav-link" href="#spot-fake-news">
+   Spot fake news
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -447,18 +447,40 @@ table.mytable th {
 </div>
 <div class="section" id="medical-diagnosis">
 <h2>Medical diagnosis<a class="headerlink" href="#medical-diagnosis" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-center" id="fig-computeraideddiagnosis">
+<a class="reference internal image-reference" href="_images/ComputerAidedDiagnosisBoom.png"><img alt="_images/ComputerAidedDiagnosisBoom.png" src="_images/ComputerAidedDiagnosisBoom.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text">The utilization of AI for Computer Aided Diagnostis (CAD) in medical fields.
+<span id="id4">[<a class="reference internal" href="bibliography.html#id9">2</a>]</span></span><a class="headerlink" href="#fig-computeraideddiagnosis" title="Permalink to this image">¶</a></p>
+</div>
+<p>The most succesful areas for computer aided diagnostics according to Fujita
+<span id="id5">[<a class="reference internal" href="bibliography.html#id9">2</a>]</span> are:</p>
+<ul class="simple">
+<li><p>Fundus photographs: Mass screening of eye dieseases such as glaucoma and retinopathy. Google published a paper which implies that even heart disesases could be recognized frmo fundus images using deep learning.</p></li>
+<li><p>Dermatology imaging: Skin cancer diagnostics where AI has observerd to outperform a human specialist. However it is good to know that the main method for diagnosing skin cancer is still biopsy, not visual examination.</p></li>
+<li><p>Pathological imaging, detection of lymph node metastasis.</p></li>
+<li><p>Breast imaging, mammography</p></li>
+<li><p>Chest imaging, classify normal and abnormal major thoracic diseases</p></li>
+</ul>
+<p>The figure <a class="reference internal" href="#fig-deeporgans"><span class="std std-numref">Fig. 7</span></a> shos the utilization of deep learning to segment the human organs based on the example segmentation made by human experts.</p>
+<div class="figure align-center" id="fig-deeporgans">
+<a class="reference internal image-reference" href="_images/Organs.png"><img alt="_images/Organs.png" src="_images/Organs.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text">The automated segmentation of organs from Computer Tomograhpy (CT) images.
+<span id="id6">[<a class="reference internal" href="bibliography.html#id9">2</a>]</span></span><a class="headerlink" href="#fig-deeporgans" title="Permalink to this image">¶</a></p>
+</div>
+<p>Deep learning has been particularly succesfull in medical diagnostics. The disadvantege of deep learning is that the decision algorithm is a “black box”, which structure cannot be easily examined and explained. It is very important particularly in medicine, to explain how the diagnosis has been made.</p>
+<p>University of Vaasa has also a few publications and few PhD thesis about AI based medical diagnostics, such as <span id="id7">[<a class="reference internal" href="bibliography.html#id2">1</a>, <a class="reference internal" href="bibliography.html#id31">8</a>]</span></p>
 </div>
 <div class="section" id="earth-observations">
 <h2>Earth observations<a class="headerlink" href="#earth-observations" title="Permalink to this headline">¶</a></h2>
-<p>A satellite image of Söderjärden region is shown in <a class="reference internal" href="#fig-soderfjarden-image"><span class="std std-numref">Fig. 7</span></a>. The original satellite image acquired by European <a class="reference external" href="https://sentinel.esa.int/web/sentinel/home">Sentinel-2 satellite</a> consist of 13 different channels, representing different wavelenght. The figure below is a normal 3-channel RGB image constructed from 13 original channels.</p>
+<p>A satellite image of Söderjärden region is shown in <a class="reference internal" href="#fig-soderfjarden-image"><span class="std std-numref">Fig. 8</span></a>. The original satellite image acquired by European <a class="reference external" href="https://sentinel.esa.int/web/sentinel/home">Sentinel-2 satellite</a> consist of 13 different channels, representing different wavelenght. The figure below is a normal 3-channel RGB image constructed from 13 original channels.</p>
 <div class="figure align-center" id="fig-soderfjarden-image">
 <a class="reference internal image-reference" href="_images/Soderfjarden_image.png"><img alt="_images/Soderfjarden_image.png" src="_images/Soderfjarden_image.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text">An RGB visualisation of a satellite image of Söderjärden region, including training data for the classification of  land use.</span><a class="headerlink" href="#fig-soderfjarden-image" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text">An RGB visualisation of a satellite image of Söderjärden region, including training data for the classification of  land use.</span><a class="headerlink" href="#fig-soderfjarden-image" title="Permalink to this image">¶</a></p>
 </div>
-<p>The image also contains some example data shown with polygons, which represent certain types of land use, such as forest, water, dark soil, hay field and grass. This data can be seen as a true classification results performed by an expert. An AI algorithm can now be trained to repeat the same classification using all 13 channels of data from the original image. The trained classification algorithm can then be applied to the rest of the image as well, and classify all pixels. The result of this is shown in <a class="reference internal" href="#fig-soderfjarden-classified"><span class="std std-numref">Fig. 8</span></a> image below.</p>
+<p>The image also contains some example data shown with polygons, which represent certain types of land use, such as forest, water, dark soil, hay field and grass. This data can be seen as a true classification results performed by an expert. An AI algorithm can now be trained to repeat the same classification using all 13 channels of data from the original image. The trained classification algorithm can then be applied to the rest of the image as well, and classify all pixels. The result of this is shown in <a class="reference internal" href="#fig-soderfjarden-classified"><span class="std std-numref">Fig. 9</span></a> image below.</p>
 <div class="figure align-center" id="fig-soderfjarden-classified">
 <a class="reference internal image-reference" href="_images/Soderfjarden_classified.png"><img alt="_images/Soderfjarden_classified.png" src="_images/Soderfjarden_classified.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text">An RGB visualisation of the land use classification results from Söderjärden region.</span><a class="headerlink" href="#fig-soderfjarden-classified" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 9 </span><span class="caption-text">An RGB visualisation of the land use classification results from Söderjärden region.</span><a class="headerlink" href="#fig-soderfjarden-classified" title="Permalink to this image">¶</a></p>
 </div>
 <p>If the training data provided by the expert wouldn’t have been available, then supervised classification had not been possible, but unsupervised clustering could have been tried instead.</p>
 <div class="admonition-discussion-point admonition">
@@ -469,9 +491,22 @@ table.mytable th {
 <div class="section" id="tackling-with-climate-changes">
 <h2>Tackling with climate changes<a class="headerlink" href="#tackling-with-climate-changes" title="Permalink to this headline">¶</a></h2>
 <p>AI can be useful for many purposes when tackling with climate change, as listed by National Geography, in <a class="reference external" href="https://www.nationalgeographic.com/environment/2019/07/artificial-intelligence-climate-change/">How artificial intelligence can tackle climate change</a>. The climatologists have been using AI methods in predicting</p>
+<p>The figure <a class="reference internal" href="#fig-ccai"><span class="std std-numref">Fig. 10</span></a> shows which AI methods have been popular in prevention of climate change</p>
+<div class="figure align-center" id="fig-ccai">
+<a class="reference internal image-reference" href="_images/ClimateChangeAI.png"><img alt="_images/ClimateChangeAI.png" src="_images/ClimateChangeAI.png" style="width: 700px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 10 </span><span class="caption-text">The popularity of different AI methods in domains related to climate change mitigation and prevention <span id="id8">[<a class="reference internal" href="bibliography.html#id24">5</a>]</span></span><a class="headerlink" href="#fig-ccai" title="Permalink to this image">¶</a></p>
 </div>
-<div class="section" id="spot-fake-networks">
-<h2>Spot fake networks<a class="headerlink" href="#spot-fake-networks" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="spot-fake-news">
+<h2>Spot fake news<a class="headerlink" href="#spot-fake-news" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-center" id="fig-fakenews">
+<a class="reference internal image-reference" href="_images/Fakenews.png"><img alt="_images/Fakenews.png" src="_images/Fakenews.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 11 </span><span class="caption-text">A proposed structure of AI tool for detecting fake news  <span id="id9">[<a class="reference internal" href="bibliography.html#id14">4</a>]</span></span><a class="headerlink" href="#fig-fakenews" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-center" id="fig-fakenescm">
+<a class="reference internal image-reference" href="_images/FakenewsConfusionMatrix.png"><img alt="_images/FakenewsConfusionMatrix.png" src="_images/FakenewsConfusionMatrix.png" style="width: 500px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 12 </span><span class="caption-text">The accuracy of the fakenews detection expressed as so called Confusion Matrix. The matrix shows how many samples which are fake news were classified as fake news by the algorithm and how many of them were misclassified as original news, and the same for true original news.  <span id="id10">[<a class="reference internal" href="bibliography.html#id14">4</a>]</span></span><a class="headerlink" href="#fig-fakenescm" title="Permalink to this image">¶</a></p>
+</div>
 </div>
 <div class="section" id="write-documents">
 <h2>Write documents<a class="headerlink" href="#write-documents" title="Permalink to this headline">¶</a></h2>
@@ -516,7 +551,7 @@ table.mytable th {
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="concepts.html" title="previous page">Concepts of AI</a>
+    <a class='left-prev' id="prev-link" href="concepts.html" title="previous page">Simple reflex agents</a>
     <a class='right-next' id="next-link" href="blockdiag.html" title="next page">Block diagram of AI</a>
 
         </div>

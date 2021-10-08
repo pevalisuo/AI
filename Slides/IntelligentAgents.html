@@ -1,0 +1,548 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Intelligent agents &#8212; Artificial intelligence, Concepts, Challenges, and Opportunities</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.5f77b4aec8189eecf79907ce328c390d.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/ai.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Artificial intelligence, Concepts, Challenges, and Opportunities</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   introduction
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../content.html">
+   Contents of the course
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../concepts.html">
+     Simple reflex agents
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../manifestation.html">
+     Manifestation of AI
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../blockdiag.html">
+     Block diagram of AI
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../aitools.html">
+     AI-Tools: Graph search
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../inference.html">
+     Probabilistic inference
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../machinelearning.html">
+     Machine Learning (ML)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../intelligent_agent.html">
+     Implementing a simple intelligent agent
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../bibliography.html">
+     Bibliography
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../exercises.html">
+     Excercises
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="../_sources/Slides/IntelligentAgents.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Slides/IntelligentAgents.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Slides/IntelligentAgents.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   Intelligent agents
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#simple-reflex-agents">
+     Simple reflex agents
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#model-based-reflex-agents">
+     Model based reflex agents
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#goal-based-agents">
+     Goal based agents
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#utility-based-agents">
+     Utility based agents
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#learning-agents">
+     Learning agents
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+   <img src="kuvat/Clarke.png" height="200" align="right"/>
+<blockquote>
+<div><p>Any sufficiently advanced technology is indistinguishable from magic.</p>
+</div></blockquote>
+<p>/ Arthur C. Clarke</p>
+<p>The explanations like:</p>
+<ul class="simple">
+<li><p>This image recognition is based on Deep Neural Networks, or</p></li>
+<li><p>This prediction is based on Support Vector Regresssion</p></li>
+</ul>
+<p>Are equal to “it is magic”, if one does not understand AI.</p>
+<p>On the contrary to traditional magic, this course is going to reveal the tricks of the magicians who use AI tools.</p>
+ <img src="kuvat/robot.png" height="200" align="right"/>
+<div class="section" id="intelligent-agents">
+<h1>Intelligent agents<a class="headerlink" href="#intelligent-agents" title="Permalink to this headline">¶</a></h1>
+<p>One convenient abstraction for discussing AI is so called intelligent agent.</p>
+<div class="section" id="id1">
+<h2>Intelligent agents<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>An intelligent agent is something which acts and tries to pursue goals. An artificial intelligent agent is a machine or software. It has often sensors, to perceive the world and it may make actions to interact with the world</p>
+<p><img alt="image.png" src="../_images/intelligent_agents1.png" /></p>
+<p>The basic concept of an intelligent agent. It has sensors to measure information about the world (perception), it uses the information and it’s internal state to make intelligent decisions and performs actions using its actuators to affect to the world.</p>
+<p><strong>Definition</strong>:
+A rational agent is an agent which always selects an action that is expected to maximize its performance measure based on its perceptions and build in information about the world.</p>
+<p><strong>Discussion topic:</strong>
+Can an intelligent agent be meaningful without perception or actuator or neither?</p>
+<p><strong>Discussion topic</strong>:
+If two rational agents both maximize their performance measure based on their perceptions and build in information, can one be better than another?</p>
+<p>Intelligent agents can be divided in four classes based on their cognitive abilities and level of sophistication:</p>
+<ol class="simple">
+<li><p>Simple reflex agents</p></li>
+<li><p>Model based agents</p></li>
+<li><p>Goal based agents</p></li>
+<li><p>Utility based agents</p></li>
+</ol>
+<div class="section" id="simple-reflex-agents">
+<h3>Simple reflex agents<a class="headerlink" href="#simple-reflex-agents" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>These agents are reactive systems</p></li>
+<li><p>perform simple actions based on their perception</p></li>
+</ul>
+<p>One example of really simple agent of this kind is a motion sensor based outdoor light controller:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+  \mbox{Light} = \begin{cases}
+    1, &amp; \mbox{if (dark AND movement_observed)} \\
+    0, &amp; \mbox{otherwise }
+  \end{cases}
+\end{split}\]</div>
+<ul class="simple">
+<li><p>Operation is based on a simple logical rule to combine two input variables to make a decision for taking an action.</p></li>
+<li><p>In general the decision system can be arbitrary complex and include also many other inference methods than logics.</p></li>
+<li><p>Because the agent acts based only on its perceptions it will run into troubles if the world is only partially observable.</p></li>
+</ul>
+<p>The simple reflex agent makes its decisions based only on the perceptions and decision rules.</p>
+<p><img alt="image.png" src="../_images/reflex_agents1.png" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">Agent</span> <span class="kn">import</span> <span class="n">getSunlight</span><span class="p">,</span> <span class="n">readMovementSensor</span><span class="p">,</span> <span class="n">SwitchLighting</span>
+
+<span class="c1"># Loop forewer</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="c1"># Perceptions</span>
+    <span class="n">Light</span> <span class="o">=</span> <span class="n">getSunlight</span><span class="p">()</span>
+    <span class="n">Movement</span> <span class="o">=</span> <span class="n">readMovementSensor</span><span class="p">()</span>
+    
+    <span class="c1"># Decision making</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">Light</span> <span class="o">&lt;</span> <span class="mf">0.25</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">Movement</span><span class="o">==</span><span class="kc">True</span><span class="p">):</span>
+        <span class="n">LightState</span><span class="o">=</span><span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">LightState</span><span class="o">=</span><span class="mi">0</span>
+        
+    <span class="c1"># Action</span>
+    <span class="n">SwitchLighting</span><span class="p">(</span><span class="n">LightState</span><span class="p">)</span>
+    
+    <span class="c1"># Do it again :-)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_1579784</span><span class="o">/</span><span class="mf">430829792.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="c1"># Perceptions</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="n">Light</span> <span class="o">=</span> <span class="n">getSunlight</span><span class="p">()</span>
+<span class="ne">----&gt; </span><span class="mi">7</span>     <span class="n">Movement</span> <span class="o">=</span> <span class="n">readMovementSensor</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> 
+<span class="g g-Whitespace">      </span><span class="mi">9</span>     <span class="c1"># Decision making</span>
+
+<span class="nn">~/Kurssit/AI/AI_Book/Slides/Agent.py</span> in <span class="ni">readMovementSensor</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="k">return</span> <span class="mi">30</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> 
+<span class="ne">----&gt; </span><span class="mi">8</span> <span class="k">def</span> <span class="nf">readMovementSensor</span><span class="p">():</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span>     <span class="k">return</span> <span class="kc">False</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> 
+
+<span class="ne">KeyboardInterrupt</span>: 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="model-based-reflex-agents">
+<h3>Model based reflex agents<a class="headerlink" href="#model-based-reflex-agents" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>In addition to perception and actuators, the model based agent uses a model which describes some necessary behavior of the world.</p></li>
+<li><p>With the model, the agent “understands” something about how the world behaves, and can make predictions on how the actions changes the world.</p></li>
+<li><p>If the world is only partially observable, the agent can build a model which covers also the concealed information.</p></li>
+</ul>
+<p>For example the collision avoidance system of an autonomous car can predict that even though the cars are still far away from each other, a collision is happening after a certain time, because the velocity of the car in front drives slower. The time to the collision can be estimated using physics:</p>
+<div class="math notranslate nohighlight">
+\[
+   t = \frac{\Delta s}{v_s - v_o}
+\]</div>
+<ul class="simple">
+<li><p>In this case, the agent needs to perceive</p>
+<ul>
+<li><p>the distance between cars using a radar, for example</p></li>
+<li><p>its own speed by GPS.</p></li>
+</ul>
+</li>
+<li><p>It uses it’s own physical model to estimate the time for collision <span class="math notranslate nohighlight">\( t = \frac{\Delta s}{v_s - v_o}\)</span></p></li>
+<li><p>it may decide to apply necessary breaking force by activating breaks.</p></li>
+<li><p>The agent would probably need some model of Newton mechanics to estimate the effect of the breaking force to the car speed. <span class="math notranslate nohighlight">\(F=m\cdot a\)</span></p></li>
+</ul>
+<p>An automated vehicle could have a model of the roads in the city and it can therefore turn from the current road to the named street from the right crossing.</p>
+<p><img alt="image.png" src="../_images/modelbased_agents1.png" /></p>
+<p>In addition to peceptions and decision rules, the model based agent has also a model and state of the world to allow it to make more complex decisions than the simple reflex agent.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">Agent</span> <span class="kn">import</span> <span class="n">findObstacle</span><span class="p">,</span> <span class="n">getDistanceToObstacle</span><span class="p">,</span> <span class="n">Break</span>
+
+<span class="c1"># State consist of current acceleration and speed. Lets initialize them</span>
+<span class="n">v</span><span class="o">=</span><span class="mi">20</span>  <span class="c1"># Speed [m/s]</span>
+<span class="n">a</span><span class="o">=</span><span class="mi">0</span>   <span class="c1"># Acceleration [m/s²]</span>
+<span class="n">m</span><span class="o">=</span><span class="mi">1200</span> <span class="c1"># The mass of the car [kg]</span>
+
+<span class="c1"># Loop forewer</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="c1"># Perceptions</span>
+    <span class="n">obstacle</span> <span class="o">=</span> <span class="n">findObstacle</span><span class="p">()</span>
+    <span class="n">Delta_s</span> <span class="o">=</span> <span class="n">getDistanceToObstacle</span><span class="p">()</span>
+    
+    <span class="c1"># State consist of current acceleration and speed</span>
+    <span class="c1"># a, v</span>
+    
+    <span class="c1"># Decision making</span>
+    <span class="k">if</span> <span class="n">obstacle</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">Delta_s</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">:</span>
+            <span class="n">Delta_t</span> <span class="o">=</span> <span class="n">Delta_s</span><span class="o">/</span><span class="n">v</span>
+            <span class="n">a</span> <span class="o">=</span> <span class="n">v</span> <span class="o">/</span> <span class="n">Delta_t</span>
+            <span class="n">F</span><span class="o">=</span><span class="n">m</span><span class="o">*</span><span class="n">a</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">F</span><span class="o">=</span><span class="mi">0</span>
+        <span class="n">a</span><span class="o">=</span><span class="mi">0</span>
+
+    <span class="c1"># Action: Apply breaks if F&gt;0</span>
+    <span class="n">Break</span><span class="p">(</span><span class="n">F</span><span class="p">)</span>
+    
+    <span class="c1"># Do it again :-)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="goal-based-agents">
+<h3>Goal based agents<a class="headerlink" href="#goal-based-agents" title="Permalink to this headline">¶</a></h3>
+<p>The goal based agents are not only reacting to the current situation but instead they plan to reach their goals. The planning usually demands a model which they can use for searching action sequences for reaching the goal. For example autonomous taxi can find a way to the target by searching it’s model (the map) and can carry out actions (steering) to reach the goal.</p>
+<p><img alt="image.png" src="../_images/goal_agents1.png" /></p>
+<p>The goal based agents can also assess the probable consequences of their actions and they are therefore capable of planning.</p>
+</div>
+<div class="section" id="utility-based-agents">
+<h3>Utility based agents<a class="headerlink" href="#utility-based-agents" title="Permalink to this headline">¶</a></h3>
+<p>Utility, the fitness or worth for some purposes. An action has higher utility if it is more usefull or leads to smaller losses in the given situation. The goal of the optimization is to maximize the utility. Exactly symmetrical optimization goal is to minimize losses, since losses are negative utility and utility is negative loss. Utility based agents try to behave so that the utility gained by their actions is maximized. In other words, they try to reach their goal in an optimal way.</p>
+<p><img alt="image.png" src="../_images/utility_agents1.png" /></p>
+<p>The utility agents extend the goal and model based agents by also considering the utility what is gained by reaching the goal through different action sequences.</p>
+<p>For example, an automated vehicle controlled by a utility based agent would try to find an optimal path from the current location to the destination. The utility could be for example the negative of time spend or fuel consumed, or a combination of both. The agent may have many optional actions to take, and the utility agent selects the one which according to it’s knowledge or beliefs leads to higher utility.</p>
+</div>
+<div class="section" id="learning-agents">
+<h3>Learning agents<a class="headerlink" href="#learning-agents" title="Permalink to this headline">¶</a></h3>
+<p>Alan Turing estimated in 1950 the amount of programming needed to gain AI. According to methods of 50’s, he estimated that programming of AI which had similar capabilities than a person would take 50 years. He concludes that <em>Some more expeditious method seems desirable</em>, and proposes a learning machine</p>
+<p>In contrast to programmed AI, the learning AI learns the rules behind the actions without explicit programming. The benefits are that the agent can operate in an environment, which is initially unknown. In a long run it can also learn rules which would be very complex to program.</p>
+<p>The structure of the learning agent is consisted of the following four components</p>
+<ol class="simple">
+<li><p><em>Performance element</em></p></li>
+<li><p><em>Critic element</em></p></li>
+<li><p><em>Learning element</em></p></li>
+<li><p><em>Problem generator</em></p></li>
+</ol>
+<p><img alt="image.png" src="../_images/learning_agents1.png" /></p>
+<ol class="simple">
+<li><p><em>Performance element</em> receives perceptions from the sensors and carries out actions by using actuators. This element includes the operations of the previously described agents, but here it also exhanges information with the learning element and receives suggestions from the problem generator.</p></li>
+<li><p><em>Critic element</em> observes the perceptions and uses the performance standard to assess how well the agent is performing and provides that information to the learning element.</p></li>
+<li><p><em>Learning element</em> is responsible on making improvements on the performance element according to the feedback received from the citic element.</p></li>
+<li><p><em>Problem generator</em> suggests actions leading to new and informative experiences to explore the world to find even better solutions in the long run.</p></li>
+</ol>
+<p><img alt="image.png" src="../_images/learning_agents1.png" /></p>
+<p>The learning agents extend the previous agents by adding a critic, learning and problem generator elements. The critic element provides feedback to the learning element, which updates the performance element. The learning element sets new learning goals to the problem generator, which suggest new exploratory actions to the performance element to explore unknown ares of the world.</p>
+<p><strong>Discussion topic</strong>
+Can any agent act meaningfully if a world is not observable at all?</p>
+<p><strong>Discussion topic</strong>
+How would an autonomous car or vacuum cleaner would work, if it was simple reflex, model based goal based or utility based agent? How would learning change the behaviour?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The End&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Slides"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Petri Välisuo<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

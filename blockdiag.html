@@ -104,7 +104,7 @@
   <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="concepts.html">
-     Concepts of AI
+     Simple reflex agents
     </a>
    </li>
    <li class="toctree-l2">
@@ -128,13 +128,13 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="ailibraries.html">
-     Use of AI libraries
+    <a class="reference internal" href="machinelearning.html">
+     Machine Learning (ML)
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="machinelearninglibraries.html">
-     Libraries for machine learning
+    <a class="reference internal" href="intelligent_agent.html">
+     Implementing a simple intelligent agent
     </a>
    </li>
    <li class="toctree-l2">
@@ -455,7 +455,7 @@ then it is a seagull                (Q)
 </div>
 <p>A graph is simply a structure which has nodes (also called as vertices) which are connected to each other with edges (lines). The edges can be unidirectional (arrows) or bi-directional (lines). A graph with unidirectional edges is called as directed graph, whereas a graph containing only bi-directional edges is called undirected graph. If the graph contains cycles (or loops), it is said to be a cyclic graph. If it has no cycles, the graph is acyclic graph. If the graph contains a path between each nodes, the graph is said to be connected, otherwise it contains isolated sections and it is called disconnected.
 Acyclic connected graph is called as tree and acyclic disconnected graph as forest.</p>
-<p>Examples of different graphs are shown in Figures <a class="reference internal" href="#fig-nondiag-graph"><span class="std std-numref">Fig. 9</span></a> - <a class="reference internal" href="#fig-treegraph"><span class="std std-numref">Fig. 11</span></a>.</p>
+<p>Examples of different graphs are shown in Figures <a class="reference internal" href="#fig-nondiag-graph"><span class="std std-numref">Fig. 13</span></a> - <a class="reference internal" href="#fig-treegraph"><span class="std std-numref">Fig. 15</span></a>.</p>
 <p>Mathematically, a graph <span class="math notranslate nohighlight">\(G\)</span> is expressed as a set of Edges <span class="math notranslate nohighlight">\(E\)</span> and vertices <span class="math notranslate nohighlight">\(V\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-eq-graph">
 <span class="eqno">(3)<a class="headerlink" href="#equation-eq-graph" title="Permalink to this equation">¶</a></span>\[
@@ -463,15 +463,15 @@ Acyclic connected graph is called as tree and acyclic disconnected graph as fore
 \]</div>
 <div class="figure align-center" id="fig-nondiag-graph">
 <a class="reference internal image-reference" href="_images/graafi_nondirectional.svg"><img alt="_images/graafi_nondirectional.svg" src="_images/graafi_nondirectional.svg" width="600px" /></a>
-<p class="caption"><span class="caption-number">Fig. 9 </span><span class="caption-text">An example of cyclic undirected graph.</span><a class="headerlink" href="#fig-nondiag-graph" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 13 </span><span class="caption-text">An example of cyclic undirected graph.</span><a class="headerlink" href="#fig-nondiag-graph" title="Permalink to this image">¶</a></p>
 </div>
 <div class="figure align-center" id="fig-cyclicraph">
 <a class="reference internal image-reference" href="_images/graafi_cyclic.svg"><img alt="_images/graafi_cyclic.svg" src="_images/graafi_cyclic.svg" width="300px" /></a>
-<p class="caption"><span class="caption-number">Fig. 10 </span><span class="caption-text">An example of a directed cyclic graph.</span><a class="headerlink" href="#fig-cyclicraph" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 14 </span><span class="caption-text">An example of a directed cyclic graph.</span><a class="headerlink" href="#fig-cyclicraph" title="Permalink to this image">¶</a></p>
 </div>
 <div class="figure align-center" id="fig-treegraph">
 <a class="reference internal image-reference" href="_images/graafi_DAG.svg"><img alt="_images/graafi_DAG.svg" src="_images/graafi_DAG.svg" width="300px" /></a>
-<p class="caption"><span class="caption-number">Fig. 11 </span><span class="caption-text">An example of a directed a-cyclic graph (DAG), a directed tree.</span><a class="headerlink" href="#fig-treegraph" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 15 </span><span class="caption-text">An example of a directed a-cyclic graph (DAG), a directed tree.</span><a class="headerlink" href="#fig-treegraph" title="Permalink to this image">¶</a></p>
 </div>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -489,7 +489,7 @@ Acyclic connected graph is called as tree and acyclic disconnected graph as fore
 <h3>Knowledge database as a graph<a class="headerlink" href="#knowledge-database-as-a-graph" title="Permalink to this headline">¶</a></h3>
 <div class="figure align-center" id="fig-holmes">
 <a class="reference internal image-reference" href="_images/holmes.svg"><img alt="_images/holmes.svg" src="_images/holmes.svg" width="300px" /></a>
-<p class="caption"><span class="caption-number">Fig. 12 </span><span class="caption-text">Holmes problem: Infer the probability of hypothesis H (burglary) in case of unreliable evidence G and W, through an evidence S.</span><a class="headerlink" href="#fig-holmes" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 16 </span><span class="caption-text">Holmes problem: Infer the probability of hypothesis H (burglary) in case of unreliable evidence G and W, through an evidence S.</span><a class="headerlink" href="#fig-holmes" title="Permalink to this image">¶</a></p>
 </div>
 <p>Example: Mr Holmes receives a phonecall from Dr Watson who claimes that heard the burglar alarm from Mr Holmes home. Holmes knows that Mr Watson can be making practical jokes sometimes, so he will first call to his another neighbour Mrs Gibbon, to ask if she has also heard the alarm. Mrs Gibbon has however a small hearing problem and bad memory, so this evidence is not perfectly reliable as well. What is the probability that there is actually a burglary in Mr Holmes home?</p>
 <p>Represeting the data of unreliable evidence as a graph is rather natural for humans, according to Pearl.
@@ -563,7 +563,7 @@ The famous Bayes inversion rule can be used as follows:</p>
 <h2>The block diagram of AI concepts<a class="headerlink" href="#the-block-diagram-of-ai-concepts" title="Permalink to this headline">¶</a></h2>
 <div class="figure align-center" id="fig-blockdiag-graph">
 <a class="reference internal image-reference" href="_images/BlockDiag.svg"><img alt="_images/BlockDiag.svg" src="_images/BlockDiag.svg" width="800px" /></a>
-<p class="caption"><span class="caption-number">Fig. 13 </span><span class="caption-text">The block diagram, or visual table of contents of AI. The blue underlined labels are links to the corresponding course material.</span><a class="headerlink" href="#fig-blockdiag-graph" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 17 </span><span class="caption-text">The block diagram, or visual table of contents of AI. The blue underlined labels are links to the corresponding course material.</span><a class="headerlink" href="#fig-blockdiag-graph" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="read-more">

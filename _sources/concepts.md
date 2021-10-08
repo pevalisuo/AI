@@ -1,3 +1,4 @@
+---
 Concepts of AI
 ===========
 
@@ -117,7 +118,6 @@ Does the rationality criteria provide a definition of AI which is independent on
 An intelligent agent is something which acts and tries to pursue goals. An artificial intelligent agent is a machine or software. It has often sensors, to perceive the world and it may make actions to interact with the world, see {numref}`fig:agent`
 
 ```{figure} figures/intelligent_agents.png
----
 width: 500px
 align: center
 name: fig:agent
