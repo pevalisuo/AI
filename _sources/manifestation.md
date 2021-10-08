@@ -184,6 +184,11 @@ The automated segmentation of organs from Computer Tomograhpy (CT) images.
 
 
 ## Earth observations
+
+Earth observation is the gathering of information about the physical, chemical, and biological systems of the planet via remote-sensing technologies, supplemented by Earth-surveying techniques, which encompasses the collection, analysis, and presentation of data. Earth observation is used to monitor and assess the status of and changes in natural and built environments.
+
+### Söderfjärden spectral image example
+
 A satellite image of Söderjärden region is shown in {numref}`fig:Soderfjarden_image`. The original satellite image acquired by European [Sentinel-2 satellite](https://sentinel.esa.int/web/sentinel/home) consist of 13 different channels, representing different wavelenght. The figure below is a normal 3-channel RGB image constructed from 13 original channels.
 
 ```{figure} figures/Soderfjarden_image.png
@@ -213,6 +218,12 @@ If the training data provided by the expert wouldn't have been available, then s
 ```{admonition} Discussion point
 What could be achieved using unsupervised methods for analyzing satellite images when compared with supervised methods?
 ```
+
+### Further information about EO
+
+Read more about earth observations from ESA's [Observing the Earth](https://www.esa.int/Applications/Observing_the_Earth) page or try the [Windy application](https://www.windy.com/) to see some interesting facts about Earth based on both space-based and terrestial observations.
+
+To get facts about the climate and pollution from all over the Globe would not be possible without space based Earth Observations (EO). Thefore EO is also very importanc for climate change mitigation activities. 
 
 ## Tackling with climate changes
 
