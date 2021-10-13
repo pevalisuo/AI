@@ -1,4 +1,42 @@
 ---
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+    format_version: '0.8'
+    jupytext_version: 1.4.1+dev
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+---
+
+% Some modifications to table style
+<style>
+table.mytable {
+  //border: 1px solid black;
+  border-collapse: collapse;
+  border-color: grey;
+}
+table.mytable td {
+  padding: 2px;
+  text-align: left;
+  height: 5px;
+  line-height: 1;
+  vertical-align: bottom;
+  border-top: 0px;
+}
+
+table.mytable th {
+  padding: 2px;
+  text-align: left;
+  height: 5px;
+  line-height: 1;
+  vertical-align: bottom;
+}
+</style>
+
 Concepts of AI
 ===========
 
