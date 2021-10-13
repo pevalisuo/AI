@@ -108,7 +108,7 @@
   <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="concepts.html">
-     Simple reflex agents
+     Concepts of AI
     </a>
    </li>
    <li class="toctree-l2">
@@ -250,8 +250,8 @@
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#logics-database">
-     Logics database
+    <a class="reference internal nav-link" href="#logics-databases">
+     Logics databases
     </a>
    </li>
   </ul>
@@ -262,8 +262,8 @@
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#propability">
-     Propability
+    <a class="reference internal nav-link" href="#probability">
+     Probability
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -343,21 +343,29 @@ table.mytable th {
 <li><p>Semantic network: A graph consisting of concepts as nodes and their relations as vertices. The semantic network can also represent the data in logical database, but has greater expressiveness.</p></li>
 <li><p>Frame representation: A frame is a record containing many attributes related to the real world objects. It would be an object in the object oriented language. The connections between frames can create a graph like structures.</p></li>
 </ul>
+<div class="figure align-center" id="fig-cyclicraph">
+<a class="reference internal image-reference" href="_images/semanticNet.svg"><img alt="_images/semanticNet.svg" src="_images/semanticNet.svg" width="250px" /></a>
+<p class="caption"><span class="caption-number">Fig. 13 </span><span class="caption-text">An example of semantic network. It shows that Robin is a bird with rusty and red color. Birds are animals and they have wings. Birds are also a subclass of vertebrates.</span><a class="headerlink" href="#fig-cyclicraph" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-center" id="id1">
+<a class="reference internal image-reference" href="_images/LogicalFrames.svg"><img alt="_images/LogicalFrames.svg" src="_images/LogicalFrames.svg" width="400px" /></a>
+<p class="caption"><span class="caption-number">Fig. 14 </span><span class="caption-text">An example of Logical frame reprentation of knowledge. The notation is borrowed from object oriented programming methods. It is a semantic network which is enriched with attributes.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
 <p>The Greek philosopher Aristotle defined a framework of rational thinking by defining logical syllogisms, the patterns for arguments which always produces correct conclusions, provided that the premises are correct. Much later, it was proposed that an artificial machine could use these kinds of logical rules and the database of premises to draw conclusions. The premises and the rules creates a logical database and a program can use it to make queries to find out if some statements are true or false. Many AI systems are made using this approach. Practical problems are that it is a lot of work to encode the complete set of premises and logical rules of a practical case into the database, and solving complex queries may need too much computational resources to be efficient. In addition the traditional logic does not support the concept of uncertainty.</p>
-<div class="section" id="logics-database">
-<h3>Logics database<a class="headerlink" href="#logics-database" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="logics-databases">
+<h3>Logics databases<a class="headerlink" href="#logics-databases" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><p>Inference engine</p></li>
-<li><p>Resolution</p></li>
-<li><p>Backward chaining</p></li>
-<li><p>Forward chaining</p></li>
-<li><p>Belief network</p></li>
+<li><p>Inference engine: A program which can proof logical theorems and search true sentences from the knowledge database.</p></li>
+<li><p>Resolution: A complete theorem proofing mehod for propositional logic.</p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Backward_chaining">Backward chaining</a> starts from the goals or hypothesis to be proved and finds out if the data supports the hypothesis.</p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Forward_chaining">Forward chaining</a> starts from the known facts and finds out new true facts until the hypothesis is proved or find not provable.</p></li>
+<li><p><a class="reference external" href="https://towardsdatascience.com/introduction-to-bayesian-belief-networks-c012e3f59f1b">Belief network</a> is a graph expressing conditional dependensies between statements. The network softens the dependencies shown in the semantic network. The probability of the hypothesis being true can be solved from the network using Bayes Rule.</p></li>
 </ul>
 </div>
 </div>
 <div class="section" id="classical-ai">
 <h2>Classical AI:<a class="headerlink" href="#classical-ai" title="Permalink to this headline">¶</a></h2>
-<p>Expert systems were supposed to be able to make decisions on behalf of a person. They consisted of a large number of logical rules stored in the knowledge database, which was used to resolve true statements based on the facts perceived and the rules stored. They are still used in certain applications, like in a bird recognition system <span class="xref myst">Luontoportti</span>.</p>
+<p>Expert systems were supposed to be able to make decisions on behalf of a person. They consisted of a large number of logical rules stored in the knowledge database, which was used to resolve true statements based on the facts perceived and the rules stored. They are still used in certain applications, like in a bird recognition system <a class="reference external" href="https://www.luontoportti.fi">Luontoportti</a>.</p>
 <p>The bird species can be recognized by searching true statements from the database of logical rules. Each observation rules out part of the possible species.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>If (color is white)                 (A)
     and (wings are dark)            (B)
@@ -390,8 +398,21 @@ then it is a seagull                (Q)
 <li><p>If we on the other hand know the perceptions, we can use the database to find out the species where the observations fit. This kind of inference is called as <em>backward chaining</em> or *diagnostics’. In medical field this is used for diagnosing the cause, the disease, when the symptoms are known.</p></li>
 </ul>
 <p>The inference using logics KB is carried out by searching. Exhaustive search by trying all possible solutions is the simplest method, but it uses plenty of resources and is unfeasible in most practical databases.</p>
-<div class="section" id="propability">
-<h3>Propability<a class="headerlink" href="#propability" title="Permalink to this headline">¶</a></h3>
+<p>A Prolog programing language was made for encoding logical rules in a knowledge database and then proofing theorems and searching solutions from it, as shown in the following Prolog example:</p>
+<div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">mother_child</span><span class="p">(</span><span class="s s-Atom">trude</span><span class="p">,</span> <span class="s s-Atom">sally</span><span class="p">).</span>
+ 
+<span class="nf">father_child</span><span class="p">(</span><span class="s s-Atom">tom</span><span class="p">,</span> <span class="s s-Atom">sally</span><span class="p">).</span>
+<span class="nf">father_child</span><span class="p">(</span><span class="s s-Atom">tom</span><span class="p">,</span> <span class="s s-Atom">erica</span><span class="p">).</span>
+<span class="nf">father_child</span><span class="p">(</span><span class="s s-Atom">mike</span><span class="p">,</span> <span class="s s-Atom">tom</span><span class="p">).</span>
+ 
+<span class="nf">sibling</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="nv">Y</span><span class="p">)</span>      <span class="p">:-</span> <span class="nf">parent_child</span><span class="p">(</span><span class="nv">Z</span><span class="p">,</span> <span class="nv">X</span><span class="p">),</span> <span class="nf">parent_child</span><span class="p">(</span><span class="nv">Z</span><span class="p">,</span> <span class="nv">Y</span><span class="p">).</span>
+ 
+<span class="nf">parent_child</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="nv">Y</span><span class="p">)</span> <span class="p">:-</span> <span class="nf">father_child</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="nv">Y</span><span class="p">).</span>
+<span class="nf">parent_child</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="nv">Y</span><span class="p">)</span> <span class="p">:-</span> <span class="nf">mother_child</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="nv">Y</span><span class="p">).</span>
+</pre></div>
+</div>
+<div class="section" id="probability">
+<h3>Probability<a class="headerlink" href="#probability" title="Permalink to this headline">¶</a></h3>
 <p>Medical diagnosis, current care guidelines (käypähoitosuositukset)</p>
 <p>The symptoms for having a stroke or TIA</p>
 <ul class="simple">
@@ -459,7 +480,7 @@ then it is a seagull                (Q)
 </div>
 <p>A graph is simply a structure which has nodes (also called as vertices) which are connected to each other with edges (lines). The edges can be unidirectional (arrows) or bi-directional (lines). A graph with unidirectional edges is called as directed graph, whereas a graph containing only bi-directional edges is called undirected graph. If the graph contains cycles (or loops), it is said to be a cyclic graph. If it has no cycles, the graph is acyclic graph. If the graph contains a path between each nodes, the graph is said to be connected, otherwise it contains isolated sections and it is called disconnected.
 Acyclic connected graph is called as tree and acyclic disconnected graph as forest.</p>
-<p>Examples of different graphs are shown in Figures <a class="reference internal" href="#fig-nondiag-graph"><span class="std std-numref">Fig. 13</span></a> - <a class="reference internal" href="#fig-treegraph"><span class="std std-numref">Fig. 15</span></a>.</p>
+<p>Examples of different graphs are shown in Figures <a class="reference internal" href="#fig-nondiag-graph"><span class="std std-numref">Fig. 15</span></a> - <a class="reference internal" href="#fig-treegraph"><span class="std std-numref">Fig. 17</span></a>.</p>
 <p>Mathematically, a graph <span class="math notranslate nohighlight">\(G\)</span> is expressed as a set of Edges <span class="math notranslate nohighlight">\(E\)</span> and vertices <span class="math notranslate nohighlight">\(V\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-eq-graph">
 <span class="eqno">(3)<a class="headerlink" href="#equation-eq-graph" title="Permalink to this equation">¶</a></span>\[
@@ -467,15 +488,15 @@ Acyclic connected graph is called as tree and acyclic disconnected graph as fore
 \]</div>
 <div class="figure align-center" id="fig-nondiag-graph">
 <a class="reference internal image-reference" href="_images/graafi_nondirectional.svg"><img alt="_images/graafi_nondirectional.svg" src="_images/graafi_nondirectional.svg" width="600px" /></a>
-<p class="caption"><span class="caption-number">Fig. 13 </span><span class="caption-text">An example of cyclic undirected graph.</span><a class="headerlink" href="#fig-nondiag-graph" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 15 </span><span class="caption-text">An example of cyclic undirected graph.</span><a class="headerlink" href="#fig-nondiag-graph" title="Permalink to this image">¶</a></p>
 </div>
-<div class="figure align-center" id="fig-cyclicraph">
+<div class="figure align-center" id="id2">
 <a class="reference internal image-reference" href="_images/graafi_cyclic.svg"><img alt="_images/graafi_cyclic.svg" src="_images/graafi_cyclic.svg" width="300px" /></a>
-<p class="caption"><span class="caption-number">Fig. 14 </span><span class="caption-text">An example of a directed cyclic graph.</span><a class="headerlink" href="#fig-cyclicraph" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 16 </span><span class="caption-text">An example of a directed cyclic graph.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
 <div class="figure align-center" id="fig-treegraph">
 <a class="reference internal image-reference" href="_images/graafi_DAG.svg"><img alt="_images/graafi_DAG.svg" src="_images/graafi_DAG.svg" width="300px" /></a>
-<p class="caption"><span class="caption-number">Fig. 15 </span><span class="caption-text">An example of a directed a-cyclic graph (DAG), a directed tree.</span><a class="headerlink" href="#fig-treegraph" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 17 </span><span class="caption-text">An example of a directed a-cyclic graph (DAG), a directed tree.</span><a class="headerlink" href="#fig-treegraph" title="Permalink to this image">¶</a></p>
 </div>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -493,7 +514,7 @@ Acyclic connected graph is called as tree and acyclic disconnected graph as fore
 <h3>Knowledge database as a graph<a class="headerlink" href="#knowledge-database-as-a-graph" title="Permalink to this headline">¶</a></h3>
 <div class="figure align-center" id="fig-holmes">
 <a class="reference internal image-reference" href="_images/holmes.svg"><img alt="_images/holmes.svg" src="_images/holmes.svg" width="300px" /></a>
-<p class="caption"><span class="caption-number">Fig. 16 </span><span class="caption-text">Holmes problem: Infer the probability of hypothesis H (burglary) in case of unreliable evidence G and W, through an evidence S.</span><a class="headerlink" href="#fig-holmes" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 18 </span><span class="caption-text">Holmes problem: Infer the probability of hypothesis H (burglary) in case of unreliable evidence G and W, through an evidence S.</span><a class="headerlink" href="#fig-holmes" title="Permalink to this image">¶</a></p>
 </div>
 <p>Example: Mr Holmes receives a phonecall from Dr Watson who claimes that heard the burglar alarm from Mr Holmes home. Holmes knows that Mr Watson can be making practical jokes sometimes, so he will first call to his another neighbour Mrs Gibbon, to ask if she has also heard the alarm. Mrs Gibbon has however a small hearing problem and bad memory, so this evidence is not perfectly reliable as well. What is the probability that there is actually a burglary in Mr Holmes home?</p>
 <p>Represeting the data of unreliable evidence as a graph is rather natural for humans, according to Pearl.
@@ -567,7 +588,7 @@ The famous Bayes inversion rule can be used as follows:</p>
 <h2>The block diagram of AI concepts<a class="headerlink" href="#the-block-diagram-of-ai-concepts" title="Permalink to this headline">¶</a></h2>
 <div class="figure align-center" id="fig-blockdiag-graph">
 <a class="reference internal image-reference" href="_images/BlockDiag.svg"><img alt="_images/BlockDiag.svg" src="_images/BlockDiag.svg" width="800px" /></a>
-<p class="caption"><span class="caption-number">Fig. 17 </span><span class="caption-text">The block diagram, or visual table of contents of AI. The blue underlined labels are links to the corresponding course material.</span><a class="headerlink" href="#fig-blockdiag-graph" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 19 </span><span class="caption-text">The block diagram, or visual table of contents of AI. The blue underlined labels are links to the corresponding course material.</span><a class="headerlink" href="#fig-blockdiag-graph" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="read-more">

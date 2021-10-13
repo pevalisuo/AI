@@ -47,20 +47,43 @@ Block diagram of AI
 - Semantic network: A graph consisting of concepts as nodes and their relations as vertices. The semantic network can also represent the data in logical database, but has greater expressiveness.
 - Frame representation: A frame is a record containing many attributes related to the real world objects. It would be an object in the object oriented language. The connections between frames can create a graph like structures.
 
+
+```{figure} figures/semanticNet.svg
+---
+width: 250px
+align: center
+name: fig:cyclicraph
+---
+
+An example of semantic network. It shows that Robin is a bird with rusty and red color. Birds are animals and they have wings. Birds are also a subclass of vertebrates.
+```
+
+
+```{figure} figures/LogicalFrames.svg
+---
+width: 400px
+align: center
+name: fig:cyclicraph
+---
+
+An example of Logical frame reprentation of knowledge. The notation is borrowed from object oriented programming methods. It is a semantic network which is enriched with attributes.
+```
+
+
 The Greek philosopher Aristotle defined a framework of rational thinking by defining logical syllogisms, the patterns for arguments which always produces correct conclusions, provided that the premises are correct. Much later, it was proposed that an artificial machine could use these kinds of logical rules and the database of premises to draw conclusions. The premises and the rules creates a logical database and a program can use it to make queries to find out if some statements are true or false. Many AI systems are made using this approach. Practical problems are that it is a lot of work to encode the complete set of premises and logical rules of a practical case into the database, and solving complex queries may need too much computational resources to be efficient. In addition the traditional logic does not support the concept of uncertainty.
 
 
-### Logics database
+### Logics databases
 
-- Inference engine
-- Resolution
-- Backward chaining
-- Forward chaining
-- Belief network
+- Inference engine: A program which can proof logical theorems and search true sentences from the knowledge database.
+- Resolution: A complete theorem proofing mehod for propositional logic.
+- [Backward chaining](https://en.wikipedia.org/wiki/Backward_chaining) starts from the goals or hypothesis to be proved and finds out if the data supports the hypothesis.
+- [Forward chaining](https://en.wikipedia.org/wiki/Forward_chaining) starts from the known facts and finds out new true facts until the hypothesis is proved or find not provable.
+- [Belief network](https://towardsdatascience.com/introduction-to-bayesian-belief-networks-c012e3f59f1b) is a graph expressing conditional dependensies between statements. The network softens the dependencies shown in the semantic network. The probability of the hypothesis being true can be solved from the network using Bayes Rule.
 
 ## Classical AI:
 
-Expert systems were supposed to be able to make decisions on behalf of a person. They consisted of a large number of logical rules stored in the knowledge database, which was used to resolve true statements based on the facts perceived and the rules stored. They are still used in certain applications, like in a bird recognition system [Luontoportti](www.luontoportti.fi).
+Expert systems were supposed to be able to make decisions on behalf of a person. They consisted of a large number of logical rules stored in the knowledge database, which was used to resolve true statements based on the facts perceived and the rules stored. They are still used in certain applications, like in a bird recognition system [Luontoportti](https://www.luontoportti.fi).
 
 The bird species can be recognized by searching true statements from the database of logical rules. Each observation rules out part of the possible species.
 
@@ -99,7 +122,23 @@ The knowledge database above can be used in both directions.
 
 The inference using logics KB is carried out by searching. Exhaustive search by trying all possible solutions is the simplest method, but it uses plenty of resources and is unfeasible in most practical databases.
 
-### Propability
+A Prolog programing language was made for encoding logical rules in a knowledge database and then proofing theorems and searching solutions from it, as shown in the following Prolog example:
+
+
+```prolog
+mother_child(trude, sally).
+ 
+father_child(tom, sally).
+father_child(tom, erica).
+father_child(mike, tom).
+ 
+sibling(X, Y)      :- parent_child(Z, X), parent_child(Z, Y).
+ 
+parent_child(X, Y) :- father_child(X, Y).
+parent_child(X, Y) :- mother_child(X, Y).
+```
+
+### Probability
 
 Medical diagnosis, current care guidelines (käypähoitosuositukset)
 
