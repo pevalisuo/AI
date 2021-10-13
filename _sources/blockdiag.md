@@ -348,6 +348,48 @@ When planning actions using a graph, a graph search algorithm is often used.
 - Neural network
 - Deep learning
 
+## Machine learning
+```{figure} figures/DecisionBoundary.png
+---
+width: 400px
+align: center
+name: fig:blockdiag_graph
+---
+
+The classification of samples using a Machine Learning method. The information about the decision boundary is encoded in the parameters of the machine learning algorithm, and they can be learned from example data.
+```
+
+```{figure} figures/decisionTree.svg
+---
+width: 800px
+align: center
+name: fig:blockdiag_graph
+---
+
+Decision tree is one method for implementing machine learning methods. Th threshodls of each decision are learned from the data.
+```
+
+## Neural networks
+```{figure} figures/mlp.svg
+---
+width: 400px
+align: center
+name: fig:blockdiag_graph
+---
+
+Multi-layer percepton network, a neural network, is one way for storing knowledge. The weights of each connection and the thresholds related to each neuron can be learned from the data.
+```
+
+```{figure} figures/cnn.png
+---
+width: 800px
+align: center
+name: fig:blockdiag_graph
+---
+
+Convolutional neural network for recognizing birds from a picture.
+```
+
 
 ## The block diagram of AI concepts
 

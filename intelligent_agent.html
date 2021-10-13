@@ -295,30 +295,30 @@
 <h2>The national power grid<a class="headerlink" href="#the-national-power-grid" title="Permalink to this headline">¶</a></h2>
 <div class="figure align-center" id="fig-reflexagent">
 <a class="reference internal image-reference" href="_images/Kantaverkko.png"><img alt="_images/Kantaverkko.png" src="_images/Kantaverkko.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 20 </span><span class="caption-text">The finnish power transmission grid maintained by the Finngrid. The distribution grid is connected to the transmission grid and is operated by distribution operators.</span><a class="headerlink" href="#fig-reflexagent" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 24 </span><span class="caption-text">The finnish power transmission grid maintained by the Finngrid. The distribution grid is connected to the transmission grid and is operated by distribution operators.</span><a class="headerlink" href="#fig-reflexagent" title="Permalink to this image">¶</a></p>
 </div>
 <p>National power grid is critical infrastructure which flawless operation is extremely important for all sectors of the society. For this reason, the power system can be also a target for intentional sabotage.</p>
 <p>Traditionally, energy was produced by a few large power stations and consumed by consumers. This kind of power grid is simple and cost efficient.</p>
 <div class="figure align-center" id="fig-treegrid">
 <a class="reference internal image-reference" href="_images/TreeGrid.svg"><img alt="_images/TreeGrid.svg" src="_images/TreeGrid.svg" width="500px" /></a>
-<p class="caption"><span class="caption-number">Fig. 21 </span><span class="caption-text">A tree structured power grid. The production is mostly centralized and consumption in on the leaves. The blue vertices are substations.</span><a class="headerlink" href="#fig-treegrid" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 25 </span><span class="caption-text">A tree structured power grid. The production is mostly centralized and consumption in on the leaves. The blue vertices are substations.</span><a class="headerlink" href="#fig-treegrid" title="Permalink to this image">¶</a></p>
 </div>
 <p>The substations takes care of the delivery of the power to the branches and they also monitor the power distribution, and possible faults. If a fault is found it can cut off power on some branches.</p>
 <div class="figure align-center" id="id1">
 <a class="reference internal image-reference" href="_images/protectionRelays.png"><img alt="_images/protectionRelays.png" src="_images/protectionRelays.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 22 </span><span class="caption-text">An example of protection in a substation.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 26 </span><span class="caption-text">An example of protection in a substation.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
 <p>The branches are protected by so called <em>protection relays</em>, which monitor the voltages and current in the distribution line. This kind of protection relay could be implemented as as simple reflex agent.</p>
 <div class="figure align-center" id="id2">
 <a class="reference internal image-reference" href="_images/reflex_agents.png"><img alt="_images/reflex_agents.png" src="_images/reflex_agents.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 23 </span><span class="caption-text">The simple reflex agent which monitors the power grid through current and voltage sensors.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 27 </span><span class="caption-text">The simple reflex agent which monitors the power grid through current and voltage sensors.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
 <div class="section" id="perceptions">
 <h3>Perceptions<a class="headerlink" href="#perceptions" title="Permalink to this headline">¶</a></h3>
 <p>An intelligent agent needs to maintain it’s awareness of the situation by perceptions. In power systems the perceptions are usually obtained by current and voltage sensors. The agent can further process this information by calclating for example the sum of three phase voltages and calculate total power flown trough a cable. Quite often the agent also monitors the frequency of the powerline through these current measurements. More advanced protection relays may also monitor the shape of the current and react if it deviates from a sinusoidal waveform. The percepts directly and indirect calculated features provide information about the environment, which lets the agent to know enough from the state of the environment to decide actions.</p>
 <div class="figure align-center" id="id3">
 <a class="reference internal image-reference" href="_images/PV_system_fault.svg"><img alt="_images/PV_system_fault.svg" src="_images/PV_system_fault.svg" width="500px" /></a>
-<p class="caption"><span class="caption-number">Fig. 24 </span><span class="caption-text">An example of the measurements of three phase currents during a fault starting at 8.66 s. The figure displays also the sum of all currents calculated by the individual phase current measurements.</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 28 </span><span class="caption-text">An example of the measurements of three phase currents during a fault starting at 8.66 s. The figure displays also the sum of all currents calculated by the individual phase current measurements.</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
 </div>
 <p>Some more advanced protection relays may also make other observations. For example arc protection relays monitor optically if they can see an electric arc due to short cuts. These arc protection relays can potentially find and react some serious faults faster than those only measuring the powerline only.</p>
 </div>
@@ -357,7 +357,7 @@
 <p>In the future smart grid, energy flows bi-directionally and distributed production and consumers need to participate in keeping the network stable, maintaining the balance of consumption and production. The situational awareness needs to known at global level and produceres and consumers needs to co-operate. The fault diagnosis and control in bi-directional power grid cannot be accomplished by local measurements alone any longer.</p>
 <div class="figure align-center" id="fig-smartgrid">
 <a class="reference internal image-reference" href="_images/SmartNetwork.svg"><img alt="_images/SmartNetwork.svg" src="_images/SmartNetwork.svg" width="500px" /></a>
-<p class="caption"><span class="caption-number">Fig. 25 </span><span class="caption-text">A Smart power grid with network structure due to redundancy and bi-directional power flow due to distributed power production.</span><a class="headerlink" href="#fig-smartgrid" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 29 </span><span class="caption-text">A Smart power grid with network structure due to redundancy and bi-directional power flow due to distributed power production.</span><a class="headerlink" href="#fig-smartgrid" title="Permalink to this image">¶</a></p>
 </div>
 <p>The smart grid shown in the figure above is an inevitable consequence of the changes in the power production. Due to local production, some parts of the power grid could operate as separate islands in case of failure of the main transmission grid. To protect the consumers and to secure the flawless power delivery, the decisions for reacting faults and possibly changing oeration modes need to be made very fast, but at the same time the number of different options have grown exponentially due to combinatorial explosion of options.</p>
 <p>But if Alpha-Go was able to play Go-game, which is even more challenging problem, could it be also take care of operating smart grid better than a human operator?</p>
@@ -367,7 +367,7 @@
 <p>The graph can include information about the cable lengths, capacities and other properties on the edges. The nodes (or vertices) would be the end points of cables: power stations, substations (power distribution structures in the branches of the grid) or consumers. The nominal power of consumers and power plants would be stored in the vertices.</p>
 <div class="figure align-center" id="fig-utilityagent">
 <a class="reference internal image-reference" href="_images/utility_agents.png"><img alt="_images/utility_agents.png" src="_images/utility_agents.png" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 26 </span><span class="caption-text">The utility agents extend the simple reflex agent by including a model having capability to plan actions and considering the utility gained by reaching the goal through different action sequences.</span><a class="headerlink" href="#fig-utilityagent" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 30 </span><span class="caption-text">The utility agents extend the simple reflex agent by including a model having capability to plan actions and considering the utility gained by reaching the goal through different action sequences.</span><a class="headerlink" href="#fig-utilityagent" title="Permalink to this image">¶</a></p>
 </div>
 <div class="section" id="fault-detection-by-machine-learning">
 <h4>Fault detection by machine learning<a class="headerlink" href="#fault-detection-by-machine-learning" title="Permalink to this headline">¶</a></h4>
@@ -377,7 +377,7 @@
 <p>The sensors measuring the curents and voltages of the power line on the field usually buffer raw measurement data for a few second. In case a fault is detected, the sensor can upload buffered raw signal to the computing center for further analysis.</p>
 <div class="figure align-center" id="fig-sgsensor">
 <a class="reference internal image-reference" href="_images/safegrid_sensor.jpg"><img alt="_images/safegrid_sensor.jpg" src="_images/safegrid_sensor.jpg" style="width: 500px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 27 </span><span class="caption-text">The voltage and current sensors by SafeGrid Oy.</span><a class="headerlink" href="#fig-sgsensor" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 31 </span><span class="caption-text">The voltage and current sensors by SafeGrid Oy.</span><a class="headerlink" href="#fig-sgsensor" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="fault-location-by-graph-search">
@@ -398,7 +398,7 @@
 <p>The digital twin could also be used in operation side by side with the actual grid to help the AI to acquire wider situational awareness over the grid, simulate different actions and to learn while in operation.</p>
 <div class="figure align-center" id="id4">
 <a class="reference internal image-reference" href="_images/smartGridAgent.svg"><img alt="_images/smartGridAgent.svg" src="_images/smartGridAgent.svg" width="500px" /></a>
-<p class="caption"><span class="caption-number">Fig. 28 </span><span class="caption-text">An intelligent agent controlling a part of a smart grid.</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 32 </span><span class="caption-text">An intelligent agent controlling a part of a smart grid.</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
 </div>
 <p>What could go wrong?</p>
 </div>
