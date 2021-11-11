@@ -4,11 +4,12 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Block diagram of AI &#8212; Artificial intelligence, Concepts, Challenges, and Opportunities</title>
     
-  <link href="_static/css/theme.css" rel="stylesheet" />
-  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -22,8 +23,8 @@
       
 
     
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -31,21 +32,23 @@
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
 
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
+    <script>
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
@@ -56,7 +59,10 @@
     <link rel="next" title="AI-Tools: Graph search" href="aitools.html" />
     <link rel="prev" title="Manifestation of AI" href="manifestation.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
     
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
@@ -128,7 +134,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="inference.html">
-     Probabilistic inference
+     Probabilistic inference with pomegranate
     </a>
    </li>
    <li class="toctree-l2">
@@ -344,25 +350,29 @@ table.mytable th {
   vertical-align: bottom;
 }
 </style>
-<div class="section" id="block-diagram-of-ai">
+<section class="tex2jax_ignore mathjax_ignore" id="block-diagram-of-ai">
 <h1>Block diagram of AI<a class="headerlink" href="#block-diagram-of-ai" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="knowledge-representation">
+<section id="knowledge-representation">
 <h2>Knowledge representation<a class="headerlink" href="#knowledge-representation" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Logical rules: A database of logical relationships of concepts.</p></li>
 <li><p>Semantic network: A graph consisting of concepts as nodes and their relations as vertices. The semantic network can also represent the data in logical database, but has greater expressiveness.</p></li>
 <li><p>Frame representation: A frame is a record containing many attributes related to the real world objects. It would be an object in the object oriented language. The connections between frames can create a graph like structures.</p></li>
 </ul>
-<div class="figure align-center" id="fig-cyclicraph">
+<figure class="align-center" id="fig-cyclicraph">
 <a class="reference internal image-reference" href="_images/semanticNet.svg"><img alt="_images/semanticNet.svg" src="_images/semanticNet.svg" width="250px" /></a>
-<p class="caption"><span class="caption-number">Fig. 13 </span><span class="caption-text">An example of semantic network. It shows that Robin is a bird with rusty and red color. Birds are animals and they have wings. Birds are also a subclass of vertebrates.</span><a class="headerlink" href="#fig-cyclicraph" title="Permalink to this image">¶</a></p>
-</div>
-<div class="figure align-center" id="id1">
+<figcaption>
+<p><span class="caption-number">Fig. 13 </span><span class="caption-text">An example of semantic network. It shows that Robin is a bird with rusty and red color. Birds are animals and they have wings. Birds are also a subclass of vertebrates.</span><a class="headerlink" href="#fig-cyclicraph" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id1">
 <a class="reference internal image-reference" href="_images/LogicalFrames.svg"><img alt="_images/LogicalFrames.svg" src="_images/LogicalFrames.svg" width="400px" /></a>
-<p class="caption"><span class="caption-number">Fig. 14 </span><span class="caption-text">An example of Logical frame reprentation of knowledge. The notation is borrowed from object oriented programming methods. It is a semantic network which is enriched with attributes.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 14 </span><span class="caption-text">An example of Logical frame reprentation of knowledge. The notation is borrowed from object oriented programming methods. It is a semantic network which is enriched with attributes.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
 <p>The Greek philosopher Aristotle defined a framework of rational thinking by defining logical syllogisms, the patterns for arguments which always produces correct conclusions, provided that the premises are correct. Much later, it was proposed that an artificial machine could use these kinds of logical rules and the database of premises to draw conclusions. The premises and the rules creates a logical database and a program can use it to make queries to find out if some statements are true or false. Many AI systems are made using this approach. Practical problems are that it is a lot of work to encode the complete set of premises and logical rules of a practical case into the database, and solving complex queries may need too much computational resources to be efficient. In addition the traditional logic does not support the concept of uncertainty.</p>
-<div class="section" id="logics-databases">
+<section id="logics-databases">
 <h3>Logics databases<a class="headerlink" href="#logics-databases" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Inference engine: A program which can proof logical theorems and search true sentences from the knowledge database.</p></li>
@@ -371,9 +381,9 @@ table.mytable th {
 <li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Forward_chaining">Forward chaining</a> starts from the known facts and finds out new true facts until the hypothesis is proved or find not provable.</p></li>
 <li><p><a class="reference external" href="https://towardsdatascience.com/introduction-to-bayesian-belief-networks-c012e3f59f1b">Belief network</a> is a graph expressing conditional dependensies between statements. The network softens the dependencies shown in the semantic network. The probability of the hypothesis being true can be solved from the network using Bayes Rule.</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="classical-ai">
+</section>
+</section>
+<section id="classical-ai">
 <h2>Classical AI:<a class="headerlink" href="#classical-ai" title="Permalink to this headline">¶</a></h2>
 <p>Expert systems were supposed to be able to make decisions on behalf of a person. They consisted of a large number of logical rules stored in the knowledge database, which was used to resolve true statements based on the facts perceived and the rules stored. They are still used in certain applications, like in a bird recognition system <a class="reference external" href="https://www.luontoportti.fi">Luontoportti</a>.</p>
 <p>The bird species can be recognized by searching true statements from the database of logical rules. Each observation rules out part of the possible species.</p>
@@ -421,7 +431,7 @@ then it is a seagull                (Q)
 <span class="nf">parent_child</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="nv">Y</span><span class="p">)</span> <span class="p">:-</span> <span class="nf">mother_child</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="nv">Y</span><span class="p">).</span>
 </pre></div>
 </div>
-<div class="section" id="probability">
+<section id="probability">
 <h3>Probability<a class="headerlink" href="#probability" title="Permalink to this headline">¶</a></h3>
 <p>Medical diagnosis, current care guidelines (käypähoitosuositukset)</p>
 <p>The symptoms for having a stroke or TIA</p>
@@ -445,8 +455,8 @@ then it is a seagull                (Q)
 <li><p>gathering the rules is awkward, difficult for real world cases and impossible for complex cases</p></li>
 <li><p>combinatorial explosion follows</p></li>
 </ul>
-</div>
-<div class="section" id="graphs">
+</section>
+<section id="graphs">
 <h3>Graphs<a class="headerlink" href="#graphs" title="Permalink to this headline">¶</a></h3>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -496,18 +506,24 @@ Acyclic connected graph is called as tree and acyclic disconnected graph as fore
 <span class="eqno">(3)<a class="headerlink" href="#equation-eq-graph" title="Permalink to this equation">¶</a></span>\[
   G=(V,E)
 \]</div>
-<div class="figure align-center" id="fig-nondiag-graph">
+<figure class="align-center" id="fig-nondiag-graph">
 <a class="reference internal image-reference" href="_images/graafi_nondirectional.svg"><img alt="_images/graafi_nondirectional.svg" src="_images/graafi_nondirectional.svg" width="600px" /></a>
-<p class="caption"><span class="caption-number">Fig. 15 </span><span class="caption-text">An example of cyclic undirected graph.</span><a class="headerlink" href="#fig-nondiag-graph" title="Permalink to this image">¶</a></p>
-</div>
-<div class="figure align-center" id="id2">
+<figcaption>
+<p><span class="caption-number">Fig. 15 </span><span class="caption-text">An example of cyclic undirected graph.</span><a class="headerlink" href="#fig-nondiag-graph" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id2">
 <a class="reference internal image-reference" href="_images/graafi_cyclic.svg"><img alt="_images/graafi_cyclic.svg" src="_images/graafi_cyclic.svg" width="300px" /></a>
-<p class="caption"><span class="caption-number">Fig. 16 </span><span class="caption-text">An example of a directed cyclic graph.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
-</div>
-<div class="figure align-center" id="fig-treegraph">
+<figcaption>
+<p><span class="caption-number">Fig. 16 </span><span class="caption-text">An example of a directed cyclic graph.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="fig-treegraph">
 <a class="reference internal image-reference" href="_images/graafi_DAG.svg"><img alt="_images/graafi_DAG.svg" src="_images/graafi_DAG.svg" width="300px" /></a>
-<p class="caption"><span class="caption-number">Fig. 17 </span><span class="caption-text">An example of a directed a-cyclic graph (DAG), a directed tree.</span><a class="headerlink" href="#fig-treegraph" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 17 </span><span class="caption-text">An example of a directed a-cyclic graph (DAG), a directed tree.</span><a class="headerlink" href="#fig-treegraph" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rg</span><span class="o">=</span><span class="n">nx</span><span class="o">.</span><span class="n">random_tree</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
@@ -519,13 +535,15 @@ Acyclic connected graph is called as tree and acyclic disconnected graph as fore
 <img alt="_images/blockdiag_3_0.png" src="_images/blockdiag_3_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="knowledge-database-as-a-graph">
+</section>
+<section id="knowledge-database-as-a-graph">
 <h3>Knowledge database as a graph<a class="headerlink" href="#knowledge-database-as-a-graph" title="Permalink to this headline">¶</a></h3>
-<div class="figure align-center" id="fig-holmes">
+<figure class="align-center" id="fig-holmes">
 <a class="reference internal image-reference" href="_images/holmes.svg"><img alt="_images/holmes.svg" src="_images/holmes.svg" width="300px" /></a>
-<p class="caption"><span class="caption-number">Fig. 18 </span><span class="caption-text">Holmes problem: Infer the probability of hypothesis H (burglary) in case of unreliable evidence G and W, through an evidence S.</span><a class="headerlink" href="#fig-holmes" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 18 </span><span class="caption-text">Holmes problem: Infer the probability of hypothesis H (burglary) in case of unreliable evidence G and W, through an evidence S.</span><a class="headerlink" href="#fig-holmes" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
 <p>Example: Mr Holmes receives a phonecall from Dr Watson who claimes that heard the burglar alarm from Mr Holmes home. Holmes knows that Mr Watson can be making practical jokes sometimes, so he will first call to his another neighbour Mrs Gibbon, to ask if she has also heard the alarm. Mrs Gibbon has however a small hearing problem and bad memory, so this evidence is not perfectly reliable as well. What is the probability that there is actually a burglary in Mr Holmes home?</p>
 <p>Represeting the data of unreliable evidence as a graph is rather natural for humans, according to Pearl.
 The uncertainties can be expressed as probabilities, and inference can be made using probabilistic reasoning with the help of Bayes rule. One form of this probabilistic reasoning are the Bayesian Networks.</p>
@@ -569,7 +587,7 @@ The famous Bayes inversion rule can be used as follows:</p>
 \]</div>
 <p>Thus the strength of belief in hypothesis H, based on the previous knoledge and new evidence e, is given by the product of the likelihood ratio <span class="math notranslate nohighlight">\(L(e|H)\)</span> and prior odds <span class="math notranslate nohighlight">\(O(H)\)</span>. The prior odd <span class="math notranslate nohighlight">\(O(H)\)</span> provides predictive support by the previous knowledge alone and the likelihood ratio <span class="math notranslate nohighlight">\(L(e|H)\)</span> provides diagnostive support, based on new evidence observed.</p>
 <p>By using this formula, it is possible to chain the calculation of hypotheses to make the final conclusion. The solution for the Bayesian network as a whole is still rather comples, but there are algorithms which can solve it in polynomial time.</p>
-<div class="section" id="graph-search-methods">
+<section id="graph-search-methods">
 <h4>Graph Search methods<a class="headerlink" href="#graph-search-methods" title="Permalink to this headline">¶</a></h4>
 <p>When planning actions using a graph, a graph search algorithm is often used.</p>
 <ul class="simple">
@@ -580,10 +598,10 @@ The famous Bayes inversion rule can be used as follows:</p>
 <li><p>Hill climbing</p></li>
 <li><p>Optimisation</p></li>
 </ul>
-</div>
-</div>
-</div>
-<div class="section" id="learning">
+</section>
+</section>
+</section>
+<section id="learning">
 <h2>Learning<a class="headerlink" href="#learning" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>On-line learning</p></li>
@@ -593,37 +611,47 @@ The famous Bayes inversion rule can be used as follows:</p>
 <li><p>Neural network</p></li>
 <li><p>Deep learning</p></li>
 </ul>
-</div>
-<div class="section" id="machine-learning">
+</section>
+<section id="machine-learning">
 <h2>Machine learning<a class="headerlink" href="#machine-learning" title="Permalink to this headline">¶</a></h2>
-<div class="figure align-center" id="fig-blockdiag-graph">
+<figure class="align-center" id="fig-blockdiag-graph">
 <a class="reference internal image-reference" href="_images/DecisionBoundary.png"><img alt="_images/DecisionBoundary.png" src="_images/DecisionBoundary.png" style="width: 400px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 19 </span><span class="caption-text">The classification of samples using a Machine Learning method. The information about the decision boundary is encoded in the parameters of the machine learning algorithm, and they can be learned from example data.</span><a class="headerlink" href="#fig-blockdiag-graph" title="Permalink to this image">¶</a></p>
-</div>
-<div class="figure align-center" id="id3">
+<figcaption>
+<p><span class="caption-number">Fig. 19 </span><span class="caption-text">The classification of samples using a Machine Learning method. The information about the decision boundary is encoded in the parameters of the machine learning algorithm, and they can be learned from example data.</span><a class="headerlink" href="#fig-blockdiag-graph" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id3">
 <a class="reference internal image-reference" href="_images/decisionTree.svg"><img alt="_images/decisionTree.svg" src="_images/decisionTree.svg" width="800px" /></a>
-<p class="caption"><span class="caption-number">Fig. 20 </span><span class="caption-text">Decision tree is one method for implementing machine learning methods. Th threshodls of each decision are learned from the data.</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
-</div>
-</div>
-<div class="section" id="neural-networks">
+<figcaption>
+<p><span class="caption-number">Fig. 20 </span><span class="caption-text">Decision tree is one method for implementing machine learning methods. Th threshodls of each decision are learned from the data.</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="neural-networks">
 <h2>Neural networks<a class="headerlink" href="#neural-networks" title="Permalink to this headline">¶</a></h2>
-<div class="figure align-center" id="id4">
+<figure class="align-center" id="id4">
 <a class="reference internal image-reference" href="_images/mlp.svg"><img alt="_images/mlp.svg" src="_images/mlp.svg" width="400px" /></a>
-<p class="caption"><span class="caption-number">Fig. 21 </span><span class="caption-text">Multi-layer percepton network, a neural network, is one way for storing knowledge. The weights of each connection and the thresholds related to each neuron can be learned from the data.</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
-</div>
-<div class="figure align-center" id="id5">
+<figcaption>
+<p><span class="caption-number">Fig. 21 </span><span class="caption-text">Multi-layer percepton network, a neural network, is one way for storing knowledge. The weights of each connection and the thresholds related to each neuron can be learned from the data.</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id5">
 <a class="reference internal image-reference" href="_images/cnn.png"><img alt="_images/cnn.png" src="_images/cnn.png" style="width: 800px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 22 </span><span class="caption-text">Convolutional neural network for recognizing birds from a picture.</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
-</div>
-</div>
-<div class="section" id="the-block-diagram-of-ai-concepts">
+<figcaption>
+<p><span class="caption-number">Fig. 22 </span><span class="caption-text">Convolutional neural network for recognizing birds from a picture.</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="the-block-diagram-of-ai-concepts">
 <h2>The block diagram of AI concepts<a class="headerlink" href="#the-block-diagram-of-ai-concepts" title="Permalink to this headline">¶</a></h2>
-<div class="figure align-center" id="id6">
+<figure class="align-center" id="id6">
 <a class="reference internal image-reference" href="_images/BlockDiag.svg"><img alt="_images/BlockDiag.svg" src="_images/BlockDiag.svg" width="800px" /></a>
-<p class="caption"><span class="caption-number">Fig. 23 </span><span class="caption-text">The block diagram, or visual table of contents of AI. The blue underlined labels are links to the corresponding course material.</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
-</div>
-</div>
-<div class="section" id="read-more">
+<figcaption>
+<p><span class="caption-number">Fig. 23 </span><span class="caption-text">The block diagram, or visual table of contents of AI. The blue underlined labels are links to the corresponding course material.</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="read-more">
 <h2>Read more<a class="headerlink" href="#read-more" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><p>Programming is a superpower</p>
@@ -634,8 +662,8 @@ The famous Bayes inversion rule can be used as follows:</p>
 <li> Daniele Paliotta: <a href="https://stackabuse.com/introduction-to-reinforcement-learning-with-python/">Introduction to Reinforcement Learning with Python</a>
 <li> Harrison: <a href="https://pythonprogramming.net/q-learning-reinforcement-learning-python-tutorial/">Q-Learning introduction and Q Table - Reinforcement Learning w/ Python Tutorial p.1</a>
 <li> Harrison: <a href="https://pythonprogramming.net/introduction-self-driving-autonomous-cars-carla-python/">Introduction - Self-driving cars with Carla and Python part 1</a>
-</ul></div>
-</div>
+</ul></section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -705,8 +733,7 @@ The famous Bayes inversion rule can be used as follows:</p>
       </div>
     </div>
   
-  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-  
   </body>
 </html>

@@ -4,11 +4,12 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>AI-Tools: Graph search &#8212; Artificial intelligence, Concepts, Challenges, and Opportunities</title>
     
-  <link href="_static/css/theme.css" rel="stylesheet" />
-  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -22,8 +23,8 @@
       
 
     
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -31,19 +32,21 @@
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
 
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
+    <script>
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
@@ -51,10 +54,13 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Probabilistic inference" href="inference.html" />
+    <link rel="next" title="Probabilistic inference with pomegranate" href="inference.html" />
     <link rel="prev" title="Block diagram of AI" href="blockdiag.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
     
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
@@ -106,7 +112,7 @@
   <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="concepts.html">
-     Simple reflex agents
+     Concepts of AI
     </a>
    </li>
    <li class="toctree-l2">
@@ -126,7 +132,7 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="inference.html">
-     Probabilistic inference
+     Probabilistic inference with pomegranate
     </a>
    </li>
    <li class="toctree-l2">
@@ -336,9 +342,9 @@
         
               <div>
                 
-  <div class="section" id="ai-tools-graph-search">
+  <section class="tex2jax_ignore mathjax_ignore" id="ai-tools-graph-search">
 <h1>AI-Tools: Graph search<a class="headerlink" href="#ai-tools-graph-search" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="finding-a-way-between-towns">
+<section id="finding-a-way-between-towns">
 <h2>Finding a way between towns<a class="headerlink" href="#finding-a-way-between-towns" title="Permalink to this headline">¶</a></h2>
 <p>To actually solve the navigation problem, two things are needed:</p>
 <ol class="simple">
@@ -348,7 +354,7 @@
 <p>For human beings, a map is the model of the World, which include the knowledge needed for navigation. The ment for navigation shows the location of the cities and the roads connecting them. The map is printed in scale, and therefore the distances between the cities can be measured from the map.</p>
 <p><img alt="Kartta" src="_images/Kartta.png" /></p>
 <p>A human navigator have learned how to use this data model for finding the best routes, estimate the distances, and selecting optimal roads. We are so used to using maps (at least we were before starting to use computers for navigation) that we hardly think that we are carrying out a navigation algorithm in our heads when selecting the optimal roads. To be able to implement an artificial agent for navigation, it is usefull to think how a humang agent works, and then try to implement it with a computer. How would you explain how you navigate?</p>
-<div class="section" id="navigation-algorithm-for-a-human-being">
+<section id="navigation-algorithm-for-a-human-being">
 <h3>Navigation algorithm for a human being<a class="headerlink" href="#navigation-algorithm-for-a-human-being" title="Permalink to this headline">¶</a></h3>
 <p>This is an example of a simple navigation algorithm for a human being who tries to navigate through completely strange area:</p>
 <ol class="simple">
@@ -362,10 +368,10 @@
 <p>This algorithm is some sort of greedy algorithm (informed search), since it uses information about the direction of the roads when selecting from many different options.</p>
 <p>In reality a person would probably use more complex algorithm, it is for example more optimal to follow bigger main roads than to turn a smaller road just because it is momentarily leading closer to the right direction than the main road. The map also contains the data of actual distances, which is also often used by human navigator to plan ahead an optimal route.</p>
 <p>It seems that the good implementation of the navigation is indeed dependent on the available knowledge, knowledge presentation and an algortithm.</p>
-</div>
-<div class="section" id="navigation-algorithm-for-a-computer">
+</section>
+<section id="navigation-algorithm-for-a-computer">
 <h3>Navigation algorithm for a computer<a class="headerlink" href="#navigation-algorithm-for-a-computer" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="representing-knowledge">
+<section id="representing-knowledge">
 <h4>Representing knowledge<a class="headerlink" href="#representing-knowledge" title="Permalink to this headline">¶</a></h4>
 <p>Maps are useful to both computers and human beings, they just need to be presented in totally different form for computer.</p>
 <p>For computer to understand, knowledge has to be stored in the memory. Since the memory of a computer is just a huge array of memory locations, some sort of framework for organizing the data in the memory is necessary. This kind of framework or ontology describing what data is stored in which location, what the data means and how it can be accesses, is called as a data structure.</p>
@@ -397,8 +403,8 @@
 <p class="admonition-title">Question?</p>
 <p>What would be appropriate heuristic function in the A* search, and how does that help?</p>
 </div>
-</div>
-<div class="section" id="how-to-encode-this-graph-for-a-computer">
+</section>
+<section id="how-to-encode-this-graph-for-a-computer">
 <h4>How to encode this graph for a computer?<a class="headerlink" href="#how-to-encode-this-graph-for-a-computer" title="Permalink to this headline">¶</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -465,8 +471,8 @@ The neighbors are
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="how-to-search-the-path">
+</section>
+<section id="how-to-search-the-path">
 <h4>How to search the path<a class="headerlink" href="#how-to-search-the-path" title="Permalink to this headline">¶</a></h4>
 <p>Both depth first and bredth first algorithms are possible. In depth first search, it is easier to keep the current search path in the memory. In breadth first search, all parallel paths needs to be kept in memory at the same time, which requires more complex data structure and more memory. An example of depth first search algorithm is the following:</p>
 <p>Start from the starting node, and repeat following phases until target is found:</p>
@@ -494,8 +500,8 @@ The neighbors are
 <li><p>Vaasa -&gt; Laihia -&gt; Ylistaro -&gt; Lapua -&gt; Alajärvi -&gt; Kuortane (<em>no neighbors, go back</em>)</p></li>
 <li><p>Vaasa -&gt; Laihia -&gt; Ylistaro -&gt; Lapua -&gt; Alajärvi -&gt; Vimpeli (<em>Target found path is in the stack</em>)</p></li>
 </ol>
-</div>
-<div class="section" id="this-depth-first-implemenation-is-below">
+</section>
+<section id="this-depth-first-implemenation-is-below">
 <h4>This depth first implemenation is below<a class="headerlink" href="#this-depth-first-implemenation-is-below" title="Permalink to this headline">¶</a></h4>
 <p>For the following implementation, stack (LIFO) and FIFO data-structures are needed. They are shown in the following Figure. In python, a normal list can be used as FIFO or Stack data structure. In both cases new entries are inserted in the end of the list, using <code class="docutils literal notranslate"><span class="pre">append()</span></code> or <code class="docutils literal notranslate"><span class="pre">push()</span></code> -functions. When the list is used as a stack, the sample inserted last, is popped out, using <code class="docutils literal notranslate"><span class="pre">pop()</span></code> command, and when the list is used as LIFO, the first value in the list is popped out with <code class="docutils literal notranslate"><span class="pre">pop(0)</span></code> -function call.</p>
 <p><img alt="FIFO and LIFO" src="_images/FIFOandLIFO.svg" /></p>
@@ -563,8 +569,8 @@ The neighbors are
 <p class="admonition-title">Question?</p>
 <p>Is this an optimal solution? How to find other solutions?</p>
 </div>
-</div>
-<div class="section" id="recursive-solution">
+</section>
+<section id="recursive-solution">
 <h4>Recursive solution<a class="headerlink" href="#recursive-solution" title="Permalink to this headline">¶</a></h4>
 <p>Recursive functions suit naturally for graph search, because the problem is inherently recursive. They are not very often used, however, because they require more memory than loop-algorithms due to recursive function calls. Some programming languages, especially from LISP-family have special implementation for tail-recursion, and in those languages recursion is more often used.</p>
 <p>The idea of recursive solution is very simple. Since the problem for finding a route from Vaasa to Vimpeli is non-trivial, try to go to the next town closer to Vimpeli, such as Laihia, and try to find the route to Vimpeli from there. Since that is also non-trivial, go from Laihia to the next town, like Ilmajoki, and try to find route from there. Repeat until you are in Vimpeli, and then the solution is trivial. During the descend, all steps are stored in the stack and therefore the the path is now found. If the algorithm ends up into a dead end, then it backtracks one step back, and removes the latest failed step from the stack of current path.</p>
@@ -616,8 +622,8 @@ Lappajärvi :  115 km
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="recursive-breadth-first-solution">
+</section>
+<section id="recursive-breadth-first-solution">
 <h4>Recursive breadth first solution<a class="headerlink" href="#recursive-breadth-first-solution" title="Permalink to this headline">¶</a></h4>
 <p>The core is otherwise the same as Depth first, but now the latest solution is taken from the bottom of the queue (FIFO). Therefore it expands nodes bredth first manner.</p>
 <p>This implementation does not keep track fo the current paths stack, and it does not yet find the actual path. But this feature can be added to the implementation. The current implementation visits all towns and lists them in Breadth first search order.</p>
@@ -677,9 +683,9 @@ Lappajärvi :  115 km
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="solution-using-networkx-graph-library">
+</section>
+</section>
+<section id="solution-using-networkx-graph-library">
 <h3>Solution using Networkx graph library<a class="headerlink" href="#solution-using-networkx-graph-library" title="Permalink to this headline">¶</a></h3>
 <p>The previous implementations have shown approaches for implementing graph searching. But there are also many libraries with ready made implementations of various graph search algorithms. <a class="reference external" href="https://networkx.org/">Networkx</a> is one of the most often used graph libraries in Python.</p>
 <p>I have collected some additional information about the towns between Vaasa and Vimpeli, for example the coordinates of the towns, which can be used for calculating the direct line distances between them to define a heuristic function for guiding the graph search for most promising directions.</p>
@@ -734,7 +740,7 @@ Lappajärvi :  115 km
 </div>
 </div>
 </div>
-<div class="section" id="encoding-the-information">
+<section id="encoding-the-information">
 <h4>Encoding the information<a class="headerlink" href="#encoding-the-information" title="Permalink to this headline">¶</a></h4>
 <p>The biggest work when using the  Networkx all other similar libraries, is to encode the information for the library. In the code below, the libraries are first imported into the workspace, and empty graph is created.</p>
 <p>Then the nodes are added from the list of towns using for-loop. The coordinates of the towns are added in each node (the pos attribute) to be able to plot the graph in actual scale.</p>
@@ -801,8 +807,8 @@ Lappajärvi :  115 km
 <img alt="_images/aitools_13_1.png" src="_images/aitools_13_1.png" />
 </div>
 </div>
-</div>
-<div class="section" id="asking-questions-from-the-graph">
+</section>
+<section id="asking-questions-from-the-graph">
 <h4>Asking questions from the graph<a class="headerlink" href="#asking-questions-from-the-graph" title="Permalink to this headline">¶</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -843,8 +849,8 @@ Lappajärvi :  115 km
 </pre></div>
 </div>
 <p>The path is unique in this ordering but not necessary optimal, since the weights are not taken into account.</p>
-</div>
-<div class="section" id="a-algorithm">
+</section>
+<section id="a-algorithm">
 <h4>A* algorithm<a class="headerlink" href="#a-algorithm" title="Permalink to this headline">¶</a></h4>
 <p>More optimal path minimizing the weights can be found using A* algorithm. If no heuristic function is given, the algorith is using <a class="reference external" href="https://www.geeksforgeeks.org/dijkstras-shortest-path-algorithm-greedy-algo-7/">Dijkstra’s algorithm</a>. It finds an optimal path, but it may be slow for very large graphs, because Dijkstra’s algorith is uninformed search algorithm.</p>
 <div class="cell docutils container">
@@ -908,7 +914,7 @@ Estimated costs through Laihia is  119.41142572684615
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8.42 ms ± 33 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8.59 ms ± 243 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
 Shortest path     : [&#39;Vaasa&#39;, &#39;Vöyri&#39;, &#39;Kauhava&#39;, &#39;Lappajärvi&#39;, &#39;Vimpeli&#39;]
 Shortest distance : 138 km
 </pre></div>
@@ -916,8 +922,8 @@ Shortest distance : 138 km
 </div>
 </div>
 <p>The path found is probably optimal, since the A* algorith search multiple paths from source to destination to find the true costs. The algorith uses the heuristic function to make the search faster but due to search of multiple paths, the quality of the heuristic function is not crucial. The algorithm also keeps track of the true costs already calculated, and therefore it does not need to calculate the true costs of a certain path twice.</p>
-</div>
-<div class="section" id="more-complex-example">
+</section>
+<section id="more-complex-example">
 <h4>More complex example<a class="headerlink" href="#more-complex-example" title="Permalink to this headline">¶</a></h4>
 <p>See below an example of the search in one magnitude more complex graph, and the nice visualization capabilities of the networkx library.</p>
 <div class="cell docutils container">
@@ -953,8 +959,8 @@ Shortest distance : 138 km
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 3.06 ms, sys: 322 µs, total: 3.39 ms
-Wall time: 3.39 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 4.06 ms, sys: 0 ns, total: 4.06 ms
+Wall time: 4.11 ms
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-0.09958297307894066,
@@ -975,17 +981,17 @@ Wall time: 3.39 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.05 ms ± 110 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.19 ms ± 219 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
 Shortest path     : [1, 88, 292, 38, 283, 307, 24, 363, 324, 174, 20]
 Shortest distance : 10 steps
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
-<div class="section" id="intelligent-navigation-agent">
+</section>
+</section>
+</section>
+<section id="intelligent-navigation-agent">
 <h2>Intelligent navigation agent<a class="headerlink" href="#intelligent-navigation-agent" title="Permalink to this headline">¶</a></h2>
 <p>The intelligent navigation agent can perceive it’s current location using GPS or other Global Navigation Satellite System (GNSS) and the target location is included in the state, set by the user. The map, in the form of a graph, shown above, is the data model and knowledge database for an agent.</p>
 <ul class="simple">
@@ -994,8 +1000,8 @@ Shortest distance : 10 steps
 <li><p>Some navigation systems monitor the true time taken for drivers on different paths, and they can update the weights based on their observations. Google navigator, for example, can observe traffic jams, and optimize the routes based on the real time traffic information. These kinds of agents are called as learning navigation agents.</p></li>
 </ul>
 <p>The strategies shown above can be utilized also for many other purposes, such as solving the 8-puzzle or playing chess. All possible moves taken in each turn spans a graph, which can become very large,  in which case, the whole graph of all possible solutions cannot be pre-stored in the memory, but expanded step by step as necessary, guided by the heuristic function.</p>
-</div>
-<div class="section" id="summary">
+</section>
+<section id="summary">
 <h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
 <p>In this module the methods for searching data and paths from graph and using graph library has been covered.
 The learning outcomes of the module:</p>
@@ -1007,8 +1013,8 @@ The learning outcomes of the module:</p>
 <li><p>Some understanding of Python programing</p></li>
 <li><p>How to use graph search as part of and intelligent agent, also in cases where the full graph is not known <em>a-priori</em>.</p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1052,7 +1058,7 @@ The learning outcomes of the module:</p>
         <a class="right-next" href="inference.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Probabilistic inference</p>
+                <p class="prevnext-title">Probabilistic inference with pomegranate</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>
@@ -1078,8 +1084,7 @@ The learning outcomes of the module:</p>
       </div>
     </div>
   
-  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-  
   </body>
 </html>

@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Probabilistic inference with pomegranate &#8212; Artificial intelligence, Concepts, Challenges, and Opportunities</title>
+    <title>Probabilistic inference &#8212; Artificial intelligence, Concepts, Challenges, and Opportunities</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -43,6 +43,8 @@
     <script src="_static/copybutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
@@ -54,8 +56,6 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Machine Learning (ML)" href="machinelearning.html" />
-    <link rel="prev" title="AI-Tools: Graph search" href="aitools.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -99,17 +99,17 @@
   </a>
  </li>
 </ul>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active has-children">
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="content.html">
    Contents of the course
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="concepts.html">
      Concepts of AI
@@ -130,8 +130,8 @@
      AI-Tools: Graph search
     </a>
    </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+   <li class="toctree-l2">
+    <a class="reference internal" href="inference.html">
      Probabilistic inference with pomegranate
     </a>
    </li>
@@ -198,7 +198,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/inference.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="_sources/inference_old.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -223,7 +223,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/inference.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/inference_old.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="_static/images/logo_binder.svg"
@@ -247,17 +247,12 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
-   Probabilistic inference with pomegranate
+   Probabilistic inference
   </a>
   <ul class="visible nav section-nav flex-column">
    <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#what-is-probabilistic-inference">
-     What  is probabilistic inference
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#making-some-probabilistic-distributions">
-     Making some probabilistic distributions
+    <a class="reference internal nav-link" href="#modelling-a-probabilistic-problem-using-random-distributions">
+     Modelling a probabilistic problem using random distributions
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h3 nav-item toc-entry">
@@ -278,6 +273,13 @@
     <a class="reference internal nav-link" href="#multidimensional-bayesian-classifier">
      Multidimensional Bayesian classifier
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#not-independed-data">
+       Not independed data
+      </a>
+     </li>
+    </ul>
    </li>
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#summary-on-naive-bayesian-classifiers">
@@ -285,8 +287,8 @@
     </a>
    </li>
    <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#example-case-titanic-survival-data">
-     Example case: Titanic survival data
+    <a class="reference internal nav-link" href="#titanic-survival-data">
+     Titanic survival data
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h3 nav-item toc-entry">
@@ -314,9 +316,12 @@
         
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="probabilistic-inference-with-pomegranate">
-<h1>Probabilistic inference with pomegranate<a class="headerlink" href="#probabilistic-inference-with-pomegranate" title="Permalink to this headline">¶</a></h1>
-<p><img alt="image-2.png" src="attachment:image-2.png" /></p>
+  <section class="tex2jax_ignore mathjax_ignore" id="probabilistic-inference">
+<h1>Probabilistic inference<a class="headerlink" href="#probabilistic-inference" title="Permalink to this headline">¶</a></h1>
+<section id="modelling-a-probabilistic-problem-using-random-distributions">
+<h2>Modelling a probabilistic problem using random distributions<a class="headerlink" href="#modelling-a-probabilistic-problem-using-random-distributions" title="Permalink to this headline">¶</a></h2>
+<p>Let us assume that the statistics has revealed that well prepared students got an average grade 4 from exam, and badly prepared students got average grade of 2. The standard deviation for both was about 1. Lets first create a statistical model of that using a library called <a class="reference external" href="https://pomegranate.readthedocs.io/en/latest/">Pomegranade</a>.</p>
+<p>Since there were many students taking the course, let’s model the distributions as normal. Let’s create three different distributions: One for well prepared students: <span class="math notranslate nohighlight">\(\mathcal N(\mu=4, \sigma=1)\)</span>, one for not so well prepared students <span class="math notranslate nohighlight">\(\mathcal N(\mu=2, \sigma=1)\)</span>, and a so called mixture model, combining both, modelling all students.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -327,32 +332,9 @@
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<section id="what-is-probabilistic-inference">
-<h2>What  is probabilistic inference<a class="headerlink" href="#what-is-probabilistic-inference" title="Permalink to this headline">¶</a></h2>
-<p>A probabilistic model PM represents a unique probability distribution P over a set of random
-variables.</p>
-<p>Bayesian networks and Markov models are probabilistic graphical models (PGM) where the mutual (in)dependencies of variables or events can be modeled instead of assuming that they are all dependent.</p>
-<p>Given such a representation, the following are some of the important tasks we can accomplish.</p>
-<ol class="simple">
-<li><p>Querying: Computing the likelihood of certain variables, optionally conditioned on another set of
-variables. This is generally called Probabilistic Inference.</p></li>
-<li><p>Estimation: When the model itself is unknown, estimating a plausible model M from data D. This
-process is called Learning</p></li>
-</ol>
-</section>
-<section id="making-some-probabilistic-distributions">
-<h2>Making some probabilistic distributions<a class="headerlink" href="#making-some-probabilistic-distributions" title="Permalink to this headline">¶</a></h2>
-<p>We’ll assume that students which prepare well to the exam will have typically better grade than those whose are not that well prepared. This rule has of course exceptions and and imprecision in it, so it cannot be modeled with hard logics, but probabilistic models are well suited.</p>
-<p>In the following it is assumed that based on the previous experience and interviews, it is known that the grades of well distributed students are distributed around 4, with standard deviation 1, and the grades of not that well prepared students are around 2. The amount of students examined is large, and we can therefore assume normal distribution. In this case the probability of different grades can be estimated using two different normal distributions.</p>
-<p>These distributions can be combined to get the distribution of all students.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">well_prepared</span><span class="o">=</span><span class="n">pg</span><span class="o">.</span><span class="n">NormalDistribution</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">badly_prepared</span><span class="o">=</span><span class="n">pg</span><span class="o">.</span><span class="n">NormalDistribution</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>   
+
+<span class="n">well_prepared</span><span class="o">=</span><span class="n">pg</span><span class="o">.</span><span class="n">NormalDistribution</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">badly_prepared</span><span class="o">=</span><span class="n">pg</span><span class="o">.</span><span class="n">NormalDistribution</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="c1"># Combined, all students</span>
 <span class="n">all_students</span> <span class="o">=</span> <span class="n">pg</span><span class="o">.</span><span class="n">GeneralMixtureModel</span><span class="p">([</span><span class="n">well_prepared</span><span class="p">,</span> <span class="n">badly_prepared</span><span class="p">])</span>
@@ -364,9 +346,9 @@ process is called Learning</p></li>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">i</span><span class="o">=</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">well_prepared</span><span class="o">.</span><span class="n">probability</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Case A&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">badly_prepared</span><span class="o">.</span><span class="n">probability</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Case B&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">all_students</span><span class="o">.</span><span class="n">probability</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Combined&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">well_prepared</span><span class="o">.</span><span class="n">probability</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Well prepared, W&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">badly_prepared</span><span class="o">.</span><span class="n">probability</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Badly prepared, B&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">all_students</span><span class="o">.</span><span class="n">probability</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;All students&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Grade&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Grade from exam&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
@@ -376,10 +358,10 @@ process is called Learning</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D at 0x7fb1a65e5040&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D at 0x7f87ae024e50&gt;
 </pre></div>
 </div>
-<img alt="_images/inference_6_1.png" src="_images/inference_6_1.png" />
+<img alt="_images/inference_old_4_1.png" src="_images/inference_old_4_1.png" />
 </div>
 </div>
 <section id="using-the-model">
@@ -420,8 +402,8 @@ process is called Learning</p></li>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Check the question 1 by resampling the distribution
-  Mean grade for well prepared student is   3.8
-  Mean grade for weakly prepared student is 2.2
+  Mean grade for well prepared student is   4.0
+  Mean grade for weakly prepared student is 1.9
 
 Questions 2-4
   Probability of well prepared of getting grade 4  P(4|W) = 39 %
@@ -449,44 +431,7 @@ Questions 2-4
 <p>These calculations are made by a Bayesian classifier, which can be created and used as follows:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Check the question 1 by resampling the distribution&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  Mean grade for well prepared student is   </span><span class="si">%3.1f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">mean</span><span class="p">(</span><span class="n">well_prepared</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">100</span><span class="p">))))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  Mean grade for weakly prepared student is </span><span class="si">%3.1f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">mean</span><span class="p">(</span><span class="n">badly_prepared</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">100</span><span class="p">))))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Questions 2-4&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  Probability of well prepared of getting grade 4  P(4|W) = </span><span class="si">%d</span><span class="s2"> </span><span class="si">%%</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">well_prepared</span><span class="o">.</span><span class="n">probability</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  Probability of badly prepared of getting grade 4 P(4|B) = </span><span class="si">%d</span><span class="s2"> </span><span class="si">%%</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">badly_prepared</span><span class="o">.</span><span class="n">probability</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  Probability for all getting grade 4                P(4) = </span><span class="si">%d</span><span class="s2"> </span><span class="si">%%</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">all_students</span><span class="o">.</span><span class="n">probability</span><span class="p">([</span><span class="mi">4</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">100</span><span class="p">))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-<span class="n">pw</span><span class="o">=</span><span class="n">well_prepared</span><span class="o">.</span><span class="n">probability</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="o">*</span><span class="mf">0.5</span><span class="o">/</span><span class="n">all_students</span><span class="o">.</span><span class="n">probability</span><span class="p">([</span><span class="mi">4</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  Probability that a student getting grade 4 is well prepared P(W|4) = </span><span class="si">%d</span><span class="s2"> </span><span class="si">%%</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">pw</span><span class="o">*</span><span class="mi">100</span><span class="p">))</span>
-
-<span class="n">pb</span><span class="o">=</span><span class="n">badly_prepared</span><span class="o">.</span><span class="n">probability</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="o">*</span><span class="mf">0.5</span><span class="o">/</span><span class="n">all_students</span><span class="o">.</span><span class="n">probability</span><span class="p">([</span><span class="mi">4</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  Probability that a student getting grade 4 is badly prepared P(B|4) = </span><span class="si">%d</span><span class="s2"> </span><span class="si">%%</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">pb</span><span class="o">*</span><span class="mi">100</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Check the question 1 by resampling the distribution
-  Mean grade for well prepared student is   4.1
-  Mean grade for weakly prepared student is 2.0
-
-Questions 2-4
-  Probability of well prepared of getting grade 4  P(4|W) = 39 %
-  Probability of badly prepared of getting grade 4 P(4|B) = 5 %
-  Probability for all getting grade 4                P(4) = 22 %
-
-  Probability that a student getting grade 4 is well prepared P(W|4) = 88 %
-  Probability that a student getting grade 4 is badly prepared P(B|4) = 11 %
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create Naive Bayes classifier by describing two different classes </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create Naibe Bayes classifier by describing two different classes </span>
 <span class="c1"># with normal distributions as priors</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">pg</span><span class="o">.</span><span class="n">NaiveBayes</span><span class="p">([</span><span class="n">badly_prepared</span><span class="p">,</span> <span class="n">well_prepared</span><span class="p">])</span>
 
@@ -517,19 +462,12 @@ Questions 2-4
 The most probable class is  [1]
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fb1a6553280&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f87adf54d30&gt;
 </pre></div>
 </div>
-<img alt="_images/inference_11_2.png" src="_images/inference_11_2.png" />
+<img alt="_images/inference_old_8_2.png" src="_images/inference_old_8_2.png" />
 </div>
 </div>
-<p>Here the classification rule will be the following:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split} C=\begin{cases}
-    W &amp; \text{if } P(W|g) &gt; P(B|g) \\
-    B,              &amp; \text{otherwise}
-\end{cases},\end{split}\]</div>
-<p>where <span class="math notranslate nohighlight">\(C\)</span> is the most probable class, <span class="math notranslate nohighlight">\(W\)</span> is the class of well prepared students and <span class="math notranslate nohighlight">\(B\)</span> is the class of badly prepared students, <span class="math notranslate nohighlight">\(g\)</span>, is the grade.</p>
 <section id="multidimensional-bayesian-classifier">
 <h2>Multidimensional Bayesian classifier<a class="headerlink" href="#multidimensional-bayesian-classifier" title="Permalink to this headline">¶</a></h2>
 <p>Bayesian classifier can also easily work in multi-dimensional space.</p>
@@ -543,30 +481,14 @@ The most probable class is  [1]
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">y</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[</span><span class="n">y</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">y</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[</span><span class="n">y</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x1&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;x2&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/inference_14_0.png" src="_images/inference_14_0.png" />
+<img alt="_images/inference_old_10_0.png" src="_images/inference_old_10_0.png" />
 </div>
 </div>
-<p>Here the classification rule will be the following:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split} C=\begin{cases}
-    W &amp; \text{if } P(W|x) &gt; P(B|x) \\
-    B,              &amp; \text{otherwise}
-\end{cases},\end{split}\]</div>
-<p>where <span class="math notranslate nohighlight">\(C\)</span> is the most probable class, <span class="math notranslate nohighlight">\(W\)</span> is the class of well prepared students and <span class="math notranslate nohighlight">\(B\)</span> is the class of badly prepared students, <span class="math notranslate nohighlight">\(x=(x_1, x_2)\)</span>, is the observations .</p>
-<p>With pomegranate, the decision boundaries can be easily calculated and visualized.</p>
-<ol class="simple">
-<li><p>The NBC classifier is trained to separete red and blue items</p></li>
-<li><p>Similarly, a full BC is trained to do the same</p></li>
-<li><p>Then a data grid is made to cover the whole area</p></li>
-<li><p>The decision boundary is the controur in this dense grid showing how would the items in the plane be classified</p></li>
-</ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">NBCmodel</span> <span class="o">=</span> <span class="n">pg</span><span class="o">.</span><span class="n">NaiveBayes</span><span class="o">.</span><span class="n">from_samples</span><span class="p">(</span><span class="n">pg</span><span class="o">.</span><span class="n">NormalDistribution</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
@@ -576,7 +498,9 @@ The most probable class is  [1]
 <span class="n">Z1</span> <span class="o">=</span> <span class="n">NBCmodel</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">xx</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">yy</span><span class="o">.</span><span class="n">ravel</span><span class="p">()])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">xx</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span class="n">Z2</span> <span class="o">=</span> <span class="n">BCmodel</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">xx</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">yy</span><span class="o">.</span><span class="n">ravel</span><span class="p">()])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">xx</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">8</span><span class="p">));</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Naive Bayes Classifier&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Naive Bayes Classifier&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">y</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[</span><span class="n">y</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">y</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[</span><span class="n">y</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">yy</span><span class="p">,</span> <span class="n">Z1</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Greens&#39;</span><span class="p">)</span>
@@ -584,17 +508,21 @@ The most probable class is  [1]
 <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">);</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;FBC&#39;</span><span class="p">,</span> <span class="s1">&#39;NBC&#39;</span><span class="p">],</span> <span class="n">labelcolor</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">])</span>
- 
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fb19aaa5880&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f87a2508220&gt;
 </pre></div>
 </div>
-<img alt="_images/inference_17_1.png" src="_images/inference_17_1.png" />
+<img alt="_images/inference_old_12_1.png" src="_images/inference_old_12_1.png" />
 </div>
 </div>
+<section id="not-independed-data">
+<h3>Not independed data<a class="headerlink" href="#not-independed-data" title="Permalink to this headline">¶</a></h3>
+<p>X = np.concatenate([np.random.normal(3, 2, size=(150, 2)), np.random.normal(7, 1, size=(250, 2))])
+y = np.concatenate([np.zeros(150), np.ones(250)])</p>
+</section>
 </section>
 <section id="summary-on-naive-bayesian-classifiers">
 <h2>Summary on Naive Bayesian classifiers<a class="headerlink" href="#summary-on-naive-bayesian-classifiers" title="Permalink to this headline">¶</a></h2>
@@ -607,8 +535,8 @@ The most probable class is  [1]
 </ul>
 <p>Read more about Bayesian Classifier from Pomegranade from <a class="reference external" href="https://github.com/jmschrei/pomegranate/blob/master/tutorials/B_Model_Tutorial_5_Bayes_Classifiers.ipynb">Naive Bayes and Bayes Classifiers</a></p>
 </section>
-<section id="example-case-titanic-survival-data">
-<h2>Example case: Titanic survival data<a class="headerlink" href="#example-case-titanic-survival-data" title="Permalink to this headline">¶</a></h2>
+<section id="titanic-survival-data">
+<h2>Titanic survival data<a class="headerlink" href="#titanic-survival-data" title="Permalink to this headline">¶</a></h2>
 <p><img alt="Painting of Titanic sinking" src="_images/Stower_Titanic.jpg" /></p>
 <blockquote>
 <div><p>Painting of Titanic sinking by Willy Stöwer.</p>
@@ -998,12 +926,11 @@ embarked: Port of Embarkation C = Cherbourg, Q = Queenstown, S = Southampton
 <span class="n">model</span> <span class="o">=</span> <span class="n">BayesianNetwork</span><span class="o">.</span><span class="n">from_samples</span><span class="p">(</span><span class="n">Data</span><span class="p">,</span> <span class="n">algorithm</span><span class="o">=</span><span class="s1">&#39;exact&#39;</span><span class="p">,</span> <span class="n">state_names</span><span class="o">=</span><span class="n">Data</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
 <span class="c1">#print(model.structure)</span>
 <span class="n">model</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
-<span class="c1">#plt.savefig(&#39;/tmp/bayesnet.png&#39;)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/inference_29_0.png" src="_images/inference_29_0.png" />
+<img alt="_images/inference_old_24_0.png" src="_images/inference_old_24_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1192,24 +1119,6 @@ embarked: Port of Embarkation C = Cherbourg, Q = Queenstown, S = Southampton
 
 <div class='prev-next-bottom'>
     
-    <div id="prev">
-        <a class="left-prev" href="aitools.html" title="previous page">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">AI-Tools: Graph search</p>
-            </div>
-        </a>
-    </div>
-     <div id="next">
-        <a class="right-next" href="machinelearning.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Machine Learning (ML)</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
 
 </div>
         
