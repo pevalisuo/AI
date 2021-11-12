@@ -141,7 +141,54 @@ You may also take a look at this video, but do not take it too seriously. What d
 
 ## Medical diagnosis
 
+
+```{figure} figures/ComputerAidedDiagnosisBoom.png
+---
+width: 500px
+align: center
+name: fig:ComputerAidedDiagnosis
+---
+
+The utilization of AI for Computer Aided Diagnostis (CAD) in medical fields.
+{cite}`fujitaAIbasedComputeraidedDiagnosis2020`
+```
+
+
+
+
+The most succesful areas for computer aided diagnostics according to Fujita 
+{cite}`fujitaAIbasedComputeraidedDiagnosis2020` are:
+ - Fundus photographs: Mass screening of eye dieseases such as glaucoma and retinopathy. Google published a paper which implies that even heart disesases could be recognized frmo fundus images using deep learning.
+ - Dermatology imaging: Skin cancer diagnostics where AI has observerd to outperform a human specialist. However it is good to know that the main method for diagnosing skin cancer is still biopsy, not visual examination. 
+ - Pathological imaging, detection of lymph node metastasis.
+ - Breast imaging, mammography
+ - Chest imaging, classify normal and abnormal major thoracic diseases
+ 
+ The figure {numref}`fig:DeepOrgans` shos the utilization of deep learning to segment the human organs based on the example segmentation made by human experts. 
+ 
+ ```{figure} figures/Organs.png
+---
+width: 500px
+align: center
+name: fig:DeepOrgans
+---
+
+The automated segmentation of organs from Computer Tomograhpy (CT) images.
+{cite}`fujitaAIbasedComputeraidedDiagnosis2020`
+```
+
+ 
+ Deep learning has been particularly succesfull in medical diagnostics. The disadvantege of deep learning is that the decision algorithm is a "black box", which structure cannot be easily examined and explained. It is very important particularly in medicine, to explain how the diagnosis has been made.
+ 
+ University of Vaasa has also a few publications and few PhD thesis about AI based medical diagnostics, such as {cite}`valisuoPhotonicsSimulationModelling2011b,alabiMachineLearningPersonalized2021`
+
+
 ## Earth observations
+
+Earth observation is the gathering of information about the physical, chemical, and biological systems of the planet via remote-sensing technologies, supplemented by Earth-surveying techniques, which encompasses the collection, analysis, and presentation of data. Earth observation is used to monitor and assess the status of and changes in natural and built environments.
+
+### Söderfjärden spectral image example
+
 A satellite image of Söderjärden region is shown in {numref}`fig:Soderfjarden_image`. The original satellite image acquired by European [Sentinel-2 satellite](https://sentinel.esa.int/web/sentinel/home) consist of 13 different channels, representing different wavelenght. The figure below is a normal 3-channel RGB image constructed from 13 original channels.
 
 ```{figure} figures/Soderfjarden_image.png
@@ -172,11 +219,50 @@ If the training data provided by the expert wouldn't have been available, then s
 What could be achieved using unsupervised methods for analyzing satellite images when compared with supervised methods?
 ```
 
+### Further information about EO
+
+Read more about earth observations from ESA's [Observing the Earth](https://www.esa.int/Applications/Observing_the_Earth) page or try the [Windy application](https://www.windy.com/) to see some interesting facts about Earth based on both space-based and terrestial observations.
+
+To get facts about the climate and pollution from all over the Globe would not be possible without space based Earth Observations (EO). Thefore EO is also very importanc for climate change mitigation activities. 
+
 ## Tackling with climate changes
 
 AI can be useful for many purposes when tackling with climate change, as listed by National Geography, in [How artificial intelligence can tackle climate change](https://www.nationalgeographic.com/environment/2019/07/artificial-intelligence-climate-change/). The climatologists have been using AI methods in predicting 
 
-## Spot fake networks
+The figure {numref}`fig:CCAI` shows which AI methods have been popular in prevention of climate change
+
+```{figure} figures/ClimateChangeAI.png
+---
+width: 700px
+align: center
+name: fig:CCAI
+---
+
+The popularity of different AI methods in domains related to climate change mitigation and prevention {cite}`rolnickTacklingClimateChange2019`
+``` 
+
+## Spot fake news
+
+```{figure} figures/Fakenews.png
+---
+width: 500px
+align: center
+name: fig:fakenews
+---
+
+A proposed structure of AI tool for detecting fake news  {cite}`jadhavFakeNewsIdentification2019`
+``` 
+
+```{figure} figures/FakenewsConfusionMatrix.png
+---
+width: 500px
+align: center
+name: fig:fakenesCM
+---
+
+The accuracy of the fakenews detection expressed as so called Confusion Matrix. The matrix shows how many samples which are fake news were classified as fake news by the algorithm and how many of them were misclassified as original news, and the same for true original news.  {cite}`jadhavFakeNewsIdentification2019`
+``` 
+
 
 ## Write documents
 

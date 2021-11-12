@@ -1,3 +1,42 @@
+---
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+    format_version: '0.8'
+    jupytext_version: 1.4.1+dev
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+---
+
+% Some modifications to table style
+<style>
+table.mytable {
+  //border: 1px solid black;
+  border-collapse: collapse;
+  border-color: grey;
+}
+table.mytable td {
+  padding: 2px;
+  text-align: left;
+  height: 5px;
+  line-height: 1;
+  vertical-align: bottom;
+  border-top: 0px;
+}
+
+table.mytable th {
+  padding: 2px;
+  text-align: left;
+  height: 5px;
+  line-height: 1;
+  vertical-align: bottom;
+}
+</style>
+
 Concepts of AI
 ===========
 
@@ -117,7 +156,6 @@ Does the rationality criteria provide a definition of AI which is independent on
 An intelligent agent is something which acts and tries to pursue goals. An artificial intelligent agent is a machine or software. It has often sensors, to perceive the world and it may make actions to interact with the world, see {numref}`fig:agent`
 
 ```{figure} figures/intelligent_agents.png
----
 width: 500px
 align: center
 name: fig:agent
