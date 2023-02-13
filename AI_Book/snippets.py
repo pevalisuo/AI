@@ -42,7 +42,7 @@ def plotDB(predictor, X, y, steps=100, figsize=None):
     ax.set_xlim(xx.min(), xx.max())
     ax.set_ylim(yy.min(), yy.max())
     ax.set_title("Decision boundary")
-    
+
 # Display the support vectors of support vector machine
 def DisplaySupportVectors(X,y,svc):
     cmap_bold = ListedColormap(['#FF0000', '#00FF00', '#0000FF'])

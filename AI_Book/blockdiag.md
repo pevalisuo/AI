@@ -4,10 +4,10 @@ jupytext:
   text_representation:
     extension: .md
     format_name: myst
-    format_version: '0.8'
-    jupytext_version: 1.4.1+dev
+    format_version: 0.13
+    jupytext_version: 1.13.0
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 ---
@@ -166,8 +166,8 @@ Cons
 ### Graphs
 
 ```{code-cell} ipython3
-:tags: ["hide-input"]
 :caption: A random graph
+:tags: [hide-input]
 
 import matplotlib.pyplot as plt
 import networkx as nx
@@ -200,7 +200,6 @@ plt.xlim(-0.05, 1.05)
 plt.ylim(-0.05, 1.05)
 plt.axis('off')
 plt.show()
-
 ```
 
 A graph is simply a structure which has nodes (also called as vertices) which are connected to each other with edges (lines). The edges can be unidirectional (arrows) or bi-directional (lines). A graph with unidirectional edges is called as directed graph, whereas a graph containing only bi-directional edges is called undirected graph. If the graph contains cycles (or loops), it is said to be a cyclic graph. If it has no cycles, the graph is acyclic graph. If the graph contains a path between each nodes, the graph is said to be connected, otherwise it contains isolated sections and it is called disconnected.
@@ -246,15 +245,12 @@ name: fig:treegraph
 An example of a directed a-cyclic graph (DAG), a directed tree.
 ```
 
-
-
 ```{code-cell} ipython3
-:tags: ["hide-input"]
 :caption: A random graph
+:tags: [hide-input]
 
 rg=nx.random_tree(15)
 nx.draw(rg, with_labels=True, font_weight='normal', node_color='orange', node_size=500)
-
 ```
 
 ### Knowledge database as a graph
@@ -415,4 +411,3 @@ The block diagram, or visual table of contents of AI. The blue underlined labels
 <li> Harrison: <a href="https://pythonprogramming.net/q-learning-reinforcement-learning-python-tutorial/">Q-Learning introduction and Q Table - Reinforcement Learning w/ Python Tutorial p.1</a>
 <li> Harrison: <a href="https://pythonprogramming.net/introduction-self-driving-autonomous-cars-carla-python/">Introduction - Self-driving cars with Carla and Python part 1</a>
 </ul>
-
