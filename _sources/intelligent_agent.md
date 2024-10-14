@@ -1,10 +1,10 @@
+---
 Implementing a simple intelligent agent
 ================
 
 ## The national power grid
 
 ```{figure} figures/Kantaverkko.png
----
 width: 500px
 align: center
 name: fig:reflexagent
@@ -75,7 +75,7 @@ The decisions rules of the reflex agent are rather simple, since it does not hav
   - If the combined power exceeds a threshold, for example 0.75 of the maximum power, then there is probably a shortcut or overloading situation, then cut down the power on the power line in question.
   
 These decision rules are simple and they can be described using logics and programmed directly 
-  
+
 
 ### Telecommunication based protection
 
@@ -169,8 +169,8 @@ When a fault is detected and cannot be automatically fixed, it needs to located 
  After training the agent would be cabable of detecting faults, locating them and fastly selecting actions for minimizing the costs (maximizing utility). 
  
  The digital twin could also be used in operation side by side with the actual grid to help the AI to acquire wider situational awareness over the grid, simulate different actions and to learn while in operation. 
- 
- 
+
+
 ```{figure} figures/smartGridAgent.svg
 ---
 width: 500px

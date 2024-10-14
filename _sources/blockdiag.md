@@ -4,10 +4,10 @@ jupytext:
   text_representation:
     extension: .md
     format_name: myst
-    format_version: '0.8'
-    jupytext_version: 1.4.1+dev
+    format_version: 0.13
+    jupytext_version: 1.13.0
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 ---
@@ -166,8 +166,8 @@ Cons
 ### Graphs
 
 ```{code-cell} ipython3
-:tags: ["hide-input"]
 :caption: A random graph
+:tags: [hide-input]
 
 import matplotlib.pyplot as plt
 import networkx as nx
@@ -200,7 +200,6 @@ plt.xlim(-0.05, 1.05)
 plt.ylim(-0.05, 1.05)
 plt.axis('off')
 plt.show()
-
 ```
 
 A graph is simply a structure which has nodes (also called as vertices) which are connected to each other with edges (lines). The edges can be unidirectional (arrows) or bi-directional (lines). A graph with unidirectional edges is called as directed graph, whereas a graph containing only bi-directional edges is called undirected graph. If the graph contains cycles (or loops), it is said to be a cyclic graph. If it has no cycles, the graph is acyclic graph. If the graph contains a path between each nodes, the graph is said to be connected, otherwise it contains isolated sections and it is called disconnected.
@@ -246,15 +245,12 @@ name: fig:treegraph
 An example of a directed a-cyclic graph (DAG), a directed tree.
 ```
 
-
-
 ```{code-cell} ipython3
-:tags: ["hide-input"]
 :caption: A random graph
+:tags: [hide-input]
 
-rg=nx.random_tree(15)
+rg=nx.generators.trees.random_labeled_tree(15)
 nx.draw(rg, with_labels=True, font_weight='normal', node_color='orange', node_size=500)
-
 ```
 
 ### Knowledge database as a graph
@@ -325,6 +321,18 @@ Thus the strength of belief in hypothesis H, based on the previous knoledge and 
 By using this formula, it is possible to chain the calculation of hypotheses to make the final conclusion. The solution for the Bayesian network as a whole is still rather comples, but there are algorithms which can solve it in polynomial time. 
 
 
+#### Factor Graph
+
+Factor Graph (FG) is a method to describe probabilistic calculations in a graphical form.  It intuitively desribes the quantitative information as probabilistic constrains (factors), $\psi_i^j$ for dependent variables, $x_i$. The FGs are coming popular in state estimation, particularly in positioning. The variables, $x_i$, are solved by optimization so that the expectation of the nework is maximized 
+
+```{figure} figures/fg.svg
+---
+width: 700px
+align: center
+name: fig:Factor Graph
+---
+An example of Factor graph. $\psi_i^\rho$ are factors from range measurements, $\psi^p$ is a-priori probability, $\psi^\mathrm{IMU}$ are intertial measurements and $x_i$ are the variables describing the positions at different times, which are solved with FG.
+```
 
 #### Graph Search methods
 
@@ -415,4 +423,3 @@ The block diagram, or visual table of contents of AI. The blue underlined labels
 <li> Harrison: <a href="https://pythonprogramming.net/q-learning-reinforcement-learning-python-tutorial/">Q-Learning introduction and Q Table - Reinforcement Learning w/ Python Tutorial p.1</a>
 <li> Harrison: <a href="https://pythonprogramming.net/introduction-self-driving-autonomous-cars-carla-python/">Introduction - Self-driving cars with Carla and Python part 1</a>
 </ul>
-

@@ -1,0 +1,82 @@
+Traceback (most recent call last):
+  File "/home/petri/Python/venv/Jupyter/lib/python3.11/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/home/petri/Python/venv/Jupyter/lib/python3.11/site-packages/nbclient/client.py", line 1314, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/petri/Python/venv/Jupyter/lib/python3.11/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/asyncio/base_events.py", line 653, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/home/petri/Python/venv/Jupyter/lib/python3.11/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "/home/petri/Python/venv/Jupyter/lib/python3.11/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/home/petri/Python/venv/Jupyter/lib/python3.11/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+# This code generates the graph
+
+import networkx as nx
+import matplotlib.pyplot as plt
+
+# Create an empty directed graph
+M=nx.DiGraph()
+
+# List of towns added as nodes
+Towns=['Vaasa', 'Laihia', 'Vöyri', 'Ilmajoki', 'Ylistaro', 'Seinäjoki',
+    'Vöyri', 'Lapua', 'Jepua', 'Alajärvi', 'Kyyjärvi', 'Kuortane',
+    'Kauhava', 'Lappajärvi', 'Evijärvi', 'Vimpeli']
+
+# Add the nodes and store the coordinates of the towns as well, for nice plotting
+for town in Towns:
+    M.add_node(town, pos=getCoordinates(town))
+
+# Add the edges, and their weights = distances 
+M.add_edge('Vaasa', 'Laihia', weight=26)
+M.add_edge('Vaasa', 'Vöyri', weight=32)
+M.add_edge('Laihia', 'Ilmajoki', weight=45)
+M.add_edge('Laihia', 'Ylistaro', weight=29)
+M.add_edge('Vöyri', 'Jepua', weight=42)
+M.add_edge('Vöyri', 'Kauhava', weight=56)
+M.add_edge('Ilmajoki', 'Seinäjoki', weight=18)
+M.add_edge('Ylistaro', 'Seinäjoki', weight=27)
+M.add_edge('Ylistaro', 'Lapua', weight=28)
+M.add_edge('Seinäjoki', 'Lapua', weight=26)
+M.add_edge('Vöyri', 'Kauhava', weight=45)
+M.add_edge('Vöyri', 'Jepua', weight=42)
+M.add_edge('Lapua', 'Kauhava', weight=18)
+M.add_edge('Lapua', 'Alajärvi', weight=46)
+M.add_edge('Jepua', 'Kauhava', weight=56)
+M.add_edge('Alajärvi', 'Kyyjärvi', weight=36)
+M.add_edge('Alajärvi', 'Vimpeli', weight=22)
+M.add_edge('Alajärvi', 'Kuortane', weight=40)
+M.add_edge('Kauhava', 'Lappajärvi', weight=38)
+M.add_edge('Kauhava', 'Evijärvi', weight=44)
+M.add_edge('Lappajärvi', 'Vimpeli', weight=23)
+M.add_edge('Evijärvi', 'Vimpeli', weight=32)
+
+# Plot the graph nicely in scale
+fig=plt.figure(figsize=(8,8))
+pos=nx.get_node_attributes(M,'pos') 
+nx.draw_networkx(M, pos=pos, node_color='orange')
+labels = nx.get_edge_attributes(M,'weight')
+nx.draw_networkx_edge_labels(M,pos,edge_labels=labels)
+
+print("Graph is ready")
+------------------
+
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+Cell [0;32mIn[6], line 3[0m
+[1;32m      1[0m [38;5;66;03m# This code generates the graph[39;00m
+[0;32m----> 3[0m [38;5;28;01mimport[39;00m [38;5;21;01mnetworkx[39;00m [38;5;28;01mas[39;00m [38;5;21;01mnx[39;00m
+[1;32m      4[0m [38;5;28;01mimport[39;00m [38;5;21;01mmatplotlib[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpyplot[39;00m [38;5;28;01mas[39;00m [38;5;21;01mplt[39;00m
+[1;32m      6[0m [38;5;66;03m# Create an empty directed graph[39;00m
+
+[0;31mModuleNotFoundError[0m: No module named 'networkx'
+

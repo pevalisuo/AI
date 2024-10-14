@@ -1,353 +1,393 @@
 
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" data-content_root="./" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>AI-Tools: Graph search &#8212; Artificial intelligence, Concepts, Challenges, and Opportunities</title>
-    
-  <link href="_static/css/theme.css" rel="stylesheet">
-  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    
-      
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
-
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'aitools';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Probabilistic inference with pomegranate" href="inference.html" />
     <link rel="prev" title="Block diagram of AI" href="blockdiag.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="index.html">
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="_static/ai.jpg" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Artificial intelligence, Concepts, Challenges, and Opportunities</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="intro.html">
-   introduction
-  </a>
- </li>
+    
+    
+    <img src="_static/ai.jpg" class="logo__image only-light" alt="Artificial intelligence, Concepts, Challenges, and Opportunities - Home"/>
+    <script>document.write(`<img src="_static/ai.jpg" class="logo__image only-dark" alt="Artificial intelligence, Concepts, Challenges, and Opportunities - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    introduction
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="content.html">Contents of the course</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="concepts.html">Concepts of AI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manifestation.html">Manifestation of AI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blockdiag.html">Block diagram of AI</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">AI-Tools: Graph search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inference.html">Probabilistic inference with pomegranate</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="machinelearning.html">Machine Learning (ML)</a></li>
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="intelligent_agent.html">Perceptions</a></li>
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="bibliography.html">Bibliography</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercises.html">Excercises</a></li>
 </ul>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="content.html">
-   Contents of the course
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="current">
-   <li class="toctree-l2">
-    <a class="reference internal" href="concepts.html">
-     Concepts of AI
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="manifestation.html">
-     Manifestation of AI
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="blockdiag.html">
-     Block diagram of AI
-    </a>
-   </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     AI-Tools: Graph search
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="inference.html">
-     Probabilistic inference with pomegranate
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="machinelearning.html">
-     Machine Learning (ML)
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="intelligent_agent.html">
-     Implementing a simple intelligent agent
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="bibliography.html">
-     Bibliography
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="exercises.html">
-     Excercises
-    </a>
-   </li>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/aitools.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
   </ul>
- </li>
-</ul>
+</div>
 
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+  
 </div>
-
 </div>
+              
+              
 
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>AI-Tools: Graph search</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/aitools.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/aitools.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div>
+                <h2> Contents </h2>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
+            <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#finding-a-way-between-towns">
-   Finding a way between towns
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#navigation-algorithm-for-a-human-being">
-     Navigation algorithm for a human being
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#navigation-algorithm-for-a-computer">
-     Navigation algorithm for a computer
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#representing-knowledge">
-       Representing knowledge
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#how-to-encode-this-graph-for-a-computer">
-       How to encode this graph for a computer?
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#how-to-search-the-path">
-       How to search the path
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#this-depth-first-implemenation-is-below">
-       This depth first implemenation is below
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#recursive-solution">
-       Recursive solution
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#recursive-breadth-first-solution">
-       Recursive breadth first solution
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#solution-using-networkx-graph-library">
-     Solution using Networkx graph library
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#encoding-the-information">
-       Encoding the information
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#asking-questions-from-the-graph">
-       Asking questions from the graph
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#a-algorithm">
-       A* algorithm
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#more-complex-example">
-       More complex example
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#intelligent-navigation-agent">
-   Intelligent navigation agent
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#summary">
-   Summary
-  </a>
- </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-a-way-between-towns">Finding a way between towns</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#navigation-algorithm-for-a-human-being">Navigation algorithm for a human being</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#navigation-algorithm-for-a-computer">Navigation algorithm for a computer</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#representing-knowledge">Representing knowledge</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-encode-this-graph-for-a-computer">How to encode this graph for a computer?</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-search-the-path">How to search the path</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#this-depth-first-implemenation-is-below">This depth first implemenation is below</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#recursive-solution">Recursive solution</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#recursive-breadth-first-solution">Recursive breadth first solution</a></li>
 </ul>
-
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-using-networkx-graph-library">Solution using Networkx graph library</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#encoding-the-information">Encoding the information</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#asking-questions-from-the-graph">Asking questions from the graph</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-algorithm">A* algorithm</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#more-complex-example">More complex example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intelligent-navigation-agent">Intelligent navigation agent</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+</ul>
             </nav>
         </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
-              <div>
+
+              
                 
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
   <section class="tex2jax_ignore mathjax_ignore" id="ai-tools-graph-search">
-<h1>AI-Tools: Graph search<a class="headerlink" href="#ai-tools-graph-search" title="Permalink to this headline">¶</a></h1>
+<h1>AI-Tools: Graph search<a class="headerlink" href="#ai-tools-graph-search" title="Link to this heading">#</a></h1>
 <section id="finding-a-way-between-towns">
-<h2>Finding a way between towns<a class="headerlink" href="#finding-a-way-between-towns" title="Permalink to this headline">¶</a></h2>
+<h2>Finding a way between towns<a class="headerlink" href="#finding-a-way-between-towns" title="Link to this heading">#</a></h2>
 <p>To actually solve the navigation problem, two things are needed:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Knowledge and</p></li>
 <li><p>Algorithm</p></li>
 </ol>
@@ -355,9 +395,9 @@
 <p><img alt="Kartta" src="_images/Kartta.png" /></p>
 <p>A human navigator have learned how to use this data model for finding the best routes, estimate the distances, and selecting optimal roads. We are so used to using maps (at least we were before starting to use computers for navigation) that we hardly think that we are carrying out a navigation algorithm in our heads when selecting the optimal roads. To be able to implement an artificial agent for navigation, it is usefull to think how a humang agent works, and then try to implement it with a computer. How would you explain how you navigate?</p>
 <section id="navigation-algorithm-for-a-human-being">
-<h3>Navigation algorithm for a human being<a class="headerlink" href="#navigation-algorithm-for-a-human-being" title="Permalink to this headline">¶</a></h3>
+<h3>Navigation algorithm for a human being<a class="headerlink" href="#navigation-algorithm-for-a-human-being" title="Link to this heading">#</a></h3>
 <p>This is an example of a simple navigation algorithm for a human being who tries to navigate through completely strange area:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>First indentify your current location on the map by browsing through all names in the map until you find a location where you currently are.</p></li>
 <li><p>Then identify your target location on the map by browsing through all names in the map until you find a location where you are aiming at.</p></li>
 <li><p>Follow the road starting from the source location which is leading closest to the direction of the the target location.</p></li>
@@ -370,9 +410,9 @@
 <p>It seems that the good implementation of the navigation is indeed dependent on the available knowledge, knowledge presentation and an algortithm.</p>
 </section>
 <section id="navigation-algorithm-for-a-computer">
-<h3>Navigation algorithm for a computer<a class="headerlink" href="#navigation-algorithm-for-a-computer" title="Permalink to this headline">¶</a></h3>
+<h3>Navigation algorithm for a computer<a class="headerlink" href="#navigation-algorithm-for-a-computer" title="Link to this heading">#</a></h3>
 <section id="representing-knowledge">
-<h4>Representing knowledge<a class="headerlink" href="#representing-knowledge" title="Permalink to this headline">¶</a></h4>
+<h4>Representing knowledge<a class="headerlink" href="#representing-knowledge" title="Link to this heading">#</a></h4>
 <p>Maps are useful to both computers and human beings, they just need to be presented in totally different form for computer.</p>
 <p>For computer to understand, knowledge has to be stored in the memory. Since the memory of a computer is just a huge array of memory locations, some sort of framework for organizing the data in the memory is necessary. This kind of framework or ontology describing what data is stored in which location, what the data means and how it can be accesses, is called as a data structure.</p>
 <p>A simplest data structure is a variable:</p>
@@ -405,7 +445,7 @@
 </div>
 </section>
 <section id="how-to-encode-this-graph-for-a-computer">
-<h4>How to encode this graph for a computer?<a class="headerlink" href="#how-to-encode-this-graph-for-a-computer" title="Permalink to this headline">¶</a></h4>
+<h4>How to encode this graph for a computer?<a class="headerlink" href="#how-to-encode-this-graph-for-a-computer" title="Link to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># A template for all nodes (actually a class)</span>
@@ -473,7 +513,7 @@ The neighbors are
 </div>
 </section>
 <section id="how-to-search-the-path">
-<h4>How to search the path<a class="headerlink" href="#how-to-search-the-path" title="Permalink to this headline">¶</a></h4>
+<h4>How to search the path<a class="headerlink" href="#how-to-search-the-path" title="Link to this heading">#</a></h4>
 <p>Both depth first and bredth first algorithms are possible. In depth first search, it is easier to keep the current search path in the memory. In breadth first search, all parallel paths needs to be kept in memory at the same time, which requires more complex data structure and more memory. An example of depth first search algorithm is the following:</p>
 <p>Start from the starting node, and repeat following phases until target is found:</p>
 <ul class="simple">
@@ -491,7 +531,7 @@ The neighbors are
 </li>
 </ul>
 <p>The stack describing the current path could look as follows in an example search case</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Vaasa -&gt; Laihia</p></li>
 <li><p>Vaasa -&gt; Laihia -&gt; Ylistaro</p></li>
 <li><p>Vaasa -&gt; Laihia -&gt; Ylistaro -&gt; Lapua</p></li>
@@ -502,7 +542,7 @@ The neighbors are
 </ol>
 </section>
 <section id="this-depth-first-implemenation-is-below">
-<h4>This depth first implemenation is below<a class="headerlink" href="#this-depth-first-implemenation-is-below" title="Permalink to this headline">¶</a></h4>
+<h4>This depth first implemenation is below<a class="headerlink" href="#this-depth-first-implemenation-is-below" title="Link to this heading">#</a></h4>
 <p>For the following implementation, stack (LIFO) and FIFO data-structures are needed. They are shown in the following Figure. In python, a normal list can be used as FIFO or Stack data structure. In both cases new entries are inserted in the end of the list, using <code class="docutils literal notranslate"><span class="pre">append()</span></code> or <code class="docutils literal notranslate"><span class="pre">push()</span></code> -functions. When the list is used as a stack, the sample inserted last, is popped out, using <code class="docutils literal notranslate"><span class="pre">pop()</span></code> command, and when the list is used as LIFO, the first value in the list is popped out with <code class="docutils literal notranslate"><span class="pre">pop(0)</span></code> -function call.</p>
 <p><img alt="FIFO and LIFO" src="_images/FIFOandLIFO.svg" /></p>
 <div class="cell docutils container">
@@ -571,7 +611,7 @@ The neighbors are
 </div>
 </section>
 <section id="recursive-solution">
-<h4>Recursive solution<a class="headerlink" href="#recursive-solution" title="Permalink to this headline">¶</a></h4>
+<h4>Recursive solution<a class="headerlink" href="#recursive-solution" title="Link to this heading">#</a></h4>
 <p>Recursive functions suit naturally for graph search, because the problem is inherently recursive. They are not very often used, however, because they require more memory than loop-algorithms due to recursive function calls. Some programming languages, especially from LISP-family have special implementation for tail-recursion, and in those languages recursion is more often used.</p>
 <p>The idea of recursive solution is very simple. Since the problem for finding a route from Vaasa to Vimpeli is non-trivial, try to go to the next town closer to Vimpeli, such as Laihia, and try to find the route to Vimpeli from there. Since that is also non-trivial, go from Laihia to the next town, like Ilmajoki, and try to find route from there. Repeat until you are in Vimpeli, and then the solution is trivial. During the descend, all steps are stored in the stack and therefore the the path is now found. If the algorithm ends up into a dead end, then it backtracks one step back, and removes the latest failed step from the stack of current path.</p>
 <p>Here is a recursive solution, which finds a route from Vaasa to Vimpeli. Because it always takes the last added town from the stack, it is a depth first approach. It can be easily modified to find all possible paths.</p>
@@ -624,7 +664,7 @@ Lappajärvi :  115 km
 </div>
 </section>
 <section id="recursive-breadth-first-solution">
-<h4>Recursive breadth first solution<a class="headerlink" href="#recursive-breadth-first-solution" title="Permalink to this headline">¶</a></h4>
+<h4>Recursive breadth first solution<a class="headerlink" href="#recursive-breadth-first-solution" title="Link to this heading">#</a></h4>
 <p>The core is otherwise the same as Depth first, but now the latest solution is taken from the bottom of the queue (FIFO). Therefore it expands nodes bredth first manner.</p>
 <p>This implementation does not keep track fo the current paths stack, and it does not yet find the actual path. But this feature can be added to the implementation. The current implementation visits all towns and lists them in Breadth first search order.</p>
 <div class="cell docutils container">
@@ -686,7 +726,7 @@ Lappajärvi :  115 km
 </section>
 </section>
 <section id="solution-using-networkx-graph-library">
-<h3>Solution using Networkx graph library<a class="headerlink" href="#solution-using-networkx-graph-library" title="Permalink to this headline">¶</a></h3>
+<h3>Solution using Networkx graph library<a class="headerlink" href="#solution-using-networkx-graph-library" title="Link to this heading">#</a></h3>
 <p>The previous implementations have shown approaches for implementing graph searching. But there are also many libraries with ready made implementations of various graph search algorithms. <a class="reference external" href="https://networkx.org/">Networkx</a> is one of the most often used graph libraries in Python.</p>
 <p>I have collected some additional information about the towns between Vaasa and Vimpeli, for example the coordinates of the towns, which can be used for calculating the direct line distances between them to define a heuristic function for guiding the graph search for most promising directions.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  Name      Northing      Easting
@@ -734,14 +774,14 @@ Lappajärvi :  115 km
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1088.9504471170537, 6999.93912935637)
-(1150.7335047599795, 6965.997532375281)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(np.float64(1088.9504471170537), np.float64(6999.93912935637))
+(np.float64(1150.7335047599795), np.float64(6965.997532375281))
 </pre></div>
 </div>
 </div>
 </div>
 <section id="encoding-the-information">
-<h4>Encoding the information<a class="headerlink" href="#encoding-the-information" title="Permalink to this headline">¶</a></h4>
+<h4>Encoding the information<a class="headerlink" href="#encoding-the-information" title="Link to this heading">#</a></h4>
 <p>The biggest work when using the  Networkx all other similar libraries, is to encode the information for the library. In the code below, the libraries are first imported into the workspace, and empty graph is created.</p>
 <p>Then the nodes are added from the list of towns using for-loop. The coordinates of the towns are added in each node (the pos attribute) to be able to plot the graph in actual scale.</p>
 <p>The roads between the towns are added as edges. The lengths of the roads are added as weigths of edges.</p>
@@ -801,15 +841,22 @@ Lappajärvi :  115 km
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Graph is ready
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># This code generates the graph</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="c1"># Create an empty directed graph</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;networkx&#39;
 </pre></div>
 </div>
-<img alt="_images/aitools_13_1.png" src="_images/aitools_13_1.png" />
 </div>
 </div>
 </section>
 <section id="asking-questions-from-the-graph">
-<h4>Asking questions from the graph<a class="headerlink" href="#asking-questions-from-the-graph" title="Permalink to this headline">¶</a></h4>
+<h4>Asking questions from the graph<a class="headerlink" href="#asking-questions-from-the-graph" title="Link to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">M</span><span class="o">.</span><span class="n">neighbors</span><span class="p">(</span><span class="s1">&#39;Kauhava&#39;</span><span class="p">))</span>
@@ -851,7 +898,7 @@ Lappajärvi :  115 km
 <p>The path is unique in this ordering but not necessary optimal, since the weights are not taken into account.</p>
 </section>
 <section id="a-algorithm">
-<h4>A* algorithm<a class="headerlink" href="#a-algorithm" title="Permalink to this headline">¶</a></h4>
+<h4>A* algorithm<a class="headerlink" href="#a-algorithm" title="Link to this heading">#</a></h4>
 <p>More optimal path minimizing the weights can be found using A* algorithm. If no heuristic function is given, the algorith is using <a class="reference external" href="https://www.geeksforgeeks.org/dijkstras-shortest-path-algorithm-greedy-algo-7/">Dijkstra’s algorithm</a>. It finds an optimal path, but it may be slow for very large graphs, because Dijkstra’s algorith is uninformed search algorithm.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -863,7 +910,6 @@ Lappajärvi :  115 km
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Shortest path     : [&#39;Vaasa&#39;, &#39;Vöyri&#39;, &#39;Kauhava&#39;, &#39;Lappajärvi&#39;, &#39;Vimpeli&#39;]
-Shortest path     : [&#39;Vaasa&#39;, &#39;Vöyri&#39;, &#39;Kauhava&#39;, &#39;Lappajärvi&#39;, &#39;Vimpeli&#39;]
 Shortest distance : 138 km
 </pre></div>
 </div>
@@ -896,8 +942,8 @@ Shortest distance : 138 km
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Estimated costs through Vöyri is   111.06838998333184
-Estimated costs through Laihia is  119.41142572684615
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Estimated costs through Vöyri is   111.0683899833323
+Estimated costs through Laihia is  119.41142572684618
 </pre></div>
 </div>
 </div>
@@ -914,7 +960,7 @@ Estimated costs through Laihia is  119.41142572684615
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8.59 ms ± 243 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>19.5 ms ± 30 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
 Shortest path     : [&#39;Vaasa&#39;, &#39;Vöyri&#39;, &#39;Kauhava&#39;, &#39;Lappajärvi&#39;, &#39;Vimpeli&#39;]
 Shortest distance : 138 km
 </pre></div>
@@ -924,7 +970,7 @@ Shortest distance : 138 km
 <p>The path found is probably optimal, since the A* algorith search multiple paths from source to destination to find the true costs. The algorith uses the heuristic function to make the search faster but due to search of multiple paths, the quality of the heuristic function is not crucial. The algorithm also keeps track of the true costs already calculated, and therefore it does not need to calculate the true costs of a certain path twice.</p>
 </section>
 <section id="more-complex-example">
-<h4>More complex example<a class="headerlink" href="#more-complex-example" title="Permalink to this headline">¶</a></h4>
+<h4>More complex example<a class="headerlink" href="#more-complex-example" title="Link to this heading">#</a></h4>
 <p>See below an example of the search in one magnitude more complex graph, and the nice visualization capabilities of the networkx library.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -959,17 +1005,17 @@ Shortest distance : 138 km
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 4.06 ms, sys: 0 ns, total: 4.06 ms
-Wall time: 4.11 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 6.95 ms, sys: 15.7 ms, total: 22.7 ms
+Wall time: 7.57 ms
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-0.09958297307894066,
- 1.1035920983535217,
- -0.10150557132936275,
- 1.1032264276041368)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-0.044893197104737825,
+ 1.0489023223793188,
+ -0.04674502592329458,
+ 1.0484658821980686)
 </pre></div>
 </div>
-<img alt="_images/aitools_26_2.png" src="_images/aitools_26_2.png" />
+<img alt="_images/6013680e94eb0ee97e0de1b5917a460c9819039f92b28e85821d76ab98ba9161.png" src="_images/6013680e94eb0ee97e0de1b5917a460c9819039f92b28e85821d76ab98ba9161.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -981,8 +1027,8 @@ Wall time: 4.11 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.19 ms ± 219 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
-Shortest path     : [1, 88, 292, 38, 283, 307, 24, 363, 324, 174, 20]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7.1 ms ± 28.6 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+Shortest path     : [1, 88, 292, 38, 283, 307, 24, 363, 324, 359, 20]
 Shortest distance : 10 steps
 </pre></div>
 </div>
@@ -992,7 +1038,7 @@ Shortest distance : 10 steps
 </section>
 </section>
 <section id="intelligent-navigation-agent">
-<h2>Intelligent navigation agent<a class="headerlink" href="#intelligent-navigation-agent" title="Permalink to this headline">¶</a></h2>
+<h2>Intelligent navigation agent<a class="headerlink" href="#intelligent-navigation-agent" title="Link to this heading">#</a></h2>
 <p>The intelligent navigation agent can perceive it’s current location using GPS or other Global Navigation Satellite System (GNSS) and the target location is included in the state, set by the user. The map, in the form of a graph, shown above, is the data model and knowledge database for an agent.</p>
 <ul class="simple">
 <li><p>An agent making uninformed search and selecting the first path found is a goal based agent. It can find a route to the target, but does not optimize utility</p></li>
@@ -1002,7 +1048,7 @@ Shortest distance : 10 steps
 <p>The strategies shown above can be utilized also for many other purposes, such as solving the 8-puzzle or playing chess. All possible moves taken in each turn spans a graph, which can become very large,  in which case, the whole graph of all possible solutions cannot be pre-stored in the memory, but expanded step by step as necessary, guided by the heuristic function.</p>
 </section>
 <section id="summary">
-<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
 <p>In this module the methods for searching data and paths from graph and using graph library has been covered.
 The learning outcomes of the module:</p>
 <ul class="simple">
@@ -1028,7 +1074,7 @@ The learning outcomes of the module:</p>
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./."
         },
         predefinedOutput: true
@@ -1036,55 +1082,124 @@ The learning outcomes of the module:</p>
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-        
-            
 
-
-
-<div class='prev-next-bottom'>
-    
-    <div id="prev">
-        <a class="left-prev" href="blockdiag.html" title="previous page">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">Block diagram of AI</p>
-            </div>
-        </a>
-    </div>
-     <div id="next">
-        <a class="right-next" href="inference.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Probabilistic inference with pomegranate</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
-
-</div>
-        
-        </div>
-    </div>
-    <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Petri Välisuo<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
-    </div>
-  </footer>
-</main>
-
-
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="blockdiag.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Block diagram of AI</p>
       </div>
-    </div>
-  
-  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+    </a>
+    <a class="right-next"
+       href="inference.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Probabilistic inference with pomegranate</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-a-way-between-towns">Finding a way between towns</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#navigation-algorithm-for-a-human-being">Navigation algorithm for a human being</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#navigation-algorithm-for-a-computer">Navigation algorithm for a computer</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#representing-knowledge">Representing knowledge</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-encode-this-graph-for-a-computer">How to encode this graph for a computer?</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-search-the-path">How to search the path</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#this-depth-first-implemenation-is-below">This depth first implemenation is below</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#recursive-solution">Recursive solution</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#recursive-breadth-first-solution">Recursive breadth first solution</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-using-networkx-graph-library">Solution using Networkx graph library</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#encoding-the-information">Encoding the information</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#asking-questions-from-the-graph">Asking questions from the graph</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-algorithm">A* algorithm</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#more-complex-example">More complex example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intelligent-navigation-agent">Intelligent navigation agent</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Petri Välisuo
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

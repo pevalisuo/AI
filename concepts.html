@@ -1,342 +1,384 @@
 
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" data-content_root="./" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Concepts of AI &#8212; Artificial intelligence, Concepts, Challenges, and Opportunities</title>
-    
-  <link href="_static/css/theme.css" rel="stylesheet">
-  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    
-      
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
-
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'concepts';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Manifestation of AI" href="manifestation.html" />
     <link rel="prev" title="Contents of the course" href="content.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="index.html">
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="_static/ai.jpg" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Artificial intelligence, Concepts, Challenges, and Opportunities</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="intro.html">
-   introduction
-  </a>
- </li>
+    
+    
+    <img src="_static/ai.jpg" class="logo__image only-light" alt="Artificial intelligence, Concepts, Challenges, and Opportunities - Home"/>
+    <script>document.write(`<img src="_static/ai.jpg" class="logo__image only-dark" alt="Artificial intelligence, Concepts, Challenges, and Opportunities - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    introduction
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="content.html">Contents of the course</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Concepts of AI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manifestation.html">Manifestation of AI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blockdiag.html">Block diagram of AI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aitools.html">AI-Tools: Graph search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inference.html">Probabilistic inference with pomegranate</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="machinelearning.html">Machine Learning (ML)</a></li>
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="intelligent_agent.html">Perceptions</a></li>
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="bibliography.html">Bibliography</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exercises.html">Excercises</a></li>
 </ul>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="content.html">
-   Contents of the course
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="current">
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     Concepts of AI
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="manifestation.html">
-     Manifestation of AI
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="blockdiag.html">
-     Block diagram of AI
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="aitools.html">
-     AI-Tools: Graph search
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="inference.html">
-     Probabilistic inference with pomegranate
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="machinelearning.html">
-     Machine Learning (ML)
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="intelligent_agent.html">
-     Implementing a simple intelligent agent
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="bibliography.html">
-     Bibliography
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="exercises.html">
-     Excercises
-    </a>
-   </li>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/concepts.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
   </ul>
- </li>
-</ul>
+</div>
 
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+  
 </div>
-
 </div>
+              
+              
 
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Concepts of AI</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        <a class="dropdown-buttons"
-            href="_sources/concepts.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/concepts.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/concepts.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div>
+                <h2> Contents </h2>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
+            <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#ai-as-a-goal-for-humankind">
-   AI as a goal for humankind
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#history">
-   History
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ai-from-myths-to-robots">
-     AI from myths to robots
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#scientific-development-of-ingredients-for-ai">
-     Scientific development of ingredients for AI
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#historical-methods-for-ai">
-     Historical methods for AI
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#key-drivers-for-development-of-ai">
-   Key drivers for development of AI
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#definition-of-ai">
-   Definition of AI
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#intelligent-agents">
-   Intelligent agents
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#width-500px-align-center-name-fig-agent">
-   width: 500px
-align: center
-name: fig:agent
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#simple-reflex-agents">
-     Simple reflex agents
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#model-based-reflex-agents">
-     Model based reflex agents
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#goal-based-agents">
-     Goal based agents
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#utility-based-agents">
-     Utility based agents
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#learning-agents">
-     Learning agents
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ai-as-a-goal-for-humankind">AI as a goal for humankind</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#history">History</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ai-from-myths-to-robots">AI from myths to robots</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scientific-development-of-ingredients-for-ai">Scientific development of ingredients for AI</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#historical-methods-for-ai">Historical methods for AI</a></li>
 </ul>
-
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-drivers-for-development-of-ai">Key drivers for development of AI</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-of-ai">Definition of AI</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intelligent-agents">Intelligent agents</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-reflex-agents">Simple reflex agents</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-based-reflex-agents">Model based reflex agents</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#goal-based-agents">Goal based agents</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#utility-based-agents">Utility based agents</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-agents">Learning agents</a></li>
+</ul>
+</li>
+</ul>
             </nav>
         </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
-              <div>
+
+              
                 
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
   <style>
 table.mytable {
   //border: 1px solid black;
@@ -361,24 +403,24 @@ table.mytable th {
 }
 </style>
 <section class="tex2jax_ignore mathjax_ignore" id="concepts-of-ai">
-<h1>Concepts of AI<a class="headerlink" href="#concepts-of-ai" title="Permalink to this headline">¶</a></h1>
+<h1>Concepts of AI<a class="headerlink" href="#concepts-of-ai" title="Link to this heading">#</a></h1>
 <section id="ai-as-a-goal-for-humankind">
-<h2>AI as a goal for humankind<a class="headerlink" href="#ai-as-a-goal-for-humankind" title="Permalink to this headline">¶</a></h2>
+<h2>AI as a goal for humankind<a class="headerlink" href="#ai-as-a-goal-for-humankind" title="Link to this heading">#</a></h2>
 <p>There are over 66 thousands species of vertebrates (suomeksi: selkärankainen) in the planet Earth. What makes the Homo sapiens (man the wise) different from each other is possibly the intelligence. The intelligence makes as superior to other species allowing us to control the world and use it’s resources for our own good. Because the importance of intelligence we have always been interested in understanding how we think, and what intelligence is.</p>
 <p>Dr Yval Harari (PhD in history) discusses in his book <span id="id1">[<a class="reference internal" href="bibliography.html#id10" title="Yuval Noah Harari. Homo Deus: A Brief History of Tomorrow. Vintage, London, revised edition edition, 2017. ISBN 978-1-78470-393-6.">3</a>]</span>, what is the next goal of humankind, after the fight for climate change is won. Harari’s quite radical opinion is that being a God-like, to be able to extend the capabilities of the human being, and create life and intelligence of it’s own have always been in the dreams of a human and after recent development, they can be considered as more serious goals today. This requires, in addition to understanding what intelligence is, the capability to implement intelligent artifacts.</p>
 <p>We already extend human senses, memory and information processing capacity with technology, and a great deal of researchers continue striving for the development of artificial intelligence (AI) and artificial life (AL), like they have always did.</p>
 </section>
 <section id="history">
-<h2>History<a class="headerlink" href="#history" title="Permalink to this headline">¶</a></h2>
+<h2>History<a class="headerlink" href="#history" title="Link to this heading">#</a></h2>
 <p>Harari’s point can be at least partly proven by studying the ancient myths of AI and AL.</p>
 <section id="ai-from-myths-to-robots">
-<h3>AI from myths to robots<a class="headerlink" href="#ai-from-myths-to-robots" title="Permalink to this headline">¶</a></h3>
+<h3>AI from myths to robots<a class="headerlink" href="#ai-from-myths-to-robots" title="Link to this heading">#</a></h3>
 <p>The creation of humanoid robots and intelligent structures has been dreamed by a human kind as long as there is information available.</p>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Talos">Talos</a> was a mythical giant artifact in Greek mythology. It was a human like bronze sculpture which was forget with the help of magical powers and animated by ethereal fluid called Ichor. When the <a class="reference external" href="https://en.wikipedia.org/wiki/Ichor">Ichor</a> was let out, the sculpture stop functioning and “died”. The mythical Talos-sculpture had super human like abilities and intelligence. The copying and improving a human being is still one of the goals of AI research. The Frankestein’s monster is the similar fictional story of the modern times, and humanoid robots are becoming reality today.</p>
 <p>While Talos was animated by magical powers, the Frankenstein’s monster was a dead person, in which the life was brought using then recent scientific methods: alchemy, chemistry and electricity, and the humanoid robots are powered by neural networs and deep learning, which is our current technology for creating intelligence.</p>
 </section>
 <section id="scientific-development-of-ingredients-for-ai">
-<h3>Scientific development of ingredients for AI<a class="headerlink" href="#scientific-development-of-ingredients-for-ai" title="Permalink to this headline">¶</a></h3>
+<h3>Scientific development of ingredients for AI<a class="headerlink" href="#scientific-development-of-ingredients-for-ai" title="Link to this heading">#</a></h3>
 <p>More recent development of artificial intelligence is often based on formal reasoning, a mechanization of human inference. Formal reasoning was first developed by philosophers, like deductive reasoning through syllogisms by Aristotle (384-322 BCE), geometry by Euclid (300 BCE), algebra by <a class="reference external" href="https://en.wikipedia.org/wiki/Muhammad_ibn_Musa_al-Khwarizmi">al-Khwārizmī (813-833 CE) </a>, and  parsimonious reasoning by <a class="reference external" href="https://en.wikipedia.org/wiki/William_of_Ockham">William of Ockham (1285-1347 CE) </a> , for example.</p>
 <p>Charles Babbage (1791-1871) created a theoretical concept of a digital programmable computer (Analytical engine) and Ada Lovelace (1815-1852) speculated that it could be used for composing music of any complexity. The ideas of hardware and algorithm (software) were created.</p>
 <p>Computer science started in the beginning of 20th century still without computers by logician Kurt Gödel (1906-1978) who studie the limits of provability of logical theorems. His second incompleteness theorem for example states that a consistent system of axioms, whose theorems can be listed, cannot prove its own consistency. At the same time, Alan Turing (1912-1954) used formalized the concepts of algorithm and computation using an artificial logical machine, called as Turing Machine. Turing used his machine to break crypographically secured messages during World War II.</p>
@@ -396,7 +438,7 @@ How is that related to self consciousness of AI?</p>
 </div>
 </section>
 <section id="historical-methods-for-ai">
-<h3>Historical methods for AI<a class="headerlink" href="#historical-methods-for-ai" title="Permalink to this headline">¶</a></h3>
+<h3>Historical methods for AI<a class="headerlink" href="#historical-methods-for-ai" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p><em>Axiom based AI</em> was dveloped before 1960s, but then it was noticed that a small number of axioms are weak in solving complex problems. It was insted acknowledged that it is important to include a rich base of knowledge in the the system. This development lead to so called <em>Knowledge-Based Systems</em>. <span id="id2">[<a class="reference internal" href="bibliography.html#id16" title="Dan W. Patterson. Introduction to Artificial Intelligence and Expert Systems. Prentice Hall, Englewood Cliffs, N.J, 1990. ISBN 978-0-13-477100-7.">6</a>]</span></p></li>
 <li><p>Reasoning as search: Some problems can be solved by searching the space of potential actions step by step, until the solution is found.</p></li>
@@ -415,7 +457,7 @@ How is that related to self consciousness of AI?</p>
 </section>
 </section>
 <section id="key-drivers-for-development-of-ai">
-<h2>Key drivers for development of AI<a class="headerlink" href="#key-drivers-for-development-of-ai" title="Permalink to this headline">¶</a></h2>
+<h2>Key drivers for development of AI<a class="headerlink" href="#key-drivers-for-development-of-ai" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><em>Computing power:</em> AI needs powerful processing of information which can be achieved by using fast computers. The fast development of computers has enabled the fast development of AI.</p></li>
 <li><p><em>Availability of data:</em> The AI is based on data. The digitalisation of the society has created plenty of embedded sensors and social media which produce a vast amount of data, which can be used for training AI to solve problems. It has been claimed that 90% of the data ever created was created during last two years.</p></li>
@@ -423,7 +465,7 @@ How is that related to self consciousness of AI?</p>
 </ul>
 </section>
 <section id="definition-of-ai">
-<h2>Definition of AI<a class="headerlink" href="#definition-of-ai" title="Permalink to this headline">¶</a></h2>
+<h2>Definition of AI<a class="headerlink" href="#definition-of-ai" title="Link to this heading">#</a></h2>
 <p>Artificial Intelligence (AI) term has been taken in to use already in 1956 connected to the research on artitificial neural networks, but it is still somewhat hard to define. Here are some common definitions of it.</p>
 <p>According to the wordbook definition, AI is present, when a computer or a computer controlled robot behaves like intelligent being.</p>
 <blockquote>
@@ -453,7 +495,7 @@ How is that related to self consciousness of AI?</p>
 <p>What is the measure of intelligence? What if we meet with an extraterrestial being or an AI which is more intelligent than us. How can we know that it is more intelligent than us?</p>
 </div>
 <p>Definitions of different forms of AI according to <span id="id5">[<a class="reference internal" href="bibliography.html#id25" title="Stuart J. Russell and Peter Norvig. Artificial Intelligence: A Modern Approach. Always Learnin. Pearson, Harlow, 3. ed., pearson new internat. ed edition, 2014. ISBN 978-1-292-02420-2.">8</a>]</span></p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p><strong>Human like thinking:</strong> Studying how humans think and using the same methods in AI. This approach was used in early AI development but many contemporary methods differ from human thinking.</p></li>
 <li><p><strong>Acting humanly:</strong> Computer systems trying to carry out human like conversations so that they are indistinguishable from a real person. Target ḿay be to complete Turing’s test. Humanoid robots try to mimic human behavior. Acting like human does not necessarily require machien to think like human.</p></li>
 <li><p><strong>Rational thinking:</strong> Making correct decisions based on formal rules.</p></li>
@@ -465,7 +507,7 @@ How is that related to self consciousness of AI?</p>
 </div>
 </section>
 <section id="intelligent-agents">
-<h2>Intelligent agents<a class="headerlink" href="#intelligent-agents" title="Permalink to this headline">¶</a></h2>
+<h2>Intelligent agents<a class="headerlink" href="#intelligent-agents" title="Link to this heading">#</a></h2>
 <p>An intelligent agent is something which acts and tries to pursue goals. An artificial intelligent agent is a machine or software. It has often sensors, to perceive the world and it may make actions to interact with the world, see <code class="xref std std-numref docutils literal notranslate"><span class="pre">fig:agent</span></code></p>
 <figure class="align-default">
 <img alt="_images/intelligent_agents.png" src="_images/intelligent_agents.png" />
@@ -483,23 +525,17 @@ How is that related to self consciousness of AI?</p>
 <p>If two rational agents both maximize their performance measure based on their perceptions and build in information, can one be better than another?</p>
 </div>
 <p>Intelligent agents can be divided in four classes based on their cognitive abilities and level of sophistication:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Simple reflex agents</p></li>
 <li><p>Model based agents</p></li>
 <li><p>Goal based agents</p></li>
 <li><p>Utility based agents</p></li>
 </ol>
-</section>
-<section id="width-500px-align-center-name-fig-agent">
-<h2>width: 500px
-align: center
-name: fig:agent<a class="headerlink" href="#width-500px-align-center-name-fig-agent" title="Permalink to this headline">¶</a></h2>
-<p>The basic concept of an intelligent agent. It has sensors to measure information about the world (perception), it uses the information and it’s internal state to make intelligent decisions and performs actions using its actuators to affect to the world.</p>
 <section id="simple-reflex-agents">
-<h3>Simple reflex agents<a class="headerlink" href="#simple-reflex-agents" title="Permalink to this headline">¶</a></h3>
+<h3>Simple reflex agents<a class="headerlink" href="#simple-reflex-agents" title="Link to this heading">#</a></h3>
 <p>These agents are reactive systems, which perform simple actions based on their perception and/or internal state. One example of really simple agent of this kind is a motion sensor based outdoor light controller. It’s operation can be described for example using the following simple rules:</p>
 <div class="math notranslate nohighlight" id="equation-eq-reflexagent">
-<span class="eqno">(1)<a class="headerlink" href="#equation-eq-reflexagent" title="Permalink to this equation">¶</a></span>\[\begin{split}
+<span class="eqno">(1)<a class="headerlink" href="#equation-eq-reflexagent" title="Link to this equation">#</a></span>\[\begin{split}
   \mbox{Light} = \begin{cases}
     1, &amp; \mbox{if (dark AND movement_observed)} \\
     0, &amp; \mbox{otherwise }
@@ -509,18 +545,18 @@ name: fig:agent<a class="headerlink" href="#width-500px-align-center-name-fig-ag
 <figure class="align-center" id="fig-reflexagent">
 <a class="reference internal image-reference" href="_images/reflex_agents.png"><img alt="_images/reflex_agents.png" src="_images/reflex_agents.png" style="width: 500px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 1 </span><span class="caption-text">The simple reflex agent makes its decisions based only on the perceptions and decision rules.</span><a class="headerlink" href="#fig-reflexagent" title="Permalink to this image">¶</a></p>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">The simple reflex agent makes its decisions based only on the perceptions and decision rules.</span><a class="headerlink" href="#fig-reflexagent" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Because the agent acts based on its perceptions it will face into troubles if the world is only partially observable.</p>
 <p>For example, an automated vehicle controlled by simple reflex agent could drive in the road and stay in the lane between white lines. It could perceive the world by a camera and decide if it is too close to the left side and decide to turn a steering wheel one step to the right, for example.</p>
 </section>
 <section id="model-based-reflex-agents">
-<h3>Model based reflex agents<a class="headerlink" href="#model-based-reflex-agents" title="Permalink to this headline">¶</a></h3>
+<h3>Model based reflex agents<a class="headerlink" href="#model-based-reflex-agents" title="Link to this heading">#</a></h3>
 <p>In addition to perception and actuators, the model based agent uses a model which describes some necessary behavior of the world. By using the model the agent “understands” something about how the world behaves, and can make predictions on how the actions changes the world. If the world is only partially observable, the agent can build a model which covers also the concealed information.</p>
 <p>For example the collision avoidance system of an autonomous car can predict that even though the cars are still far away from each other, a collision is happening after a certain time, because the velocity of the car in front drives slower. The time to the collision can be estimated using physics:</p>
 <div class="math notranslate nohighlight" id="equation-eq-modelagent">
-<span class="eqno">(2)<a class="headerlink" href="#equation-eq-modelagent" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(2)<a class="headerlink" href="#equation-eq-modelagent" title="Link to this equation">#</a></span>\[
    t = \frac{\Delta s}{v_s - v_o}
 \]</div>
 <p>In this case, the agent needs to perceive the distance between cars using a radar, for example and its own speed by GPS. It uses it’s own physical model to estimate the time for collision, and may decide to apply necessary breaking force by activating breaks. The agent would probably need some model of Newton mechanics to estimate the effect of the breaking force to the car speed.</p>
@@ -528,37 +564,37 @@ name: fig:agent<a class="headerlink" href="#width-500px-align-center-name-fig-ag
 <figure class="align-center" id="fig-modelagent">
 <a class="reference internal image-reference" href="_images/modelbased_agents.png"><img alt="_images/modelbased_agents.png" src="_images/modelbased_agents.png" style="width: 500px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 2 </span><span class="caption-text">In addition to peceptions and decision rules, the model based agent has also a model and state of the world to allow it to make more complex decisions than the simple reflex agent.</span><a class="headerlink" href="#fig-modelagent" title="Permalink to this image">¶</a></p>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">In addition to peceptions and decision rules, the model based agent has also a model and state of the world to allow it to make more complex decisions than the simple reflex agent.</span><a class="headerlink" href="#fig-modelagent" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="goal-based-agents">
-<h3>Goal based agents<a class="headerlink" href="#goal-based-agents" title="Permalink to this headline">¶</a></h3>
+<h3>Goal based agents<a class="headerlink" href="#goal-based-agents" title="Link to this heading">#</a></h3>
 <p>The goal based agents are not only reacting to the current situation but instead they plan to reach their goals. The planning usually demands a model which they can use for searching action sequences for reaching the goal. For example autonomous taxi can find a way to the target by searching it’s model (the map) and can carry out actions (steering) to reach the goal.</p>
 <figure class="align-center" id="fig-goalagent">
 <a class="reference internal image-reference" href="_images/goal_agents.png"><img alt="_images/goal_agents.png" src="_images/goal_agents.png" style="width: 500px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 3 </span><span class="caption-text">The goal based agents can also assess the probable consequences of their actions and they are therefore capable of planning.</span><a class="headerlink" href="#fig-goalagent" title="Permalink to this image">¶</a></p>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">The goal based agents can also assess the probable consequences of their actions and they are therefore capable of planning.</span><a class="headerlink" href="#fig-goalagent" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="utility-based-agents">
-<h3>Utility based agents<a class="headerlink" href="#utility-based-agents" title="Permalink to this headline">¶</a></h3>
+<h3>Utility based agents<a class="headerlink" href="#utility-based-agents" title="Link to this heading">#</a></h3>
 <p>Utility, the fitness or worth for some purposes. An action has higher utility if it is more usefull or leads to smaller losses in the given situation. The goal of the optimization is to maximize the utility. Exactly symmetrical optimization goal is to minimize losses, since losses are negative utility and utility is negative loss. Utility based agents try to behave so that the utility gained by their actions is maximized. In other words, they try to reach their goal in an optimal way.</p>
 <figure class="align-center" id="fig-utilityagent">
 <a class="reference internal image-reference" href="_images/utility_agents.png"><img alt="_images/utility_agents.png" src="_images/utility_agents.png" style="width: 500px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 4 </span><span class="caption-text">The utility agents extend the goal and model based agents by also considering the utility what is gained by reaching the goal through different action sequences.</span><a class="headerlink" href="#fig-utilityagent" title="Permalink to this image">¶</a></p>
+<p><span class="caption-number">Fig. 4 </span><span class="caption-text">The utility agents extend the goal and model based agents by also considering the utility what is gained by reaching the goal through different action sequences.</span><a class="headerlink" href="#fig-utilityagent" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>For example, an automated vehicle controlled by a utility based agent would try to find an optimal path from the current location to the destination. The utility could be for example the negative of time spend or fuel consumed, or a combination of both. The agent may have many optional actions to take, and the utility agent selects the one which according to it’s knowledge or beliefs leads to higher utility.</p>
 </section>
 <section id="learning-agents">
-<h3>Learning agents<a class="headerlink" href="#learning-agents" title="Permalink to this headline">¶</a></h3>
+<h3>Learning agents<a class="headerlink" href="#learning-agents" title="Link to this heading">#</a></h3>
 <p>Alan Turing estimated in 1950 the amount of programming needed to gain AI. According to methods of 50’s, he estimated that programming of AI which had similar capabilities than a person would take 50 years. He concludes that <em>Some more expeditious method seems desirable</em>, and proposes a learning machine <span id="id6">[<a class="reference internal" href="bibliography.html#id30" title="INTELLIGENCE BY AM TURING. Computing machinery and intelligence-AM Turing. Mind, 59(236):433, 1950.">9</a>]</span>.</p>
 <p>In contrast to programmed AI, the learning AI learns the rules behind the actions without explicit programming. The benefits are that the agent can operate in an environment, which is initially unknown. In a long run it can also learn rules which would be very complex to program.</p>
 <p>The structure of the learning agent is consisted of the following four components, see <a class="reference internal" href="#fig-learningagent"><span class="std std-numref">Fig. 5</span></a>.</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p><em>Performance element</em> receives perceptions from the sensors and carries out actions by using actuators. This element includes the operations of the previously described agents, but here it also exhanges information with the learning element and receives suggestions from the problem generator.</p></li>
 <li><p><em>Critic element</em> observes the perceptions and uses the performance standard to assess how well the agent is performing and provides that information to the learning element.</p></li>
 <li><p><em>Learning element</em> is responsible on making improvements on the performance element according to the feedback received from the citic element.</p></li>
@@ -567,7 +603,7 @@ name: fig:agent<a class="headerlink" href="#width-500px-align-center-name-fig-ag
 <figure class="align-center" id="fig-learningagent">
 <a class="reference internal image-reference" href="_images/learning_agents.png"><img alt="_images/learning_agents.png" src="_images/learning_agents.png" style="width: 500px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 5 </span><span class="caption-text">The learning agents extend the previous agents by adding a critic, learning and problem generator elements. The critic element provides feedback to the learning element, which updates the performance element. The learning element sets new learning goals to the problem generator, which suggest new exploratory actions to the performance element to explore unknown ares of the world.</span><a class="headerlink" href="#fig-learningagent" title="Permalink to this image">¶</a></p>
+<p><span class="caption-number">Fig. 5 </span><span class="caption-text">The learning agents extend the previous agents by adding a critic, learning and problem generator elements. The critic element provides feedback to the learning element, which updates the performance element. The learning element sets new learning goals to the problem generator, which suggest new exploratory actions to the performance element to explore unknown ares of the world.</span><a class="headerlink" href="#fig-learningagent" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <div class="admonition-discussion-point admonition">
@@ -594,7 +630,7 @@ name: fig:agent<a class="headerlink" href="#width-500px-align-center-name-fig-ag
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./."
         },
         predefinedOutput: true
@@ -602,55 +638,119 @@ name: fig:agent<a class="headerlink" href="#width-500px-align-center-name-fig-ag
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-        
-            
 
-
-
-<div class='prev-next-bottom'>
-    
-    <div id="prev">
-        <a class="left-prev" href="content.html" title="previous page">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">Contents of the course</p>
-            </div>
-        </a>
-    </div>
-     <div id="next">
-        <a class="right-next" href="manifestation.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Manifestation of AI</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
-
-</div>
-        
-        </div>
-    </div>
-    <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Petri Välisuo<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
-    </div>
-  </footer>
-</main>
-
-
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="content.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Contents of the course</p>
       </div>
-    </div>
-  
-  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+    </a>
+    <a class="right-next"
+       href="manifestation.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Manifestation of AI</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ai-as-a-goal-for-humankind">AI as a goal for humankind</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#history">History</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ai-from-myths-to-robots">AI from myths to robots</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scientific-development-of-ingredients-for-ai">Scientific development of ingredients for AI</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#historical-methods-for-ai">Historical methods for AI</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-drivers-for-development-of-ai">Key drivers for development of AI</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-of-ai">Definition of AI</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intelligent-agents">Intelligent agents</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-reflex-agents">Simple reflex agents</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-based-reflex-agents">Model based reflex agents</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#goal-based-agents">Goal based agents</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#utility-based-agents">Utility based agents</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-agents">Learning agents</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Petri Välisuo
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>
