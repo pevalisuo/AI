@@ -249,7 +249,7 @@ An example of a directed a-cyclic graph (DAG), a directed tree.
 :caption: A random graph
 :tags: [hide-input]
 
-rg=nx.random_tree(15)
+rg=nx.generators.trees.random_labeled_tree(15)
 nx.draw(rg, with_labels=True, font_weight='normal', node_color='orange', node_size=500)
 ```
 
@@ -321,6 +321,18 @@ Thus the strength of belief in hypothesis H, based on the previous knoledge and 
 By using this formula, it is possible to chain the calculation of hypotheses to make the final conclusion. The solution for the Bayesian network as a whole is still rather comples, but there are algorithms which can solve it in polynomial time. 
 
 
+#### Factor Graph
+
+Factor Graph (FG) is a method to describe probabilistic calculations in a graphical form.  It intuitively desribes the quantitative information as probabilistic constrains (factors), $\psi_i^j$ for dependent variables, $x_i$. The FGs are coming popular in state estimation, particularly in positioning. The variables, $x_i$, are solved by optimization so that the expectation of the nework is maximized 
+
+```{figure} figures/fg.svg
+---
+width: 700px
+align: center
+name: fig:Factor Graph
+---
+An example of Factor graph. $\psi_i^\rho$ are factors from range measurements, $\psi^p$ is a-priori probability, $\psi^\mathrm{IMU}$ are intertial measurements and $x_i$ are the variables describing the positions at different times, which are solved with FG.
+```
 
 #### Graph Search methods
 
