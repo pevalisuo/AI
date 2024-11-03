@@ -18,65 +18,23 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-# This code generates the graph
+# Find the shortest route
+%timeit route = ox.shortest_path(G, orig, dest, weight="length")
 
-import networkx as nx
-import matplotlib.pyplot as plt
-
-# Create an empty directed graph
-M=nx.DiGraph()
-
-# List of towns added as nodes
-Towns=['Vaasa', 'Laihia', 'Vöyri', 'Ilmajoki', 'Ylistaro', 'Seinäjoki',
-    'Vöyri', 'Lapua', 'Jepua', 'Alajärvi', 'Kyyjärvi', 'Kuortane',
-    'Kauhava', 'Lappajärvi', 'Evijärvi', 'Vimpeli']
-
-# Add the nodes and store the coordinates of the towns as well, for nice plotting
-for town in Towns:
-    M.add_node(town, pos=getCoordinates(town))
-
-# Add the edges, and their weights = distances 
-M.add_edge('Vaasa', 'Laihia', weight=26)
-M.add_edge('Vaasa', 'Vöyri', weight=32)
-M.add_edge('Laihia', 'Ilmajoki', weight=45)
-M.add_edge('Laihia', 'Ylistaro', weight=29)
-M.add_edge('Vöyri', 'Jepua', weight=42)
-M.add_edge('Vöyri', 'Kauhava', weight=56)
-M.add_edge('Ilmajoki', 'Seinäjoki', weight=18)
-M.add_edge('Ylistaro', 'Seinäjoki', weight=27)
-M.add_edge('Ylistaro', 'Lapua', weight=28)
-M.add_edge('Seinäjoki', 'Lapua', weight=26)
-M.add_edge('Vöyri', 'Kauhava', weight=45)
-M.add_edge('Vöyri', 'Jepua', weight=42)
-M.add_edge('Lapua', 'Kauhava', weight=18)
-M.add_edge('Lapua', 'Alajärvi', weight=46)
-M.add_edge('Jepua', 'Kauhava', weight=56)
-M.add_edge('Alajärvi', 'Kyyjärvi', weight=36)
-M.add_edge('Alajärvi', 'Vimpeli', weight=22)
-M.add_edge('Alajärvi', 'Kuortane', weight=40)
-M.add_edge('Kauhava', 'Lappajärvi', weight=38)
-M.add_edge('Kauhava', 'Evijärvi', weight=44)
-M.add_edge('Lappajärvi', 'Vimpeli', weight=23)
-M.add_edge('Evijärvi', 'Vimpeli', weight=32)
-
-# Plot the graph nicely in scale
-fig=plt.figure(figsize=(8,8))
-pos=nx.get_node_attributes(M,'pos') 
-nx.draw_networkx(M, pos=pos, node_color='orange')
-labels = nx.get_edge_attributes(M,'weight')
-nx.draw_networkx_edge_labels(M,pos,edge_labels=labels)
-
-print("Graph is ready")
+# Convert to Geopandas Data Frame
+gdf=ox.routing.route_to_gdf(G, route)
 ------------------
 
+----- stdout -----
+106 ms ± 3.05 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
+------------------
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
-Cell [0;32mIn[6], line 3[0m
-[1;32m      1[0m [38;5;66;03m# This code generates the graph[39;00m
-[0;32m----> 3[0m [38;5;28;01mimport[39;00m [38;5;21;01mnetworkx[39;00m [38;5;28;01mas[39;00m [38;5;21;01mnx[39;00m
-[1;32m      4[0m [38;5;28;01mimport[39;00m [38;5;21;01mmatplotlib[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpyplot[39;00m [38;5;28;01mas[39;00m [38;5;21;01mplt[39;00m
-[1;32m      6[0m [38;5;66;03m# Create an empty directed graph[39;00m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+Cell [0;32mIn[26], line 5[0m
+[1;32m      2[0m get_ipython()[38;5;241m.[39mrun_line_magic([38;5;124m'[39m[38;5;124mtimeit[39m[38;5;124m'[39m, [38;5;124m'[39m[38;5;124mroute = ox.shortest_path(G, orig, dest, weight=[39m[38;5;124m"[39m[38;5;124mlength[39m[38;5;124m"[39m[38;5;124m)[39m[38;5;124m'[39m)
+[1;32m      4[0m [38;5;66;03m# Convert to Geopandas Data Frame[39;00m
+[0;32m----> 5[0m gdf[38;5;241m=[39mox[38;5;241m.[39mrouting[38;5;241m.[39mroute_to_gdf(G, [43mroute[49m)
 
-[0;31mModuleNotFoundError[0m: No module named 'networkx'
+[0;31mNameError[0m: name 'route' is not defined
 
